@@ -17,7 +17,7 @@
 :root {--custom-background-color: DodgerBlue;}
 </style>
 <meta property="og:title" content="PushToGit" />
-<meta property="og:description" content="佈署到 Github 官網教學文件 佈署方式 佈署到github可以分為2種 個人的首頁 https://&lt;USERNAME|ORGANIZATION&gt;.github.io/ 一個帳號只能有一個首頁 (這裡介紹的方式) 專案網頁 https://&lt;USERNAME|ORGANIZATION&gt;.github.io/&lt;PROJECT&gt;/ 一個帳號可以有多個專" />
+<meta property="og:description" content="佈署到 Github Hugo 官網教學文件 Github - Working with GitHub Pages 佈署方式 佈署到github可以分為2種 個人的首頁 https://&lt;USERNAME|ORGANIZATION&gt;.github.io/ 一個帳號只能有一個首頁 (這裡介紹的方式) 專案網頁 https://&lt;USERNAME|ORGANIZATION&gt;.github.io/&lt;PROJECT&gt;/ 一個帳" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="yehyoung.github.io.git/hugo/06_pushtogit/" />
 <meta property="og:image" content="yehyoung.github.io.git/images/Test.jpg"/>
@@ -27,12 +27,12 @@
 <meta name="twitter:image" content="yehyoung.github.io.git/images/Test.jpg"/>
 
 <meta name="twitter:title" content="PushToGit"/>
-<meta name="twitter:description" content="佈署到 Github 官網教學文件 佈署方式 佈署到github可以分為2種 個人的首頁 https://&lt;USERNAME|ORGANIZATION&gt;.github.io/ 一個帳號只能有一個首頁 (這裡介紹的方式) 專案網頁 https://&lt;USERNAME|ORGANIZATION&gt;.github.io/&lt;PROJECT&gt;/ 一個帳號可以有多個專"/>
+<meta name="twitter:description" content="佈署到 Github Hugo 官網教學文件 Github - Working with GitHub Pages 佈署方式 佈署到github可以分為2種 個人的首頁 https://&lt;USERNAME|ORGANIZATION&gt;.github.io/ 一個帳號只能有一個首頁 (這裡介紹的方式) 專案網頁 https://&lt;USERNAME|ORGANIZATION&gt;.github.io/&lt;PROJECT&gt;/ 一個帳"/>
 <meta itemprop="name" content="PushToGit">
-<meta itemprop="description" content="佈署到 Github 官網教學文件 佈署方式 佈署到github可以分為2種 個人的首頁 https://&lt;USERNAME|ORGANIZATION&gt;.github.io/ 一個帳號只能有一個首頁 (這裡介紹的方式) 專案網頁 https://&lt;USERNAME|ORGANIZATION&gt;.github.io/&lt;PROJECT&gt;/ 一個帳號可以有多個專">
+<meta itemprop="description" content="佈署到 Github Hugo 官網教學文件 Github - Working with GitHub Pages 佈署方式 佈署到github可以分為2種 個人的首頁 https://&lt;USERNAME|ORGANIZATION&gt;.github.io/ 一個帳號只能有一個首頁 (這裡介紹的方式) 專案網頁 https://&lt;USERNAME|ORGANIZATION&gt;.github.io/&lt;PROJECT&gt;/ 一個帳">
 <meta itemprop="datePublished" content="2020-03-22T17:56:11&#43;08:00" />
 <meta itemprop="dateModified" content="2020-03-22T17:56:11&#43;08:00" />
-<meta itemprop="wordCount" content="325">
+<meta itemprop="wordCount" content="356">
 <meta itemprop="image" content="yehyoung.github.io.git/images/Test.jpg"/>
 
 
@@ -58,7 +58,8 @@
 <main><h1>PushToGit</h1>
 <h1 id="佈署到-github">佈署到 Github</h1>
 <ul>
-<li><a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/">官網教學文件</a></li>
+<li><a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/">Hugo 官網教學文件</a></li>
+<li><a href="https://help.github.com/en/github/working-with-github-pages">Github - Working with GitHub Pages</a></li>
 </ul>
 <h2 id="佈署方式">佈署方式</h2>
 <p>佈署到github可以分為2種</p>
@@ -79,7 +80,11 @@
 <h2 id="github建立-repository">Github建立 Repository</h2>
 <p>在Github建立2個Repository</p>
 <ol>
-<li>和自己Github帳號同名的Repository</li>
+<li>和自己Github帳號同名 + <code>github.io</code>的Repository
+<ul>
+<li><code>yehyoung.github.io</code></li>
+</ul>
+</li>
 <li>用來放整個網站源始碼的的Repository
 <ul>
 <li>如果網站不想做版本控制，可以省略</li>
@@ -93,16 +98,28 @@
 </ul>
 </li>
 </ul>
-<p>修改config.toml</p>
+<p><img src="https://i.imgur.com/uQEYtHq.png" alt="Image">
+修改config.toml</p>
 <pre><code>baseURL = Github帳號.github.io.git
+baseURL = https://github.com/yehyoung/yehyoung.github.io.git
 </code></pre><h2 id="產生要上傳的網頁">產生要上傳的網頁</h2>
-<p>在網站的根目錄執行 <code>hugo</code> 或 <code>hugo -t 佈景名稱</code> 會產生`public資料夾</p>
-<ol>
-<li>在 GitHub 建立兩個 repo
-在 GitHub 建立 website-hugo 和 chswei.github.io (粗斜體處改成自己的帳號名稱)兩個repo。</li>
-<li>建立 /public 資料夾</li>
-</ol>
-<div class="edit-meta">
+<ul>
+<li>在網站的根目錄執行 <code>hugo</code> 或 <code>hugo -t 佈景名稱</code></li>
+<li>執行後會產生 <code>public</code> 資料夾
+<ul>
+<li>裡面存放 hugo 編譯完的檔案</li>
+<li>只需要上傳這個資料夾的內容到 Github 的檔案</li>
+</ul>
+</li>
+</ul>
+<h2 id="上傳到-github">上傳到 Github</h2>
+<pre><code>cd public
+git init
+git remote add origin https://github.com/yehyoung/yehyoung.git
+git add .
+git commit -m &quot;Initial commit&quot;
+git push -u origin master
+</code></pre><div class="edit-meta">
 Last updated on 2020-03-22
 
 
