@@ -2,84 +2,84 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hugo on YehYeh 記事本2.0</title>
-    <link>./hugo/</link>
+    <link>https://yehyoung.github.io/hugo/</link>
     <description>Recent content in Hugo on YehYeh 記事本2.0</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-tw</language>
     <lastBuildDate>Tue, 17 Oct 2017 15:26:15 +0000</lastBuildDate>
     
-	<atom:link href="./hugo/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://yehyoung.github.io/hugo/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Hugo 安裝</title>
-      <link>./hugo/01_hugoinstall/</link>
+      <link>https://yehyoung.github.io/hugo/01_hugoinstall/</link>
       <pubDate>Sat, 21 Mar 2020 23:24:38 +0800</pubDate>
       
-      <guid>./hugo/01_hugoinstall/</guid>
+      <guid>https://yehyoung.github.io/hugo/01_hugoinstall/</guid>
       <description>Hugo 安裝及基本設定 1. Windows 安裝Hugo 下載Hugo，並解壓縮 安裝檔下載: https://github.com/gohugoio/hugo/releases 將Hugo.exe的路徑設定到環境變數 2. 建立新網站 1. 執行 hugo new site 站名</description>
     </item>
     
     <item>
       <title>佈景安裝及設定</title>
-      <link>./hugo/02_themesetup/</link>
+      <link>https://yehyoung.github.io/hugo/02_themesetup/</link>
       <pubDate>Sun, 22 Mar 2020 17:55:53 +0800</pubDate>
       
-      <guid>./hugo/02_themesetup/</guid>
+      <guid>https://yehyoung.github.io/hugo/02_themesetup/</guid>
       <description>2. 到Hugo網站選擇要使用的佈景 https://themes.gohugo.io/ 3. 下載佈景 https://themes.gohugo.io/hugo-theme-techdoc/ 切換到themes資料夾再執行git clone指令 cd themes git clone https://github.com/thingsym/hugo-theme-techdoc.git 3. 網站設定 1. 複製佈景的設定 將佈景的</description>
     </item>
     
     <item>
       <title>新文章</title>
-      <link>./hugo/04_newpost/</link>
+      <link>https://yehyoung.github.io/hugo/04_newpost/</link>
       <pubDate>Sun, 22 Mar 2020 11:13:57 +0800</pubDate>
       
-      <guid>./hugo/04_newpost/</guid>
+      <guid>https://yehyoung.github.io/hugo/04_newpost/</guid>
       <description>front matter 用hugo new建立新post時，hugo會自動在新檔案中的最上面加入front matter EX: hugo new post/my-first-post.md 以下即為 my-first-post.md 的 front matter --- title: &amp;quot;新增一篇文章&amp;</description>
     </item>
     
     <item>
       <title>Hugo 資料夾與檔案結構</title>
-      <link>./hugo/03_structure/</link>
+      <link>https://yehyoung.github.io/hugo/03_structure/</link>
       <pubDate>Sun, 22 Mar 2020 11:13:49 +0800</pubDate>
       
-      <guid>./hugo/03_structure/</guid>
+      <guid>https://yehyoung.github.io/hugo/03_structure/</guid>
       <description>tree /f 目錄名稱 &amp;gt; dirs.txt ├─archetypes # 新文章的預設內文 ├─content # 放文章的資料夾 │ └─Hugo # 放文章的子資料夾，不同佈景，子資</description>
     </item>
     
     <item>
       <title>RunServer</title>
-      <link>./hugo/05_runserver/</link>
+      <link>https://yehyoung.github.io/hugo/05_runserver/</link>
       <pubDate>Sun, 22 Mar 2020 11:21:12 +0800</pubDate>
       
-      <guid>./hugo/05_runserver/</guid>
+      <guid>https://yehyoung.github.io/hugo/05_runserver/</guid>
       <description>官方文件: https://gohugo.io/commands/hugo_server/ 執行伺服器 執行本機hugo網頁伺服器 hugo server 執行本機hugo網頁伺服器(連草稿也編譯) hugo server -D 不使用快速渲染 有時修改後瀏覽器沒更新，可</description>
     </item>
     
     <item>
       <title>PushToGit</title>
-      <link>./hugo/06_pushtogit/</link>
+      <link>https://yehyoung.github.io/hugo/06_pushtogit/</link>
       <pubDate>Sun, 22 Mar 2020 17:56:11 +0800</pubDate>
       
-      <guid>./hugo/06_pushtogit/</guid>
+      <guid>https://yehyoung.github.io/hugo/06_pushtogit/</guid>
       <description>佈署到 Github Hugo 官網教學文件 Github - Working with GitHub Pages 佈署方式 佈署到github可以分為2種 個人的首頁 https://&amp;lt;USERNAME|ORGANIZATION&amp;gt;.github.io/ 一個帳號只能有一個首頁 (這裡介紹的方式) 專案網頁 https://&amp;lt;USERNAME|ORGANIZATION&amp;gt;.github.io/&amp;lt;PROJECT&amp;gt;/ 一個帳</description>
     </item>
     
     <item>
       <title>HugoReference</title>
-      <link>./hugo/hugoreference/</link>
+      <link>https://yehyoung.github.io/hugo/hugoreference/</link>
       <pubDate>Sun, 22 Mar 2020 22:30:22 +0800</pubDate>
       
-      <guid>./hugo/hugoreference/</guid>
+      <guid>https://yehyoung.github.io/hugo/hugoreference/</guid>
       <description>Hugo 官網 佈景 techdoc 打造個人化網站 - Build Personal Website via Hugo Hugo的專案結構 Hugo中的Front Matter与Archetypes 在 Github Pages 建立 Hugo 靜態網站</description>
     </item>
     
     <item>
       <title>HugoCommand</title>
-      <link>./hugo/07_hugocommand/</link>
+      <link>https://yehyoung.github.io/hugo/07_hugocommand/</link>
       <pubDate>Sun, 22 Mar 2020 11:14:08 +0800</pubDate>
       
-      <guid>./hugo/07_hugocommand/</guid>
+      <guid>https://yehyoung.github.io/hugo/07_hugocommand/</guid>
       <description>H山 佈景</description>
     </item>
     
