@@ -3,66 +3,66 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>yehyoung.github.io/hugo/01_hugoinstall/</loc>
+    <loc>./hugo/01_hugoinstall/</loc>
     <lastmod>2020-03-21T23:24:38+08:00</lastmod>
   </url>
   
   <url>
-    <loc>yehyoung.github.io/hugo/02_themesetup/</loc>
+    <loc>./hugo/02_themesetup/</loc>
     <lastmod>2020-03-22T17:55:53+08:00</lastmod>
   </url>
   
   <url>
-    <loc>yehyoung.github.io/hugo/04_newpost/</loc>
+    <loc>./hugo/04_newpost/</loc>
     <lastmod>2020-03-22T11:13:57+08:00</lastmod>
   </url>
   
   <url>
-    <loc>yehyoung.github.io/hugo/03_structure/</loc>
+    <loc>./hugo/03_structure/</loc>
     <lastmod>2020-03-22T11:13:49+08:00</lastmod>
   </url>
   
   <url>
-    <loc>yehyoung.github.io/hugo/05_runserver/</loc>
+    <loc>./hugo/05_runserver/</loc>
     <lastmod>2020-03-22T11:21:12+08:00</lastmod>
   </url>
   
   <url>
-    <loc>yehyoung.github.io/hugo/06_pushtogit/</loc>
+    <loc>./hugo/06_pushtogit/</loc>
     <lastmod>2020-03-22T17:56:11+08:00</lastmod>
   </url>
   
   <url>
-    <loc>yehyoung.github.io/hugo/</loc>
+    <loc>./hugo/</loc>
     <lastmod>2018-12-08T15:26:15+00:00</lastmod>
   </url>
   
   <url>
-    <loc>yehyoung.github.io/hugo/hugoreference/</loc>
+    <loc>./hugo/hugoreference/</loc>
     <lastmod>2020-03-22T22:30:22+08:00</lastmod>
   </url>
   
   <url>
-    <loc>yehyoung.github.io/hugo/07_hugocommand/</loc>
+    <loc>./hugo/07_hugocommand/</loc>
     <lastmod>2020-03-22T11:14:08+08:00</lastmod>
   </url>
   
   <url>
-    <loc>yehyoung.github.io/</loc>
+    <loc>./</loc>
     <lastmod>2019-10-26T15:26:15+00:00</lastmod>
   </url>
   
   <url>
-    <loc>yehyoung.github.io/about/</loc>
+    <loc>./about/</loc>
     <lastmod>2014-04-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>yehyoung.github.io/categories/</loc>
+    <loc>./categories/</loc>
   </url>
   
   <url>
-    <loc>yehyoung.github.io/tags/</loc>
+    <loc>./tags/</loc>
   </url>
   
 </urlset>
