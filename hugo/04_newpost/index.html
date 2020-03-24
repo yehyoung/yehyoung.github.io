@@ -3,7 +3,7 @@
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<title>新文章 - YehYeh 記事本2.0</title>
+<title>新增一篇文章 - YehYeh 記事本2.0</title>
 <meta name="description" content="竹科碼農的記事本">
 <meta name="generator" content="Hugo 0.67.1" />
 <link href="https://yehyoung.github.ioindex.xml" rel="alternate" type="application/rss+xml">
@@ -16,7 +16,7 @@
 <script src="https://yehyoung.github.io/js/bundle.js"></script><style>
 :root {--custom-background-color: DodgerBlue;}
 </style>
-<meta property="og:title" content="新文章" />
+<meta property="og:title" content="新增一篇文章" />
 <meta property="og:description" content="front matter 用hugo new建立新post時，hugo會自動在新檔案中的最上面加入front matter EX: hugo new post/my-first-post.md 以下即為 my-first-post.md 的 front matter --- title: &quot;新增一篇文章&" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://yehyoung.github.io/hugo/04_newpost/" />
@@ -26,13 +26,13 @@
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://yehyoung.github.io/images/Test.jpg"/>
 
-<meta name="twitter:title" content="新文章"/>
+<meta name="twitter:title" content="新增一篇文章"/>
 <meta name="twitter:description" content="front matter 用hugo new建立新post時，hugo會自動在新檔案中的最上面加入front matter EX: hugo new post/my-first-post.md 以下即為 my-first-post.md 的 front matter --- title: &quot;新增一篇文章&"/>
-<meta itemprop="name" content="新文章">
+<meta itemprop="name" content="新增一篇文章">
 <meta itemprop="description" content="front matter 用hugo new建立新post時，hugo會自動在新檔案中的最上面加入front matter EX: hugo new post/my-first-post.md 以下即為 my-first-post.md 的 front matter --- title: &quot;新增一篇文章&">
 <meta itemprop="datePublished" content="2020-03-22T11:13:57&#43;08:00" />
 <meta itemprop="dateModified" content="2020-03-22T11:13:57&#43;08:00" />
-<meta itemprop="wordCount" content="180">
+<meta itemprop="wordCount" content="241">
 <meta itemprop="image" content="https://yehyoung.github.io/images/Test.jpg"/>
 
 
@@ -55,7 +55,7 @@
 </nav>
 </div>
 <div class="content-container">
-<main><h1>新文章</h1>
+<main><h1>新增一篇文章</h1>
 <h2 id="front-matter">front matter</h2>
 <ul>
 <li>用hugo new建立新post時，hugo會自動在新檔案中的最上面加入<code>front matter</code></li>
@@ -84,8 +84,12 @@ weight: 4
 </li>
 <li>所以一般都要把佈景對應的 archetypes 裡的檔案覆蓋到根目錄的 archetypes</li>
 </ul>
-<pre><code>hugo new post/路徑/檔名.md
-</code></pre><div class="edit-meta">
+<h3 id="新增在content資料夾">新增在content資料夾</h3>
+<p>文章要放在那個資料夾，要看使用的佈景</p>
+<div class="highlight"><pre class="chroma"><code class="language-batch" data-lang="batch">hugo new 路徑/檔名.md
+</code></pre></div><h3 id="新增在content資料夾的post目錄">新增在content資料夾的post目錄</h3>
+<div class="highlight"><pre class="chroma"><code class="language-batch" data-lang="batch">hugo new post/路徑/檔名.md
+</code></pre></div><div class="edit-meta">
 Last updated on 2020-03-22
 
 
@@ -106,12 +110,60 @@ Published on 2020-03-22
 <ul class="sub-menu">
 <li class=""><a href="https://yehyoung.github.io/hugo/01_hugoinstall/">Hugo 安裝</a></li>
 <li class=""><a href="https://yehyoung.github.io/hugo/02_themesetup/">佈景安裝及設定</a></li>
-<li class="active"><a href="https://yehyoung.github.io/hugo/04_newpost/">新文章</a></li>
+<li class="active"><a href="https://yehyoung.github.io/hugo/04_newpost/">新增一篇文章</a></li>
 <li class=""><a href="https://yehyoung.github.io/hugo/03_structure/">Hugo 資料夾與檔案結構</a></li>
 <li class=""><a href="https://yehyoung.github.io/hugo/05_runserver/">RunServer</a></li>
 <li class=""><a href="https://yehyoung.github.io/hugo/06_pushtogit/">PushToGit</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/reference/">參考網站</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/shortcode/">ShortCode</a></li>
 <li class=""><a href="https://yehyoung.github.io/hugo/hugoreference/">HugoReference</a></li>
 <li class=""><a href="https://yehyoung.github.io/hugo/07_hugocommand/">HugoCommand</a></li>
+</ul>
+  
+</li>
+
+<li class=""><a href="https://yehyoung.github.io/ai/">人工智慧</a>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/linebot/">LINE Bot<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/linebot/linebotintro/">LINEBot 概念</a></li>
+<li class=""><a href="https://yehyoung.github.io/linebot/django/djintro/">DJIntro</a></li>
+<li class=""><a href="https://yehyoung.github.io/linebot/reference/">參考網站</a></li>
+</ul>
+  
+</li>
+
+<li class=""><a href="https://yehyoung.github.io/python/">Python</a>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/netcore/">NetCores<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=""><a href="https://yehyoung.github.io/netcore/entityframework/">Entity Framework</a>
+  
+</li>
+
+<li class=""><a href="https://yehyoung.github.io/netcore/linq/">LINQ</a>
+  
+</li>
+
+<li class=""><a href="https://yehyoung.github.io/netcore/csharp/">C#</a>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/markdown/">Markdowns<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/markdown/markdownrule/">MarkdownRule</a></li>
+<li class=""><a href="https://yehyoung.github.io/markdown/markdown/">Markdown </a></li>
 </ul>
   
 </li>

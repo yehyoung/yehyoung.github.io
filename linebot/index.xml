@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LINE Bot on YehYeh 記事本2.0</title>
+    <link>https://yehyoung.github.io/linebot/</link>
+    <description>Recent content in LINE Bot on YehYeh 記事本2.0</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Mon, 23 Mar 2020 23:12:40 +0800</lastBuildDate>
+    
+	<atom:link href="https://yehyoung.github.io/linebot/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>LINEBot 概念</title>
+      <link>https://yehyoung.github.io/linebot/linebotintro/</link>
+      <pubDate>Tue, 24 Mar 2020 22:36:54 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/linebot/linebotintro/</guid>
+      <description>LINE Bot的運作如下圖 準備: 開發者先到LINE Develope的網站註冊 LINE 開發者網站: https://developers.line.biz/en/ 建立一個新的Messaging API 的頻道 (Channel) 取得Bot的Q</description>
+    </item>
+    
+    <item>
+      <title>DJIntro</title>
+      <link>https://yehyoung.github.io/linebot/django/djintro/</link>
+      <pubDate>Mon, 23 Mar 2020 23:50:58 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/linebot/django/djintro/</guid>
+      <description>Lorem Ipsum.</description>
+    </item>
+    
+    <item>
+      <title>參考網站</title>
+      <link>https://yehyoung.github.io/linebot/reference/</link>
+      <pubDate>Mon, 23 Mar 2020 23:25:08 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/linebot/reference/</guid>
+      <description>股票小秘書教你實戰一招「自動化選股」-附贈Python程式碼 土炮一個 Line 股票機器人 Line Bot助手機器人實作</description>
+    </item>
+    
+  </channel>
+</rss>

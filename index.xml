@@ -30,7 +30,7 @@
     </item>
     
     <item>
-      <title>新文章</title>
+      <title>新增一篇文章</title>
       <link>https://yehyoung.github.io/hugo/04_newpost/</link>
       <pubDate>Sun, 22 Mar 2020 11:13:57 +0800</pubDate>
       
@@ -62,7 +62,70 @@
       <pubDate>Sun, 22 Mar 2020 17:56:11 +0800</pubDate>
       
       <guid>https://yehyoung.github.io/hugo/06_pushtogit/</guid>
-      <description>佈署到 Github Hugo 官網教學文件 Github - Working with GitHub Pages 佈署方式 佈署到github可以分為2種 個人的首頁 https://&amp;lt;USERNAME|ORGANIZATION&amp;gt;.github.io/ 一個帳號只能有一個首頁 (這裡介紹的方式) 專案網頁 https://&amp;lt;USERNAME|ORGANIZATION&amp;gt;.github.io/&amp;lt;PROJECT&amp;gt;/ 一個帳</description>
+      <description>佈署到 Github Hugo 官網教學文件 Github - Working with GitHub Pages 01 佈署方式 佈署到github可以分為2種 個人的首頁 https://&amp;lt;USERNAME|ORGANIZATION&amp;gt;.github.io/ 一個帳號只能有一個首頁 (這裡介紹的方式) 專案網頁 https://&amp;lt;USERNAME|ORGANIZATION&amp;gt;.github.io/&amp;lt;PROJECT&amp;gt;/ 一個</description>
+    </item>
+    
+    <item>
+      <title>LINEBot 概念</title>
+      <link>https://yehyoung.github.io/linebot/linebotintro/</link>
+      <pubDate>Tue, 24 Mar 2020 22:36:54 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/linebot/linebotintro/</guid>
+      <description>LINE Bot的運作如下圖 準備: 開發者先到LINE Develope的網站註冊 LINE 開發者網站: https://developers.line.biz/en/ 建立一個新的Messaging API 的頻道 (Channel) 取得Bot的Q</description>
+    </item>
+    
+    <item>
+      <title>DJIntro</title>
+      <link>https://yehyoung.github.io/linebot/django/djintro/</link>
+      <pubDate>Mon, 23 Mar 2020 23:50:58 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/linebot/django/djintro/</guid>
+      <description>Lorem Ipsum.</description>
+    </item>
+    
+    <item>
+      <title>參考網站</title>
+      <link>https://yehyoung.github.io/linebot/reference/</link>
+      <pubDate>Mon, 23 Mar 2020 23:25:08 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/linebot/reference/</guid>
+      <description>股票小秘書教你實戰一招「自動化選股」-附贈Python程式碼 土炮一個 Line 股票機器人 Line Bot助手機器人實作</description>
+    </item>
+    
+    <item>
+      <title>參考網站</title>
+      <link>https://yehyoung.github.io/hugo/reference/</link>
+      <pubDate>Mon, 23 Mar 2020 23:20:21 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/hugo/reference/</guid>
+      <description>Hugo Host on GitHub Hugo CLI Shortcodes 使用 Hugo 建立靜態網站，並部署在 Github Page 在 GitHub 部署 Hugo 靜態網站</description>
+    </item>
+    
+    <item>
+      <title>MarkdownRule</title>
+      <link>https://yehyoung.github.io/markdown/markdownrule/</link>
+      <pubDate>Mon, 23 Mar 2020 23:08:22 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/markdown/markdownrule/</guid>
+      <description>MD001 標題等級應該每次只增加1,如#後應該是##,而不是### MD002 第一個標題應該是top level,即# MD003 統一標題風格如使用了#string 則不應</description>
+    </item>
+    
+    <item>
+      <title>Markdown </title>
+      <link>https://yehyoung.github.io/markdown/markdown/</link>
+      <pubDate>Mon, 23 Mar 2020 23:08:10 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/markdown/markdown/</guid>
+      <description>Lorem Ipsum.</description>
+    </item>
+    
+    <item>
+      <title>ShortCode</title>
+      <link>https://yehyoung.github.io/hugo/shortcode/</link>
+      <pubDate>Mon, 23 Mar 2020 23:07:58 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/hugo/shortcode/</guid>
+      <description>Lorem Ipsum.</description>
     </item>
     
     <item>
@@ -80,7 +143,7 @@
       <pubDate>Sun, 22 Mar 2020 11:14:08 +0800</pubDate>
       
       <guid>https://yehyoung.github.io/hugo/07_hugocommand/</guid>
-      <description>H山 佈景</description>
+      <description></description>
     </item>
     
     <item>

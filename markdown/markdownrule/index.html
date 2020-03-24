@@ -3,11 +3,11 @@
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<title>About Hugo - YehYeh 記事本2.0</title>
+<title>MarkdownRule - YehYeh 記事本2.0</title>
 <meta name="description" content="竹科碼農的記事本">
 <meta name="generator" content="Hugo 0.67.1" />
 <link href="https://yehyoung.github.ioindex.xml" rel="alternate" type="application/rss+xml">
-<link rel="canonical" href="https://yehyoung.github.io/about/">
+<link rel="canonical" href="https://yehyoung.github.io/markdown/markdownrule/">
 <link rel="stylesheet" href="https://yehyoung.github.io/css/theme.min.css">
 <script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 <link rel="stylesheet" href="https://yehyoung.github.io/css/chroma.min.css">
@@ -16,23 +16,23 @@
 <script src="https://yehyoung.github.io/js/bundle.js"></script><style>
 :root {--custom-background-color: DodgerBlue;}
 </style>
-<meta property="og:title" content="About Hugo" />
-<meta property="og:description" content="Lorem Ipsum." />
+<meta property="og:title" content="MarkdownRule" />
+<meta property="og:description" content="MD001 標題等級應該每次只增加1,如#後應該是##,而不是### MD002 第一個標題應該是top level,即# MD003 統一標題風格如使用了#string 則不應" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://yehyoung.github.io/about/" />
+<meta property="og:url" content="https://yehyoung.github.io/markdown/markdownrule/" />
 <meta property="og:image" content="https://yehyoung.github.io/images/Test.jpg"/>
-<meta property="article:published_time" content="2014-04-09T00:00:00+00:00" />
-<meta property="article:modified_time" content="2014-04-09T00:00:00+00:00" /><meta property="og:site_name" content="Hugo Techdoc Theme 測試" />
+<meta property="article:published_time" content="2020-03-23T23:08:22+08:00" />
+<meta property="article:modified_time" content="2020-03-23T23:08:22+08:00" /><meta property="og:site_name" content="Hugo Techdoc Theme 測試" />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://yehyoung.github.io/images/Test.jpg"/>
 
-<meta name="twitter:title" content="About Hugo"/>
-<meta name="twitter:description" content="Lorem Ipsum."/>
-<meta itemprop="name" content="About Hugo">
-<meta itemprop="description" content="Lorem Ipsum.">
-<meta itemprop="datePublished" content="2014-04-09T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2014-04-09T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="2">
+<meta name="twitter:title" content="MarkdownRule"/>
+<meta name="twitter:description" content="MD001 標題等級應該每次只增加1,如#後應該是##,而不是### MD002 第一個標題應該是top level,即# MD003 統一標題風格如使用了#string 則不應"/>
+<meta itemprop="name" content="MarkdownRule">
+<meta itemprop="description" content="MD001 標題等級應該每次只增加1,如#後應該是##,而不是### MD002 第一個標題應該是top level,即# MD003 統一標題風格如使用了#string 則不應">
+<meta itemprop="datePublished" content="2020-03-23T23:08:22&#43;08:00" />
+<meta itemprop="dateModified" content="2020-03-23T23:08:22&#43;08:00" />
+<meta itemprop="wordCount" content="829">
 <meta itemprop="image" content="https://yehyoung.github.io/images/Test.jpg"/>
 
 
@@ -55,15 +55,107 @@
 </nav>
 </div>
 <div class="content-container">
-<main><h1>About Hugo</h1>
-<p>Lorem Ipsum.</p>
+<main><h1>MarkdownRule</h1>
+<p>MD001
+標題等級應該每次只增加1,如#後應該是##,而不是###</p>
+<p>MD002
+第一個標題應該是top level,即#</p>
+<p>MD003
+統一標題風格如使用了#string 則不應該再使用#string#</p>
+<p>MD018-021
+標題文字和#符應該被一個空格分隔</p>
+<p>MD022
+標題和正文應該被一個空行分隔</p>
+<p>MD023
+標題不應該被縮進</p>
+<p>MD024
+連續的不同標題不應該有同樣的內容</p>
+<p>MD025
+一個md文件只應有一個top level的標題</p>
+<p>MD026
+標題後不應有標點符號</p>
+<p>MD036
+在標題中不要使用強調符&rsquo;*&lsquo;或者&rsquo;_&rsquo;</p>
+<p>MD041
+md文件第一行應該是top level的標題</p>
+<p>列表
+MD004
+統一列表風格如使用*,則不應該在同級使用+或者-</p>
+<p>MD005
+同級的列表應該置於同樣的縮進下</p>
+<p>MD006
+列表的初級不應該有縮進</p>
+<p>MD007
+列表的每級縮進是2個空格(可以被修改)</p>
+<p>MD029
+順序列表允許兩種格式</p>
+<p>第一種是順序序列,如</p>
+<ol>
+<li></li>
+<li></li>
+<li></li>
+</ol>
+<p>第二種只有一個數</p>
+<ol>
+<li></li>
+<li></li>
+<li></li>
+</ol>
+<p>MD030
+列表標記符後一般跟一個空格</p>
+<p>MD032
+列表與文本之間用空行分隔</p>
+<p>塊
+MD027
+塊引用後應該只有一個空格</p>
+<p>MD028
+塊引用中的空行也需要加上&gt;頭符號</p>
+<p>MD031
+代碼塊與文本之間用空行分隔</p>
+<p>MD033
+避免在Markdown文件中使用原生的HTML</p>
+<p>符號
+MD009
+任何行的末尾不應該有多餘的空格</p>
+<p>MD010
+任何行不應該含有Hard tab 符號. 用空格替代tab符號</p>
+<p>MD011
+使用鏈接時,應該使用如下格式<a href="%E9%8F%88%E6%8E%A5">名稱</a>,不應反轉他們的順序</p>
+<p>MD034
+使用URL時,使用尖括號包圍URL</p>
+<p>MD042
+鏈接()內不可留空,填充以#</p>
+<p>MD035
+使用分隔線時,統一風格,使用&rsquo;-&lsquo;或者&rsquo;*',不要混用</p>
+<p>分隔線應該是連續的,中間不要有空格</p>
+<p>MD012
+換行時不應有超過1行的空行</p>
+<p>MD013
+每行不應該超過80個字符(一個中文字符佔兩個字符)</p>
+<p>MD014
+在代碼塊中展示shell腳本時,如果只需要展示命令,則不應該在命令頭加入$符號.當需要區分命令和輸出時再使用$符號</p>
+<p>MD037
+使用強調符的時候,強調符中不應有空格</p>
+<p>MD038
+使用<code>string</code>代碼塊時,`符旁不應該有空格</p>
+<p>MD039
+使用鏈接時,[]和()旁不應該有空格</p>
+<p>MD040
+使用```代碼塊時,需要指定代碼的語言</p>
+<p>MD046
+統一代碼塊的縮進</p>
+<p>MD045
+圖像文件應該有解釋文本</p>
+<p>MD047
+md文件的結尾應該有多餘的一個空行</p>
 <div class="edit-meta">
-Last updated on 2014-04-09
+Last updated on 2020-03-23
 
 
 <br>
-Published on 2014-04-09
-<br><a href="https://github.com/thingsym/hugo-theme-techdoc/edit/master/content/about.md" class="edit-page"><i class="fas fa-pen-square"></i> Edit on GitHub</a></div><nav class="pagination"><a class="nav nav-next" href="https://yehyoung.github.io/hugo/" title="Hugo">Next - Hugo <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+Published on 2020-03-23
+<br><a href="https://github.com/thingsym/hugo-theme-techdoc/edit/master/content/Markdown%5cMarkdownRule.md" class="edit-page"><i class="fas fa-pen-square"></i> Edit on GitHub</a></div><nav class="pagination"><a class="nav nav-prev" href="https://yehyoung.github.io/markdown/" title="Markdowns"><i class="fas fa-arrow-left" aria-hidden="true"></i> Prev - Markdowns</a>
+<a class="nav nav-next" href="https://yehyoung.github.io/markdown/markdown/" title="Markdown ">Next - Markdown  <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
 </nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
 </footer>
 </main><div class="sidebar">
@@ -126,10 +218,10 @@ Published on 2014-04-09
   
 </li>
 
-<li class=" has-sub-menu"><a href="https://yehyoung.github.io/markdown/">Markdowns<span class="mark closed">+</span></a>
+<li class="parent has-sub-menu"><a href="https://yehyoung.github.io/markdown/">Markdowns<span class="mark opened">-</span></a>
   
 <ul class="sub-menu">
-<li class=""><a href="https://yehyoung.github.io/markdown/markdownrule/">MarkdownRule</a></li>
+<li class="active"><a href="https://yehyoung.github.io/markdown/markdownrule/">MarkdownRule</a></li>
 <li class=""><a href="https://yehyoung.github.io/markdown/markdown/">Markdown </a></li>
 </ul>
   
