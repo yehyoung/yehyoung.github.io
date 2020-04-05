@@ -3,9 +3,10 @@
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="/images/favicon.ico">
 <title>Hugo 資料夾與檔案結構 - YehYeh 記事本2.0</title>
 <meta name="description" content="竹科碼農的記事本">
-<meta name="generator" content="Hugo 0.67.1" />
+<meta name="generator" content="Hugo 0.68.3" />
 <link href="https://yehyoung.github.ioindex.xml" rel="alternate" type="application/rss+xml">
 <link rel="canonical" href="https://yehyoung.github.io/hugo/03_structure/">
 <link rel="stylesheet" href="https://yehyoung.github.io/css/theme.min.css">
@@ -17,7 +18,7 @@
 :root {--custom-background-color: DodgerBlue;}
 </style>
 <meta property="og:title" content="Hugo 資料夾與檔案結構" />
-<meta property="og:description" content="tree /f 目錄名稱 &gt; dirs.txt ├─archetypes # 新文章的預設內文 ├─content # 放文章的資料夾 │ └─Hugo # 放文章的子資料夾，不同佈景，子資" />
+<meta property="og:description" content="Hugo 專案目錄結構 . ├── archetypes ├── config.toml ├── content ├── data ├── layouts ├── static └── themes archetypes Archetypes 是建立新文章時所使用的樣版檔案 在用hugo new建立一個新文章檔" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://yehyoung.github.io/hugo/03_structure/" />
 <meta property="og:image" content="https://yehyoung.github.io/images/Test.jpg"/>
@@ -27,12 +28,12 @@
 <meta name="twitter:image" content="https://yehyoung.github.io/images/Test.jpg"/>
 
 <meta name="twitter:title" content="Hugo 資料夾與檔案結構"/>
-<meta name="twitter:description" content="tree /f 目錄名稱 &gt; dirs.txt ├─archetypes # 新文章的預設內文 ├─content # 放文章的資料夾 │ └─Hugo # 放文章的子資料夾，不同佈景，子資"/>
+<meta name="twitter:description" content="Hugo 專案目錄結構 . ├── archetypes ├── config.toml ├── content ├── data ├── layouts ├── static └── themes archetypes Archetypes 是建立新文章時所使用的樣版檔案 在用hugo new建立一個新文章檔"/>
 <meta itemprop="name" content="Hugo 資料夾與檔案結構">
-<meta itemprop="description" content="tree /f 目錄名稱 &gt; dirs.txt ├─archetypes # 新文章的預設內文 ├─content # 放文章的資料夾 │ └─Hugo # 放文章的子資料夾，不同佈景，子資">
+<meta itemprop="description" content="Hugo 專案目錄結構 . ├── archetypes ├── config.toml ├── content ├── data ├── layouts ├── static └── themes archetypes Archetypes 是建立新文章時所使用的樣版檔案 在用hugo new建立一個新文章檔">
 <meta itemprop="datePublished" content="2020-03-22T11:13:49&#43;08:00" />
 <meta itemprop="dateModified" content="2020-03-22T11:13:49&#43;08:00" />
-<meta itemprop="wordCount" content="582">
+<meta itemprop="wordCount" content="1237">
 <meta itemprop="image" content="https://yehyoung.github.io/images/Test.jpg"/>
 
 
@@ -56,6 +57,117 @@
 </div>
 <div class="content-container">
 <main><h1>Hugo 資料夾與檔案結構</h1>
+<h2 id="hugo-專案目錄結構">Hugo 專案目錄結構</h2>
+<pre><code class="language-tree" data-lang="tree">.
+├── archetypes
+├── config.toml
+├── content
+├── data
+├── layouts
+├── static
+└── themes
+</code></pre><ul>
+<li>archetypes
+<ul>
+<li>Archetypes 是建立新文章時所使用的樣版檔案</li>
+<li>在用<code>hugo new</code>建立一個新文章檔案時，會依序找這幾個樣版檔，並以第1個找到的當作樣版
+<ul>
+<li><code>archetypes/posts.md</code></li>
+<li><code>archetypes/default.md</code></li>
+<li><code>themes/my-theme/archetypes/posts.md</code></li>
+<li><code>themes/my-theme/archetypes/default.md</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>assets
+<ul>
+<li>存放需要用<code>Hugo pipes</code>處理的資源(asset)
+<ul>
+<li><code>Hugo pipes</code>是Hugo資源處理功能的集合
+<ul>
+<li>例如CSS、JS的合併與壓縮</li>
+</ul>
+</li>
+<li>只有<code>.Permalink</code> 或 <code>.RelPermalink</code> 有用到的資源才會被輸出到public資料夾</li>
+<li>預設不會建立assets資料夾</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>config
+<ul>
+<li>一般設定根目錄的config.toml即可</li>
+<li>Hugo有大量的Config指令，如果網站需要額外的config設定也可以建立config資料夾做進階設定</li>
+<li><a href="https://gohugo.io/getting-started/configuration/#all-variables-yaml">Configure Hugo</a></li>
+</ul>
+</li>
+<li>content
+<ul>
+<li>網站的全部文章都在這個目錄</li>
+<li>content裡的第一層資料夾會被Hugo視為Section
+<ul>
+<li>例如網站有3個主要的section，資料夾會像:
+<ul>
+<li>content/blog</li>
+<li>content/articles</li>
+<li>content/tutorials</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>data
+<ul>
+<li>存放其它Hugo編譯網站時會用到的資料
+<ul>
+<li>例如資料庫檔、json, toml, yaml, CSV,&hellip;</li>
+</ul>
+</li>
+<li>資料檔不能用來產生個別的網頁</li>
+<li>可以搭配layout將其顯示在頁面中</li>
+</ul>
+</li>
+<li>layouts
+<ul>
+<li>存放內容(content)如何轉換成靜態網站的.html模板</li>
+<li>ShortCodes也是放在layouts裡</li>
+<li>模板包含
+<ul>
+<li>列表頁面(list pages)</li>
+<li>首頁(homepage)</li>
+<li>taxonomy</li>
+<li>templates</li>
+<li>partials</li>
+<li>single page templates</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>static
+<ul>
+<li>存放所有靜態的內容:
+<ul>
+<li>image, CSS, JavaScript, &hellip;</li>
+</ul>
+</li>
+<li>當Hugo建置你的網站時，static裡的資源會被直接複製</li>
+<li>使用static資料夾的例子
+<ul>
+<li>Google Search Console驗證網站所有權的檔案</li>
+<li>只能直接複製這個檔案，不能有任何修改</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>resources
+<ul>
+<li>快取一些可以用來加速編譯網站的檔案</li>
+<li>樣板的作者可以放編譯過的SASS檔，這樣就可以不必安裝預處理器</li>
+</ul>
+</li>
+</ul>
 <pre><code>tree /f 目錄名稱 &gt; dirs.txt
 </code></pre><pre><code class="language-tree" data-lang="tree">├─archetypes        # 新文章的預設內文
 ├─content           # 放文章的資料夾
@@ -114,8 +226,8 @@ Last updated on 2020-03-22
 
 <br>
 Published on 2020-03-22
-<br><a href="https://github.com/thingsym/hugo-theme-techdoc/edit/master/content/Hugo%5c03_Structure.md" class="edit-page"><i class="fas fa-pen-square"></i> Edit on GitHub</a></div><nav class="pagination"><a class="nav nav-prev" href="https://yehyoung.github.io/hugo/04_newpost/" title="新增一篇文章"><i class="fas fa-arrow-left" aria-hidden="true"></i> Prev - 新增一篇文章</a>
-<a class="nav nav-next" href="https://yehyoung.github.io/hugo/05_runserver/" title="RunServer">Next - RunServer <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+<br><a href="https://github.com/thingsym/hugo-theme-techdoc/edit/master/content/Hugo%5c03_Structure.md" class="edit-page"><i class="fas fa-pen-square"></i> Edit on GitHub</a></div><nav class="pagination"><a class="nav nav-prev" href="https://yehyoung.github.io/hugo/04_newpost/" title="Hugo 新增一篇文章"><i class="fas fa-arrow-left" aria-hidden="true"></i> Prev - Hugo 新增一篇文章</a>
+<a class="nav nav-next" href="https://yehyoung.github.io/hugo/05_runserver/" title="Hugo 本機啓動一個伺服器">Next - Hugo 本機啓動一個伺服器 <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
 </nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
 </footer>
 </main><div class="sidebar">
@@ -128,13 +240,16 @@ Published on 2020-03-22
   
 <ul class="sub-menu">
 <li class=""><a href="https://yehyoung.github.io/hugo/01_hugoinstall/">Hugo 安裝</a></li>
-<li class=""><a href="https://yehyoung.github.io/hugo/02_themesetup/">佈景安裝及設定</a></li>
-<li class=""><a href="https://yehyoung.github.io/hugo/04_newpost/">新增一篇文章</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/02_themesetup/">Hugo 佈景安裝及設定</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/04_newpost/">Hugo 新增一篇文章</a></li>
 <li class="active"><a href="https://yehyoung.github.io/hugo/03_structure/">Hugo 資料夾與檔案結構</a></li>
-<li class=""><a href="https://yehyoung.github.io/hugo/05_runserver/">RunServer</a></li>
-<li class=""><a href="https://yehyoung.github.io/hugo/06_pushtogit/">PushToGit</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/05_runserver/">Hugo 本機啓動一個伺服器</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/06_pushtogit/">將網站上傳到Github</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/highlight/">程式碼高亮 Highlight</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/sass/">在 Hugo 裡使用 SASS</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/otherfunction/">OtherFunction</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/frontmatter/">Hugo FrontMatter</a></li>
 <li class=""><a href="https://yehyoung.github.io/hugo/reference/">參考網站</a></li>
-<li class=""><a href="https://yehyoung.github.io/hugo/shortcode/">ShortCode</a></li>
 <li class=""><a href="https://yehyoung.github.io/hugo/hugoreference/">HugoReference</a></li>
 <li class=""><a href="https://yehyoung.github.io/hugo/07_hugocommand/">HugoCommand</a></li>
 </ul>
@@ -149,13 +264,40 @@ Published on 2020-03-22
   
 <ul class="sub-menu">
 <li class=""><a href="https://yehyoung.github.io/linebot/linebotintro/">LINEBot 概念</a></li>
-<li class=""><a href="https://yehyoung.github.io/linebot/django/djintro/">DJIntro</a></li>
+<li class=""><a href="https://yehyoung.github.io/linebot/django/djintro/">Django 介紹及安裝</a></li>
 <li class=""><a href="https://yehyoung.github.io/linebot/reference/">參考網站</a></li>
 </ul>
   
 </li>
 
-<li class=""><a href="https://yehyoung.github.io/python/">Python</a>
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/python/">Python<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/python/sqlite/intro/">SQLite 簡介</a></li>
+<li class=""><a href="https://yehyoung.github.io/python/basic/csv/">Python - CSV</a></li>
+<li class=""><a href="https://yehyoung.github.io/python/stock/stock/">Stock</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/gulp/">Gulps<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/gulp/gulpv4sample2/">GulpV4Sample2</a></li>
+<li class=""><a href="https://yehyoung.github.io/gulp/gulpv4sample1/">GulpV4Sample1</a></li>
+<li class=""><a href="https://yehyoung.github.io/gulp/gulptask/">GulpTask</a></li>
+<li class=""><a href="https://yehyoung.github.io/gulp/gulpplugin/">GulpPlugin</a></li>
+<li class=""><a href="https://yehyoung.github.io/gulp/glob/">Glob</a></li>
+<li class=""><a href="https://yehyoung.github.io/gulp/gulpintro/">Gulp 4 介紹及安裝</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/webpack/">Webpacks<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/webpack/reference/">Reference</a></li>
+</ul>
   
 </li>
 

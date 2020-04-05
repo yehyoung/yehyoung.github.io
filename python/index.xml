@@ -11,5 +11,32 @@
 	<atom:link href="https://yehyoung.github.io/python/index.xml" rel="self" type="application/rss+xml" />
     
     
+    <item>
+      <title>SQLite 簡介</title>
+      <link>https://yehyoung.github.io/python/sqlite/intro/</link>
+      <pubDate>Fri, 03 Apr 2020 23:20:32 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/python/sqlite/intro/</guid>
+      <description>SQLite SQLite SQLite是單檔案資料庫，整個資料庫只有一個檔案，容易複製及佈署 建立資料庫 sqlite3 資料庫檔名.db DB Browser for SQLite 可以安裝DB Browser來查看S</description>
+    </item>
+    
+    <item>
+      <title>Python - CSV</title>
+      <link>https://yehyoung.github.io/python/basic/csv/</link>
+      <pubDate>Sun, 29 Mar 2020 15:09:33 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/python/basic/csv/</guid>
+      <description>寫入CSV 一次寫入一行 import csv with open(&amp;#39;test.csv&amp;#39;, &amp;#39;wb&amp;#39;) as csvfile: writer = csv.writer(csvfile) # 取得寫CSV寫檔物件 writer.writerow([&amp;#39;A&amp;#39;, &amp;#39;B&amp;#39;, &amp;#39;c&amp;#39;]) # 寫入資料 一次寫入表格(巢狀List) import csv table = [ [&amp;#39;A1&amp;#39;, &amp;#39;A2&amp;#39;, &amp;#39;A3&amp;#39;], [&amp;#39;B1&amp;#39;, &amp;#39;B2&amp;#39;, &amp;#39;B3&amp;#39;], [&amp;#39;C1&amp;#39;, &amp;#39;C2&amp;#39;, &amp;#39;C3&amp;#39;] ] with</description>
+    </item>
+    
+    <item>
+      <title>Stock</title>
+      <link>https://yehyoung.github.io/python/stock/stock/</link>
+      <pubDate>Wed, 25 Mar 2020 23:11:19 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/python/stock/stock/</guid>
+      <description>Lorem Ipsum.</description>
+    </item>
+    
   </channel>
 </rss>

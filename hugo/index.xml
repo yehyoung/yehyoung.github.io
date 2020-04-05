@@ -17,11 +17,11 @@
       <pubDate>Sat, 21 Mar 2020 23:24:38 +0800</pubDate>
       
       <guid>https://yehyoung.github.io/hugo/01_hugoinstall/</guid>
-      <description>Hugo 安裝及基本設定 1. Windows 安裝Hugo 下載Hugo，並解壓縮 安裝檔下載: https://github.com/gohugoio/hugo/releases 將Hugo.exe的路徑設定到環境變數 2. 建立新網站 1. 執行 hugo new site 站名</description>
+      <description>Hugo 安裝及基本設定 1. Windows 安裝Hugo 下載Hugo，並解壓縮 安裝檔下載: https://github.com/gohugoio/hugo/releases 如果要使用sass或postCSS則下載 hugo_extended_0.68.3_Windows-64bit.zip 將Hugo.exe的路徑設定到</description>
     </item>
     
     <item>
-      <title>佈景安裝及設定</title>
+      <title>Hugo 佈景安裝及設定</title>
       <link>https://yehyoung.github.io/hugo/02_themesetup/</link>
       <pubDate>Sun, 22 Mar 2020 17:55:53 +0800</pubDate>
       
@@ -30,7 +30,7 @@
     </item>
     
     <item>
-      <title>新增一篇文章</title>
+      <title>Hugo 新增一篇文章</title>
       <link>https://yehyoung.github.io/hugo/04_newpost/</link>
       <pubDate>Sun, 22 Mar 2020 11:13:57 +0800</pubDate>
       
@@ -44,11 +44,11 @@
       <pubDate>Sun, 22 Mar 2020 11:13:49 +0800</pubDate>
       
       <guid>https://yehyoung.github.io/hugo/03_structure/</guid>
-      <description>tree /f 目錄名稱 &amp;gt; dirs.txt ├─archetypes # 新文章的預設內文 ├─content # 放文章的資料夾 │ └─Hugo # 放文章的子資料夾，不同佈景，子資</description>
+      <description>Hugo 專案目錄結構 . ├── archetypes ├── config.toml ├── content ├── data ├── layouts ├── static └── themes archetypes Archetypes 是建立新文章時所使用的樣版檔案 在用hugo new建立一個新文章檔</description>
     </item>
     
     <item>
-      <title>RunServer</title>
+      <title>Hugo 本機啓動一個伺服器</title>
       <link>https://yehyoung.github.io/hugo/05_runserver/</link>
       <pubDate>Sun, 22 Mar 2020 11:21:12 +0800</pubDate>
       
@@ -57,12 +57,48 @@
     </item>
     
     <item>
-      <title>PushToGit</title>
+      <title>將網站上傳到Github</title>
       <link>https://yehyoung.github.io/hugo/06_pushtogit/</link>
       <pubDate>Sun, 22 Mar 2020 17:56:11 +0800</pubDate>
       
       <guid>https://yehyoung.github.io/hugo/06_pushtogit/</guid>
       <description>佈署到 Github Hugo 官網教學文件 Github - Working with GitHub Pages 01 佈署方式 佈署到github可以分為2種 個人的首頁 https://&amp;lt;USERNAME|ORGANIZATION&amp;gt;.github.io/ 一個帳號只能有一個首頁 (這裡介紹的方式) 專案網頁 https://&amp;lt;USERNAME|ORGANIZATION&amp;gt;.github.io/&amp;lt;PROJECT&amp;gt;/ 一個</description>
+    </item>
+    
+    <item>
+      <title>程式碼高亮 Highlight</title>
+      <link>https://yehyoung.github.io/hugo/highlight/</link>
+      <pubDate>Sun, 05 Apr 2020 21:09:08 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/hugo/highlight/</guid>
+      <description>官網文件 Hugo Syntax-highlighting Hugo是用choma來highlighting choma 在config.toml中，有一些參數可以設定 [markup] [markup.highlight] codeFences = true guessSyntax = false hl_Lines = &amp;#34;&amp;#34; lineNoStart = 1 lineNos =</description>
+    </item>
+    
+    <item>
+      <title>在 Hugo 裡使用 SASS</title>
+      <link>https://yehyoung.github.io/hugo/sass/</link>
+      <pubDate>Sun, 05 Apr 2020 16:06:54 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/hugo/sass/</guid>
+      <description>SASS檔案 只能把sass檔案放在 /assets/scss/ /themes/your-theme/assets/scss/ 在layouts 資料夾裡加上 {{ $styles := resources.Get &amp;quot;scss/main.scss&amp;quot; | toCSS | minify | fingerprint }} | 為Hugo的管線(pipe)操作，簡單的說就是會</description>
+    </item>
+    
+    <item>
+      <title>OtherFunction</title>
+      <link>https://yehyoung.github.io/hugo/otherfunction/</link>
+      <pubDate>Sun, 05 Apr 2020 15:39:38 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/hugo/otherfunction/</guid>
+      <description>SASS / SCSS 要使用SASS，hugo安裝的版本要是extended版 &amp;lt;!-- 指定sass的原始檔 --&amp;gt; {{ $sass := resources.Get &amp;#34;sass/main.scss&amp;#34; }} &amp;lt;!-- 用resources.ToCSS將sas</description>
+    </item>
+    
+    <item>
+      <title>Hugo FrontMatter</title>
+      <link>https://yehyoung.github.io/hugo/frontmatter/</link>
+      <pubDate>Fri, 03 Apr 2020 21:26:34 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/hugo/frontmatter/</guid>
+      <description>Front Matter為文章內的Metadata設定 Front Matter在文章的最上面，一般為YAML型式 yaml: 以---開始和結束 toml: 以+++開始和結束 json: 以{ }</description>
     </item>
     
     <item>
@@ -72,15 +108,6 @@
       
       <guid>https://yehyoung.github.io/hugo/reference/</guid>
       <description>Hugo Host on GitHub Hugo CLI Shortcodes 使用 Hugo 建立靜態網站，並部署在 Github Page 在 GitHub 部署 Hugo 靜態網站</description>
-    </item>
-    
-    <item>
-      <title>ShortCode</title>
-      <link>https://yehyoung.github.io/hugo/shortcode/</link>
-      <pubDate>Mon, 23 Mar 2020 23:07:58 +0800</pubDate>
-      
-      <guid>https://yehyoung.github.io/hugo/shortcode/</guid>
-      <description>Lorem Ipsum.</description>
     </item>
     
     <item>

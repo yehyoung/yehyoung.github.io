@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gulps on YehYeh 記事本2.0</title>
+    <link>https://yehyoung.github.io/gulp/</link>
+    <description>Recent content in Gulps on YehYeh 記事本2.0</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Fri, 03 Apr 2020 10:21:33 +0800</lastBuildDate>
+    
+	<atom:link href="https://yehyoung.github.io/gulp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>GulpV4Sample2</title>
+      <link>https://yehyoung.github.io/gulp/gulpv4sample2/</link>
+      <pubDate>Fri, 03 Apr 2020 10:21:33 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/gulp/gulpv4sample2/</guid>
+      <description>webstoemp-gulpfile.js  &amp;#34;use strict&amp;#34;; // Load plugins const autoprefixer = require(&amp;#34;autoprefixer&amp;#34;); const browsersync = require(&amp;#34;browser-sync&amp;#34;).create(); const cp = require(&amp;#34;child_process&amp;#34;); const cssnano = require(&amp;#34;cssnano&amp;#34;); const del = require(&amp;#34;del&amp;#34;); const eslint = require(&amp;#34;gulp-eslint&amp;#34;); const gulp = require(&amp;#34;gulp&amp;#34;); const imagemin = require(&amp;#34;gulp-imagemin&amp;#34;); const newer = require(&amp;#34;gulp-newer&amp;#34;); const plumber = require(&amp;#34;gulp-plumber&amp;#34;); const postcss = require(&amp;#34;gulp-postcss&amp;#34;); const rename = require(&amp;#34;gulp-rename&amp;#34;); const sass = require(&amp;#34;gulp-sass&amp;#34;); const webpack = require(&amp;#34;webpack&amp;#34;); const webpackconfig = require(&amp;#34;./webpack.config.js&amp;#34;); const webpackstream = require(&amp;#34;webpack-stream&amp;#34;); // BrowserSync function browserSync(done) { browsersync.</description>
+    </item>
+    
+    <item>
+      <title>GulpV4Sample1</title>
+      <link>https://yehyoung.github.io/gulp/gulpv4sample1/</link>
+      <pubDate>Fri, 03 Apr 2020 10:17:22 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/gulp/gulpv4sample1/</guid>
+      <description>Upgrade Gulp 3 to Gulp 4 the gulpfile.js workflow  const { src, dest, parallel, series, watch } = require(&amp;#39;gulp&amp;#39;); // const pug = require(&amp;#39;gulp-pug&amp;#39;); // Pug default view template const twig = require(&amp;#39;gulp-twig&amp;#39;); const sass = require(&amp;#39;gulp-sass&amp;#39;); const prefix = require(&amp;#39;gulp-autoprefixer&amp;#39;); const data = require(&amp;#39;gulp-data&amp;#39;); //const minifyCSS = require(&amp;#39;gulp-csso&amp;#39;); const sourcemaps = require(&amp;#39;gulp-sourcemaps&amp;#39;); const concat = require(&amp;#39;gulp-concat&amp;#39;); const plumber = require(&amp;#39;gulp-plumber&amp;#39;); const browsersync = require(&amp;#39;browser-sync&amp;#39;); const gulpcopy = require(&amp;#39;gulp-copy&amp;#39;); const fs = require(&amp;#39;fs&amp;#39;); const del = require(&amp;#39;del&amp;#39;); const path = require(&amp;#39;path&amp;#39;); /* * Directories here */ var paths = { build: &amp;#39;.</description>
+    </item>
+    
+    <item>
+      <title>GulpTask</title>
+      <link>https://yehyoung.github.io/gulp/gulptask/</link>
+      <pubDate>Thu, 02 Apr 2020 22:43:52 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/gulp/gulptask/</guid>
+      <description>建立任務 Gulp 裡的一個任務即為一個JavaScript函式 函式的參數通常為一個可回呼(Call Back)的函式 回傳值通常是stream、prom</description>
+    </item>
+    
+    <item>
+      <title>GulpPlugin</title>
+      <link>https://yehyoung.github.io/gulp/gulpplugin/</link>
+      <pubDate>Thu, 02 Apr 2020 22:17:13 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/gulp/gulpplugin/</guid>
+      <description>gulp-concat：合併檔案 gulp-minify-css：壓縮 CSS gulp-uglify：混淆並壓縮 JS gulp-rename：重新命名檔</description>
+    </item>
+    
+    <item>
+      <title>Glob</title>
+      <link>https://yehyoung.github.io/gulp/glob/</link>
+      <pubDate>Thu, 02 Apr 2020 20:01:06 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/gulp/glob/</guid>
+      <description>什麼是Glob Glob 一開始是在UNIX上使用的一種具有萬用字元的檔案路徑表示方法 特殊符號 說明 範例 / 分隔符號 &#39;scripts/**/*.js&#39; \ 轉義符號 \\* | 在字串中，批配任意數量</description>
+    </item>
+    
+    <item>
+      <title>Gulp 4 介紹及安裝</title>
+      <link>https://yehyoung.github.io/gulp/gulpintro/</link>
+      <pubDate>Thu, 02 Apr 2020 20:00:19 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/gulp/gulpintro/</guid>
+      <description>什麼是 Gulp Gulp是Nodejs的自動任務執行器 Gulp是前端開發的建構工具 將 Pug 轉為 Html 將 Sass 轉為 CSS 檔案合併 JS檔壓縮 圖片壓縮 監聽檔案異動 測試 安裝</description>
+    </item>
+    
+  </channel>
+</rss>

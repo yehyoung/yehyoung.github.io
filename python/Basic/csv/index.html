@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="/images/favicon.ico">
+<title>Python - CSV - YehYeh 記事本2.0</title>
+<meta name="description" content="竹科碼農的記事本">
+<meta name="generator" content="Hugo 0.68.3" />
+<link href="https://yehyoung.github.ioindex.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://yehyoung.github.io/python/basic/csv/">
+<link rel="stylesheet" href="https://yehyoung.github.io/css/theme.min.css">
+<script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<link rel="stylesheet" href="https://yehyoung.github.io/css/chroma.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js"></script>
+<script src="https://yehyoung.github.io/js/bundle.js"></script><style>
+:root {--custom-background-color: DodgerBlue;}
+</style>
+<meta property="og:title" content="Python - CSV" />
+<meta property="og:description" content="寫入CSV 一次寫入一行 import csv with open(&#39;test.csv&#39;, &#39;wb&#39;) as csvfile: writer = csv.writer(csvfile) # 取得寫CSV寫檔物件 writer.writerow([&#39;A&#39;, &#39;B&#39;, &#39;c&#39;]) # 寫入資料 一次寫入表格(巢狀List) import csv table = [ [&#39;A1&#39;, &#39;A2&#39;, &#39;A3&#39;], [&#39;B1&#39;, &#39;B2&#39;, &#39;B3&#39;], [&#39;C1&#39;, &#39;C2&#39;, &#39;C3&#39;] ] with" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yehyoung.github.io/python/basic/csv/" />
+<meta property="og:image" content="https://yehyoung.github.io/images/Test.jpg"/>
+<meta property="article:published_time" content="2020-03-29T15:09:33+08:00" />
+<meta property="article:modified_time" content="2020-03-29T15:09:33+08:00" /><meta property="og:site_name" content="Hugo Techdoc Theme 測試" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://yehyoung.github.io/images/Test.jpg"/>
+
+<meta name="twitter:title" content="Python - CSV"/>
+<meta name="twitter:description" content="寫入CSV 一次寫入一行 import csv with open(&#39;test.csv&#39;, &#39;wb&#39;) as csvfile: writer = csv.writer(csvfile) # 取得寫CSV寫檔物件 writer.writerow([&#39;A&#39;, &#39;B&#39;, &#39;c&#39;]) # 寫入資料 一次寫入表格(巢狀List) import csv table = [ [&#39;A1&#39;, &#39;A2&#39;, &#39;A3&#39;], [&#39;B1&#39;, &#39;B2&#39;, &#39;B3&#39;], [&#39;C1&#39;, &#39;C2&#39;, &#39;C3&#39;] ] with"/>
+<meta itemprop="name" content="Python - CSV">
+<meta itemprop="description" content="寫入CSV 一次寫入一行 import csv with open(&#39;test.csv&#39;, &#39;wb&#39;) as csvfile: writer = csv.writer(csvfile) # 取得寫CSV寫檔物件 writer.writerow([&#39;A&#39;, &#39;B&#39;, &#39;c&#39;]) # 寫入資料 一次寫入表格(巢狀List) import csv table = [ [&#39;A1&#39;, &#39;A2&#39;, &#39;A3&#39;], [&#39;B1&#39;, &#39;B2&#39;, &#39;B3&#39;], [&#39;C1&#39;, &#39;C2&#39;, &#39;C3&#39;] ] with">
+<meta itemprop="datePublished" content="2020-03-29T15:09:33&#43;08:00" />
+<meta itemprop="dateModified" content="2020-03-29T15:09:33&#43;08:00" />
+<meta itemprop="wordCount" content="240">
+<meta itemprop="image" content="https://yehyoung.github.io/images/Test.jpg"/>
+
+
+
+<meta itemprop="keywords" content="" /></head>
+<body><div class="container"><header>
+<h1>YehYeh 記事本2.0</h1>
+
+ <span class="version">Version 0.8.3</span>
+<a href="https://github.com/thingsym/hugo-theme-techdoc" class="github"><i class="fab fa-github"></i></a>
+<p class="description">竹科碼農的記事本</p>
+
+</header>
+<div class="global-menu">
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="https://twitter.com/thingsym">Twitter</a></li>
+<li><a href="/about/">About Hugo</a></li></ul>
+</nav>
+</div>
+<div class="content-container">
+<main><h1>Python - CSV</h1>
+<h2 id="寫入csv">寫入CSV</h2>
+<h3 id="一次寫入一行">一次寫入一行</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">csv</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;test.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">csvfile</span><span class="p">:</span>
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">csvfile</span><span class="p">)</span>            <span class="c1"># 取得寫CSV寫檔物件</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">])</span>        <span class="c1"># 寫入資料</span>
+</code></pre></div><h3 id="一次寫入表格巢狀list">一次寫入表格(巢狀List)</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">csv</span>
+<span class="n">table</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s1">&#39;A1&#39;</span><span class="p">,</span> <span class="s1">&#39;A2&#39;</span><span class="p">,</span> <span class="s1">&#39;A3&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;B1&#39;</span><span class="p">,</span> <span class="s1">&#39;B2&#39;</span><span class="p">,</span> <span class="s1">&#39;B3&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="s1">&#39;C2&#39;</span><span class="p">,</span> <span class="s1">&#39;C3&#39;</span><span class="p">]</span>
+<span class="p">]</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;output.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">csvfile</span><span class="p">:</span>
+  <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">csvfile</span><span class="p">)</span>              <span class="c1"># 取得寫CSV寫檔物件</span>
+  <span class="n">writer</span><span class="o">.</span><span class="n">writerows</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>                   <span class="c1"># 寫入資料</span>
+</code></pre></div><h3 id="寫入dict">寫入Dict</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">csv</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;output.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">csvfile</span><span class="p">:</span>
+    <span class="n">fieldnames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ColumnName1&#39;</span><span class="p">,</span> <span class="s1">&#39;ColumnName2&#39;</span><span class="p">,</span> <span class="s1">&#39;ColumnName3&#39;</span><span class="p">]</span>      <span class="c1"># 定義每一欄的名稱</span>
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictWriter</span><span class="p">(</span><span class="n">csvfile</span><span class="p">,</span> <span class="n">fieldnames</span><span class="o">=</span><span class="n">fieldnames</span><span class="p">)</span>  
+    <span class="n">writer</span><span class="o">.</span><span class="n">writeheader</span><span class="p">()</span>                                            <span class="c1"># 寫入欄位名稱</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">({</span><span class="s1">&#39;A1&#39;</span><span class="p">:</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;A2&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;A3&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">})</span>
+    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">({</span><span class="s1">&#39;B1&#39;</span><span class="p">:</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;B2&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;B3&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">})</span>
+</code></pre></div><h2 id="讀取-csv">讀取 CSV</h2>
+<h3 id="以列的形式讀取">以列的形式讀取</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">csv</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;test.csv&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">csvfile</span><span class="p">:</span>  
+  <span class="n">rows</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">csvfile</span><span class="p">)</span>        <span class="c1"># 讀取全部列</span>
+
+  <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</code></pre></div><h3 id="指定分隔符號">指定分隔符號</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">csv</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;test.csv&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">csvfile</span><span class="p">:</span>  
+  <span class="n">rows</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">csvfile</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>     <span class="c1"># 指定分隔符號</span>
+  <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</code></pre></div><h3 id="以dict的形式讀取">以Dict的形式讀取</h3>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">csv</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;iris.csv&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">csvfile</span><span class="p">:</span>
+  <span class="n">rows</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span><span class="n">csvfile</span><span class="p">)</span>    <span class="c1"># 將每列讀成一個dict</span>
+  <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</code></pre></div><div class="edit-meta">
+Last updated on 2020-03-29
+
+
+<br>
+Published on 2020-03-29
+<br><a href="https://github.com/thingsym/hugo-theme-techdoc/edit/master/content/Python%5cBasic%5cCSV.md" class="edit-page"><i class="fas fa-pen-square"></i> Edit on GitHub</a></div><nav class="pagination"><a class="nav nav-prev" href="https://yehyoung.github.io/python/sqlite/intro/" title="SQLite 簡介"><i class="fas fa-arrow-left" aria-hidden="true"></i> Prev - SQLite 簡介</a>
+<a class="nav nav-next" href="https://yehyoung.github.io/python/stock/stock/" title="Stock">Next - Stock <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main><div class="sidebar">
+
+<nav class="slide-menu">
+<ul>
+<li class=""><a href="https://yehyoung.github.io">Home</a></li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/hugo/">Hugo<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/hugo/01_hugoinstall/">Hugo 安裝</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/02_themesetup/">Hugo 佈景安裝及設定</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/04_newpost/">Hugo 新增一篇文章</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/03_structure/">Hugo 資料夾與檔案結構</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/05_runserver/">Hugo 本機啓動一個伺服器</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/06_pushtogit/">將網站上傳到Github</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/highlight/">程式碼高亮 Highlight</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/sass/">在 Hugo 裡使用 SASS</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/otherfunction/">OtherFunction</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/frontmatter/">Hugo FrontMatter</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/reference/">參考網站</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/hugoreference/">HugoReference</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/07_hugocommand/">HugoCommand</a></li>
+</ul>
+  
+</li>
+
+<li class=""><a href="https://yehyoung.github.io/ai/">人工智慧</a>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/linebot/">LINE Bot<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/linebot/linebotintro/">LINEBot 概念</a></li>
+<li class=""><a href="https://yehyoung.github.io/linebot/django/djintro/">Django 介紹及安裝</a></li>
+<li class=""><a href="https://yehyoung.github.io/linebot/reference/">參考網站</a></li>
+</ul>
+  
+</li>
+
+<li class="parent has-sub-menu"><a href="https://yehyoung.github.io/python/">Python<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/python/sqlite/intro/">SQLite 簡介</a></li>
+<li class="active"><a href="https://yehyoung.github.io/python/basic/csv/">Python - CSV</a></li>
+<li class=""><a href="https://yehyoung.github.io/python/stock/stock/">Stock</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/gulp/">Gulps<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/gulp/gulpv4sample2/">GulpV4Sample2</a></li>
+<li class=""><a href="https://yehyoung.github.io/gulp/gulpv4sample1/">GulpV4Sample1</a></li>
+<li class=""><a href="https://yehyoung.github.io/gulp/gulptask/">GulpTask</a></li>
+<li class=""><a href="https://yehyoung.github.io/gulp/gulpplugin/">GulpPlugin</a></li>
+<li class=""><a href="https://yehyoung.github.io/gulp/glob/">Glob</a></li>
+<li class=""><a href="https://yehyoung.github.io/gulp/gulpintro/">Gulp 4 介紹及安裝</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/webpack/">Webpacks<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/webpack/reference/">Reference</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/netcore/">NetCores<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=""><a href="https://yehyoung.github.io/netcore/entityframework/">Entity Framework</a>
+  
+</li>
+
+<li class=""><a href="https://yehyoung.github.io/netcore/linq/">LINQ</a>
+  
+</li>
+
+<li class=""><a href="https://yehyoung.github.io/netcore/csharp/">C#</a>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/markdown/">Markdowns<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/markdown/markdownrule/">MarkdownRule</a></li>
+<li class=""><a href="https://yehyoung.github.io/markdown/markdown/">Markdown </a></li>
+</ul>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>

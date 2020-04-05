@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Webpacks on YehYeh 記事本2.0</title>
+    <link>https://yehyoung.github.io/webpack/</link>
+    <description>Recent content in Webpacks on YehYeh 記事本2.0</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Thu, 02 Apr 2020 20:18:25 +0800</lastBuildDate>
+    
+	<atom:link href="https://yehyoung.github.io/webpack/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Reference</title>
+      <link>https://yehyoung.github.io/webpack/reference/</link>
+      <pubDate>Thu, 02 Apr 2020 20:18:25 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/webpack/reference/</guid>
+      <description>參考 Magic Len 如何用Webpack來打包JavaScript、SCSS/CSS、HTML網頁和任意檔案？</description>
+    </item>
+    
+  </channel>
+</rss>

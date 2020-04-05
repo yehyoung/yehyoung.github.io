@@ -17,11 +17,11 @@
       <pubDate>Tue, 24 Mar 2020 22:36:54 +0800</pubDate>
       
       <guid>https://yehyoung.github.io/linebot/linebotintro/</guid>
-      <description>LINE Bot的運作如下圖 準備: 開發者先到LINE Develope的網站註冊 LINE 開發者網站: https://developers.line.biz/en/ 建立一個新的Messaging API 的頻道 (Channel) 取得Bot的Q</description>
+      <description>LINE Bot的運作如下圖 準備 開發者先到LINE Develope的網站註冊 LINE 開發者網站: https://developers.line.biz/en/ 建立一個新的Messaging API 的頻道 (Channel) 取得Bot的QR</description>
     </item>
     
     <item>
-      <title>DJIntro</title>
+      <title>Django 介紹及安裝</title>
       <link>https://yehyoung.github.io/linebot/django/djintro/</link>
       <pubDate>Mon, 23 Mar 2020 23:50:58 +0800</pubDate>
       
@@ -35,7 +35,7 @@
       <pubDate>Mon, 23 Mar 2020 23:25:08 +0800</pubDate>
       
       <guid>https://yehyoung.github.io/linebot/reference/</guid>
-      <description>股票小秘書教你實戰一招「自動化選股」-附贈Python程式碼 土炮一個 Line 股票機器人 Line Bot助手機器人實作</description>
+      <description>twstock python爬蟲 — 每日即時股價 股票小秘書教你實戰一招「自動化選股」-附贈Python程式碼 土炮一個 Line 股票機器人 自動看盤機器人 Line Bot助手機</description>
     </item>
     
   </channel>

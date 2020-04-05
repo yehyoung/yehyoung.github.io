@@ -3,9 +3,10 @@
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<title>PushToGit - YehYeh 記事本2.0</title>
+<link rel="shortcut icon" href="/images/favicon.ico">
+<title>將網站上傳到Github - YehYeh 記事本2.0</title>
 <meta name="description" content="竹科碼農的記事本">
-<meta name="generator" content="Hugo 0.67.1" />
+<meta name="generator" content="Hugo 0.68.3" />
 <link href="https://yehyoung.github.ioindex.xml" rel="alternate" type="application/rss+xml">
 <link rel="canonical" href="https://yehyoung.github.io/hugo/06_pushtogit/">
 <link rel="stylesheet" href="https://yehyoung.github.io/css/theme.min.css">
@@ -16,7 +17,7 @@
 <script src="https://yehyoung.github.io/js/bundle.js"></script><style>
 :root {--custom-background-color: DodgerBlue;}
 </style>
-<meta property="og:title" content="PushToGit" />
+<meta property="og:title" content="將網站上傳到Github" />
 <meta property="og:description" content="佈署到 Github Hugo 官網教學文件 Github - Working with GitHub Pages 01 佈署方式 佈署到github可以分為2種 個人的首頁 https://&lt;USERNAME|ORGANIZATION&gt;.github.io/ 一個帳號只能有一個首頁 (這裡介紹的方式) 專案網頁 https://&lt;USERNAME|ORGANIZATION&gt;.github.io/&lt;PROJECT&gt;/ 一個" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://yehyoung.github.io/hugo/06_pushtogit/" />
@@ -26,13 +27,13 @@
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://yehyoung.github.io/images/Test.jpg"/>
 
-<meta name="twitter:title" content="PushToGit"/>
+<meta name="twitter:title" content="將網站上傳到Github"/>
 <meta name="twitter:description" content="佈署到 Github Hugo 官網教學文件 Github - Working with GitHub Pages 01 佈署方式 佈署到github可以分為2種 個人的首頁 https://&lt;USERNAME|ORGANIZATION&gt;.github.io/ 一個帳號只能有一個首頁 (這裡介紹的方式) 專案網頁 https://&lt;USERNAME|ORGANIZATION&gt;.github.io/&lt;PROJECT&gt;/ 一個"/>
-<meta itemprop="name" content="PushToGit">
+<meta itemprop="name" content="將網站上傳到Github">
 <meta itemprop="description" content="佈署到 Github Hugo 官網教學文件 Github - Working with GitHub Pages 01 佈署方式 佈署到github可以分為2種 個人的首頁 https://&lt;USERNAME|ORGANIZATION&gt;.github.io/ 一個帳號只能有一個首頁 (這裡介紹的方式) 專案網頁 https://&lt;USERNAME|ORGANIZATION&gt;.github.io/&lt;PROJECT&gt;/ 一個">
 <meta itemprop="datePublished" content="2020-03-22T17:56:11&#43;08:00" />
 <meta itemprop="dateModified" content="2020-03-22T17:56:11&#43;08:00" />
-<meta itemprop="wordCount" content="635">
+<meta itemprop="wordCount" content="657">
 <meta itemprop="image" content="https://yehyoung.github.io/images/Test.jpg"/>
 
 
@@ -55,7 +56,7 @@
 </nav>
 </div>
 <div class="content-container">
-<main><h1>PushToGit</h1>
+<main><h1>將網站上傳到Github</h1>
 <h1 id="佈署到-github">佈署到 Github</h1>
 <ul>
 <li><a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/">Hugo 官網教學文件</a></li>
@@ -74,6 +75,7 @@
 <ul>
 <li><code>https://&lt;USERNAME|ORGANIZATION&gt;.github.io/&lt;PROJECT&gt;/</code></li>
 <li>一個帳號可以有多個專案網頁</li>
+<li>需先上傳一個檔案，再把專案設為<code>master branch</code></li>
 </ul>
 </li>
 </ol>
@@ -159,8 +161,8 @@ Last updated on 2020-03-22
 
 <br>
 Published on 2020-03-22
-<br><a href="https://github.com/thingsym/hugo-theme-techdoc/edit/master/content/Hugo%5c06_PushToGit.md" class="edit-page"><i class="fas fa-pen-square"></i> Edit on GitHub</a></div><nav class="pagination"><a class="nav nav-prev" href="https://yehyoung.github.io/hugo/05_runserver/" title="RunServer"><i class="fas fa-arrow-left" aria-hidden="true"></i> Prev - RunServer</a>
-<a class="nav nav-next" href="https://yehyoung.github.io/hugo/reference/" title="參考網站">Next - 參考網站 <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+<br><a href="https://github.com/thingsym/hugo-theme-techdoc/edit/master/content/Hugo%5c06_PushToGit.md" class="edit-page"><i class="fas fa-pen-square"></i> Edit on GitHub</a></div><nav class="pagination"><a class="nav nav-prev" href="https://yehyoung.github.io/hugo/05_runserver/" title="Hugo 本機啓動一個伺服器"><i class="fas fa-arrow-left" aria-hidden="true"></i> Prev - Hugo 本機啓動一個伺服器</a>
+<a class="nav nav-next" href="https://yehyoung.github.io/hugo/highlight/" title="程式碼高亮 Highlight">Next - 程式碼高亮 Highlight <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
 </nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
 </footer>
 </main><div class="sidebar">
@@ -173,13 +175,16 @@ Published on 2020-03-22
   
 <ul class="sub-menu">
 <li class=""><a href="https://yehyoung.github.io/hugo/01_hugoinstall/">Hugo 安裝</a></li>
-<li class=""><a href="https://yehyoung.github.io/hugo/02_themesetup/">佈景安裝及設定</a></li>
-<li class=""><a href="https://yehyoung.github.io/hugo/04_newpost/">新增一篇文章</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/02_themesetup/">Hugo 佈景安裝及設定</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/04_newpost/">Hugo 新增一篇文章</a></li>
 <li class=""><a href="https://yehyoung.github.io/hugo/03_structure/">Hugo 資料夾與檔案結構</a></li>
-<li class=""><a href="https://yehyoung.github.io/hugo/05_runserver/">RunServer</a></li>
-<li class="active"><a href="https://yehyoung.github.io/hugo/06_pushtogit/">PushToGit</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/05_runserver/">Hugo 本機啓動一個伺服器</a></li>
+<li class="active"><a href="https://yehyoung.github.io/hugo/06_pushtogit/">將網站上傳到Github</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/highlight/">程式碼高亮 Highlight</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/sass/">在 Hugo 裡使用 SASS</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/otherfunction/">OtherFunction</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/frontmatter/">Hugo FrontMatter</a></li>
 <li class=""><a href="https://yehyoung.github.io/hugo/reference/">參考網站</a></li>
-<li class=""><a href="https://yehyoung.github.io/hugo/shortcode/">ShortCode</a></li>
 <li class=""><a href="https://yehyoung.github.io/hugo/hugoreference/">HugoReference</a></li>
 <li class=""><a href="https://yehyoung.github.io/hugo/07_hugocommand/">HugoCommand</a></li>
 </ul>
@@ -194,13 +199,40 @@ Published on 2020-03-22
   
 <ul class="sub-menu">
 <li class=""><a href="https://yehyoung.github.io/linebot/linebotintro/">LINEBot 概念</a></li>
-<li class=""><a href="https://yehyoung.github.io/linebot/django/djintro/">DJIntro</a></li>
+<li class=""><a href="https://yehyoung.github.io/linebot/django/djintro/">Django 介紹及安裝</a></li>
 <li class=""><a href="https://yehyoung.github.io/linebot/reference/">參考網站</a></li>
 </ul>
   
 </li>
 
-<li class=""><a href="https://yehyoung.github.io/python/">Python</a>
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/python/">Python<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/python/sqlite/intro/">SQLite 簡介</a></li>
+<li class=""><a href="https://yehyoung.github.io/python/basic/csv/">Python - CSV</a></li>
+<li class=""><a href="https://yehyoung.github.io/python/stock/stock/">Stock</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/gulp/">Gulps<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/gulp/gulpv4sample2/">GulpV4Sample2</a></li>
+<li class=""><a href="https://yehyoung.github.io/gulp/gulpv4sample1/">GulpV4Sample1</a></li>
+<li class=""><a href="https://yehyoung.github.io/gulp/gulptask/">GulpTask</a></li>
+<li class=""><a href="https://yehyoung.github.io/gulp/gulpplugin/">GulpPlugin</a></li>
+<li class=""><a href="https://yehyoung.github.io/gulp/glob/">Glob</a></li>
+<li class=""><a href="https://yehyoung.github.io/gulp/gulpintro/">Gulp 4 介紹及安裝</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/webpack/">Webpacks<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/webpack/reference/">Reference</a></li>
+</ul>
   
 </li>
 

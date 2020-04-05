@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="/images/favicon.ico">
+<title>GulpV4Sample2 - YehYeh 記事本2.0</title>
+<meta name="description" content="竹科碼農的記事本">
+<meta name="generator" content="Hugo 0.68.3" />
+<link href="https://yehyoung.github.ioindex.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://yehyoung.github.io/gulp/gulpv4sample2/">
+<link rel="stylesheet" href="https://yehyoung.github.io/css/theme.min.css">
+<script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<link rel="stylesheet" href="https://yehyoung.github.io/css/chroma.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js"></script>
+<script src="https://yehyoung.github.io/js/bundle.js"></script><style>
+:root {--custom-background-color: DodgerBlue;}
+</style>
+<meta property="og:title" content="GulpV4Sample2" />
+<meta property="og:description" content="webstoemp-gulpfile.js  &#34;use strict&#34;; // Load plugins const autoprefixer = require(&#34;autoprefixer&#34;); const browsersync = require(&#34;browser-sync&#34;).create(); const cp = require(&#34;child_process&#34;); const cssnano = require(&#34;cssnano&#34;); const del = require(&#34;del&#34;); const eslint = require(&#34;gulp-eslint&#34;); const gulp = require(&#34;gulp&#34;); const imagemin = require(&#34;gulp-imagemin&#34;); const newer = require(&#34;gulp-newer&#34;); const plumber = require(&#34;gulp-plumber&#34;); const postcss = require(&#34;gulp-postcss&#34;); const rename = require(&#34;gulp-rename&#34;); const sass = require(&#34;gulp-sass&#34;); const webpack = require(&#34;webpack&#34;); const webpackconfig = require(&#34;./webpack.config.js&#34;); const webpackstream = require(&#34;webpack-stream&#34;); // BrowserSync function browserSync(done) { browsersync." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yehyoung.github.io/gulp/gulpv4sample2/" />
+<meta property="og:image" content="https://yehyoung.github.io/images/Test.jpg"/>
+<meta property="article:published_time" content="2020-04-03T10:21:33+08:00" />
+<meta property="article:modified_time" content="2020-04-03T10:21:33+08:00" /><meta property="og:site_name" content="Hugo Techdoc Theme 測試" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://yehyoung.github.io/images/Test.jpg"/>
+
+<meta name="twitter:title" content="GulpV4Sample2"/>
+<meta name="twitter:description" content="webstoemp-gulpfile.js  &#34;use strict&#34;; // Load plugins const autoprefixer = require(&#34;autoprefixer&#34;); const browsersync = require(&#34;browser-sync&#34;).create(); const cp = require(&#34;child_process&#34;); const cssnano = require(&#34;cssnano&#34;); const del = require(&#34;del&#34;); const eslint = require(&#34;gulp-eslint&#34;); const gulp = require(&#34;gulp&#34;); const imagemin = require(&#34;gulp-imagemin&#34;); const newer = require(&#34;gulp-newer&#34;); const plumber = require(&#34;gulp-plumber&#34;); const postcss = require(&#34;gulp-postcss&#34;); const rename = require(&#34;gulp-rename&#34;); const sass = require(&#34;gulp-sass&#34;); const webpack = require(&#34;webpack&#34;); const webpackconfig = require(&#34;./webpack.config.js&#34;); const webpackstream = require(&#34;webpack-stream&#34;); // BrowserSync function browserSync(done) { browsersync."/>
+<meta itemprop="name" content="GulpV4Sample2">
+<meta itemprop="description" content="webstoemp-gulpfile.js  &#34;use strict&#34;; // Load plugins const autoprefixer = require(&#34;autoprefixer&#34;); const browsersync = require(&#34;browser-sync&#34;).create(); const cp = require(&#34;child_process&#34;); const cssnano = require(&#34;cssnano&#34;); const del = require(&#34;del&#34;); const eslint = require(&#34;gulp-eslint&#34;); const gulp = require(&#34;gulp&#34;); const imagemin = require(&#34;gulp-imagemin&#34;); const newer = require(&#34;gulp-newer&#34;); const plumber = require(&#34;gulp-plumber&#34;); const postcss = require(&#34;gulp-postcss&#34;); const rename = require(&#34;gulp-rename&#34;); const sass = require(&#34;gulp-sass&#34;); const webpack = require(&#34;webpack&#34;); const webpackconfig = require(&#34;./webpack.config.js&#34;); const webpackstream = require(&#34;webpack-stream&#34;); // BrowserSync function browserSync(done) { browsersync.">
+<meta itemprop="datePublished" content="2020-04-03T10:21:33&#43;08:00" />
+<meta itemprop="dateModified" content="2020-04-03T10:21:33&#43;08:00" />
+<meta itemprop="wordCount" content="300">
+<meta itemprop="image" content="https://yehyoung.github.io/images/Test.jpg"/>
+
+
+
+<meta itemprop="keywords" content="" /></head>
+<body><div class="container"><header>
+<h1>YehYeh 記事本2.0</h1>
+
+ <span class="version">Version 0.8.3</span>
+<a href="https://github.com/thingsym/hugo-theme-techdoc" class="github"><i class="fab fa-github"></i></a>
+<p class="description">竹科碼農的記事本</p>
+
+</header>
+<div class="global-menu">
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="https://twitter.com/thingsym">Twitter</a></li>
+<li><a href="/about/">About Hugo</a></li></ul>
+</nav>
+</div>
+<div class="content-container">
+<main><h1>GulpV4Sample2</h1>
+<ul>
+<li><a href="https://gist.github.com/jeromecoupe/0b807b0c1050647eb340360902c3203a">webstoemp-gulpfile.js</a></li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="s2">&#34;use strict&#34;</span><span class="p">;</span>
+
+<span class="c1">// Load plugins
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">autoprefixer</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;autoprefixer&#34;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">browsersync</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;browser-sync&#34;</span><span class="p">).</span><span class="nx">create</span><span class="p">();</span>
+<span class="kr">const</span> <span class="nx">cp</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;child_process&#34;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">cssnano</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;cssnano&#34;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">del</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;del&#34;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">eslint</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;gulp-eslint&#34;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">gulp</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;gulp&#34;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">imagemin</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;gulp-imagemin&#34;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">newer</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;gulp-newer&#34;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">plumber</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;gulp-plumber&#34;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">postcss</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;gulp-postcss&#34;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">rename</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;gulp-rename&#34;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">sass</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;gulp-sass&#34;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">webpack</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;webpack&#34;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">webpackconfig</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;./webpack.config.js&#34;</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">webpackstream</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;webpack-stream&#34;</span><span class="p">);</span>
+
+<span class="c1">// BrowserSync
+</span><span class="c1"></span><span class="kd">function</span> <span class="nx">browserSync</span><span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">browsersync</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span>
+    <span class="nx">server</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">baseDir</span><span class="o">:</span> <span class="s2">&#34;./_site/&#34;</span>
+    <span class="p">},</span>
+    <span class="nx">port</span><span class="o">:</span> <span class="mi">3000</span>
+  <span class="p">});</span>
+  <span class="nx">done</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="c1">// BrowserSync Reload
+</span><span class="c1"></span><span class="kd">function</span> <span class="nx">browserSyncReload</span><span class="p">(</span><span class="nx">done</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">browsersync</span><span class="p">.</span><span class="nx">reload</span><span class="p">();</span>
+  <span class="nx">done</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="c1">// Clean assets
+</span><span class="c1"></span><span class="kd">function</span> <span class="nx">clean</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">del</span><span class="p">([</span><span class="s2">&#34;./_site/assets/&#34;</span><span class="p">]);</span>
+<span class="p">}</span>
+
+<span class="c1">// Optimize Images
+</span><span class="c1"></span><span class="kd">function</span> <span class="nx">images</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">gulp</span>
+    <span class="p">.</span><span class="nx">src</span><span class="p">(</span><span class="s2">&#34;./assets/img/**/*&#34;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">newer</span><span class="p">(</span><span class="s2">&#34;./_site/assets/img&#34;</span><span class="p">))</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span>
+      <span class="nx">imagemin</span><span class="p">([</span>
+        <span class="nx">imagemin</span><span class="p">.</span><span class="nx">gifsicle</span><span class="p">({</span> <span class="nx">interlaced</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}),</span>
+        <span class="nx">imagemin</span><span class="p">.</span><span class="nx">jpegtran</span><span class="p">({</span> <span class="nx">progressive</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}),</span>
+        <span class="nx">imagemin</span><span class="p">.</span><span class="nx">optipng</span><span class="p">({</span> <span class="nx">optimizationLevel</span><span class="o">:</span> <span class="mi">5</span> <span class="p">}),</span>
+        <span class="nx">imagemin</span><span class="p">.</span><span class="nx">svgo</span><span class="p">({</span>
+          <span class="nx">plugins</span><span class="o">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+              <span class="nx">removeViewBox</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+              <span class="nx">collapseGroups</span><span class="o">:</span> <span class="kc">true</span>
+            <span class="p">}</span>
+          <span class="p">]</span>
+        <span class="p">})</span>
+      <span class="p">])</span>
+    <span class="p">)</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">gulp</span><span class="p">.</span><span class="nx">dest</span><span class="p">(</span><span class="s2">&#34;./_site/assets/img&#34;</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="c1">// CSS task
+</span><span class="c1"></span><span class="kd">function</span> <span class="nx">css</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">gulp</span>
+    <span class="p">.</span><span class="nx">src</span><span class="p">(</span><span class="s2">&#34;./assets/scss/**/*.scss&#34;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">plumber</span><span class="p">())</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">sass</span><span class="p">({</span> <span class="nx">outputStyle</span><span class="o">:</span> <span class="s2">&#34;expanded&#34;</span> <span class="p">}))</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">gulp</span><span class="p">.</span><span class="nx">dest</span><span class="p">(</span><span class="s2">&#34;./_site/assets/css/&#34;</span><span class="p">))</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">rename</span><span class="p">({</span> <span class="nx">suffix</span><span class="o">:</span> <span class="s2">&#34;.min&#34;</span> <span class="p">}))</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">postcss</span><span class="p">([</span><span class="nx">autoprefixer</span><span class="p">(),</span> <span class="nx">cssnano</span><span class="p">()]))</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">gulp</span><span class="p">.</span><span class="nx">dest</span><span class="p">(</span><span class="s2">&#34;./_site/assets/css/&#34;</span><span class="p">))</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">browsersync</span><span class="p">.</span><span class="nx">stream</span><span class="p">());</span>
+<span class="p">}</span>
+
+<span class="c1">// Lint scripts
+</span><span class="c1"></span><span class="kd">function</span> <span class="nx">scriptsLint</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">gulp</span>
+    <span class="p">.</span><span class="nx">src</span><span class="p">([</span><span class="s2">&#34;./assets/js/**/*&#34;</span><span class="p">,</span> <span class="s2">&#34;./gulpfile.js&#34;</span><span class="p">])</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">plumber</span><span class="p">())</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">eslint</span><span class="p">())</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">eslint</span><span class="p">.</span><span class="nx">format</span><span class="p">())</span>
+    <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">eslint</span><span class="p">.</span><span class="nx">failAfterError</span><span class="p">());</span>
+<span class="p">}</span>
+
+<span class="c1">// Transpile, concatenate and minify scripts
+</span><span class="c1"></span><span class="kd">function</span> <span class="nx">scripts</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="nx">gulp</span>
+      <span class="p">.</span><span class="nx">src</span><span class="p">([</span><span class="s2">&#34;./assets/js/**/*&#34;</span><span class="p">])</span>
+      <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">plumber</span><span class="p">())</span>
+      <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">webpackstream</span><span class="p">(</span><span class="nx">webpackconfig</span><span class="p">,</span> <span class="nx">webpack</span><span class="p">))</span>
+      <span class="c1">// folder only, filename is specified in webpack config
+</span><span class="c1"></span>      <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">gulp</span><span class="p">.</span><span class="nx">dest</span><span class="p">(</span><span class="s2">&#34;./_site/assets/js/&#34;</span><span class="p">))</span>
+      <span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">browsersync</span><span class="p">.</span><span class="nx">stream</span><span class="p">())</span>
+  <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Jekyll
+</span><span class="c1"></span><span class="kd">function</span> <span class="nx">jekyll</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">cp</span><span class="p">.</span><span class="nx">spawn</span><span class="p">(</span><span class="s2">&#34;bundle&#34;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&#34;exec&#34;</span><span class="p">,</span> <span class="s2">&#34;jekyll&#34;</span><span class="p">,</span> <span class="s2">&#34;build&#34;</span><span class="p">],</span> <span class="p">{</span> <span class="nx">stdio</span><span class="o">:</span> <span class="s2">&#34;inherit&#34;</span> <span class="p">});</span>
+<span class="p">}</span>
+
+<span class="c1">// Watch files
+</span><span class="c1"></span><span class="kd">function</span> <span class="nx">watchFiles</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">gulp</span><span class="p">.</span><span class="nx">watch</span><span class="p">(</span><span class="s2">&#34;./assets/scss/**/*&#34;</span><span class="p">,</span> <span class="nx">css</span><span class="p">);</span>
+  <span class="nx">gulp</span><span class="p">.</span><span class="nx">watch</span><span class="p">(</span><span class="s2">&#34;./assets/js/**/*&#34;</span><span class="p">,</span> <span class="nx">gulp</span><span class="p">.</span><span class="nx">series</span><span class="p">(</span><span class="nx">scriptsLint</span><span class="p">,</span> <span class="nx">scripts</span><span class="p">));</span>
+  <span class="nx">gulp</span><span class="p">.</span><span class="nx">watch</span><span class="p">(</span>
+    <span class="p">[</span>
+      <span class="s2">&#34;./_includes/**/*&#34;</span><span class="p">,</span>
+      <span class="s2">&#34;./_layouts/**/*&#34;</span><span class="p">,</span>
+      <span class="s2">&#34;./_pages/**/*&#34;</span><span class="p">,</span>
+      <span class="s2">&#34;./_posts/**/*&#34;</span><span class="p">,</span>
+      <span class="s2">&#34;./_projects/**/*&#34;</span>
+    <span class="p">],</span>
+    <span class="nx">gulp</span><span class="p">.</span><span class="nx">series</span><span class="p">(</span><span class="nx">jekyll</span><span class="p">,</span> <span class="nx">browserSyncReload</span><span class="p">)</span>
+  <span class="p">);</span>
+  <span class="nx">gulp</span><span class="p">.</span><span class="nx">watch</span><span class="p">(</span><span class="s2">&#34;./assets/img/**/*&#34;</span><span class="p">,</span> <span class="nx">images</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// define complex tasks
+</span><span class="c1"></span><span class="kr">const</span> <span class="nx">js</span> <span class="o">=</span> <span class="nx">gulp</span><span class="p">.</span><span class="nx">series</span><span class="p">(</span><span class="nx">scriptsLint</span><span class="p">,</span> <span class="nx">scripts</span><span class="p">);</span>
+<span class="kr">const</span> <span class="nx">build</span> <span class="o">=</span> <span class="nx">gulp</span><span class="p">.</span><span class="nx">series</span><span class="p">(</span><span class="nx">clean</span><span class="p">,</span> <span class="nx">gulp</span><span class="p">.</span><span class="nx">parallel</span><span class="p">(</span><span class="nx">css</span><span class="p">,</span> <span class="nx">images</span><span class="p">,</span> <span class="nx">jekyll</span><span class="p">,</span> <span class="nx">js</span><span class="p">));</span>
+<span class="kr">const</span> <span class="nx">watch</span> <span class="o">=</span> <span class="nx">gulp</span><span class="p">.</span><span class="nx">parallel</span><span class="p">(</span><span class="nx">watchFiles</span><span class="p">,</span> <span class="nx">browserSync</span><span class="p">);</span>
+
+<span class="c1">// export tasks
+</span><span class="c1"></span><span class="nx">exports</span><span class="p">.</span><span class="nx">images</span> <span class="o">=</span> <span class="nx">images</span><span class="p">;</span>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">css</span> <span class="o">=</span> <span class="nx">css</span><span class="p">;</span>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">js</span> <span class="o">=</span> <span class="nx">js</span><span class="p">;</span>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">jekyll</span> <span class="o">=</span> <span class="nx">jekyll</span><span class="p">;</span>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">clean</span> <span class="o">=</span> <span class="nx">clean</span><span class="p">;</span>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">build</span> <span class="o">=</span> <span class="nx">build</span><span class="p">;</span>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">watch</span> <span class="o">=</span> <span class="nx">watch</span><span class="p">;</span>
+<span class="nx">exports</span><span class="p">.</span><span class="k">default</span> <span class="o">=</span> <span class="nx">build</span><span class="p">;</span>
+</code></pre></div><div class="edit-meta">
+Last updated on 2020-04-03
+
+
+<br>
+Published on 2020-04-03
+<br><a href="https://github.com/thingsym/hugo-theme-techdoc/edit/master/content/Gulp%5cGulpV4Sample2.md" class="edit-page"><i class="fas fa-pen-square"></i> Edit on GitHub</a></div><nav class="pagination"><a class="nav nav-prev" href="https://yehyoung.github.io/gulp/" title="Gulps"><i class="fas fa-arrow-left" aria-hidden="true"></i> Prev - Gulps</a>
+<a class="nav nav-next" href="https://yehyoung.github.io/gulp/gulpv4sample1/" title="GulpV4Sample1">Next - GulpV4Sample1 <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main><div class="sidebar">
+
+<nav class="slide-menu">
+<ul>
+<li class=""><a href="https://yehyoung.github.io">Home</a></li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/hugo/">Hugo<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/hugo/01_hugoinstall/">Hugo 安裝</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/02_themesetup/">Hugo 佈景安裝及設定</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/04_newpost/">Hugo 新增一篇文章</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/03_structure/">Hugo 資料夾與檔案結構</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/05_runserver/">Hugo 本機啓動一個伺服器</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/06_pushtogit/">將網站上傳到Github</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/highlight/">程式碼高亮 Highlight</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/sass/">在 Hugo 裡使用 SASS</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/otherfunction/">OtherFunction</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/frontmatter/">Hugo FrontMatter</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/reference/">參考網站</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/hugoreference/">HugoReference</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/07_hugocommand/">HugoCommand</a></li>
+</ul>
+  
+</li>
+
+<li class=""><a href="https://yehyoung.github.io/ai/">人工智慧</a>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/linebot/">LINE Bot<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/linebot/linebotintro/">LINEBot 概念</a></li>
+<li class=""><a href="https://yehyoung.github.io/linebot/django/djintro/">Django 介紹及安裝</a></li>
+<li class=""><a href="https://yehyoung.github.io/linebot/reference/">參考網站</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/python/">Python<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/python/sqlite/intro/">SQLite 簡介</a></li>
+<li class=""><a href="https://yehyoung.github.io/python/basic/csv/">Python - CSV</a></li>
+<li class=""><a href="https://yehyoung.github.io/python/stock/stock/">Stock</a></li>
+</ul>
+  
+</li>
+
+<li class="parent has-sub-menu"><a href="https://yehyoung.github.io/gulp/">Gulps<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+<li class="active"><a href="https://yehyoung.github.io/gulp/gulpv4sample2/">GulpV4Sample2</a></li>
+<li class=""><a href="https://yehyoung.github.io/gulp/gulpv4sample1/">GulpV4Sample1</a></li>
+<li class=""><a href="https://yehyoung.github.io/gulp/gulptask/">GulpTask</a></li>
+<li class=""><a href="https://yehyoung.github.io/gulp/gulpplugin/">GulpPlugin</a></li>
+<li class=""><a href="https://yehyoung.github.io/gulp/glob/">Glob</a></li>
+<li class=""><a href="https://yehyoung.github.io/gulp/gulpintro/">Gulp 4 介紹及安裝</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/webpack/">Webpacks<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/webpack/reference/">Reference</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/netcore/">NetCores<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=""><a href="https://yehyoung.github.io/netcore/entityframework/">Entity Framework</a>
+  
+</li>
+
+<li class=""><a href="https://yehyoung.github.io/netcore/linq/">LINQ</a>
+  
+</li>
+
+<li class=""><a href="https://yehyoung.github.io/netcore/csharp/">C#</a>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/markdown/">Markdowns<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/markdown/markdownrule/">MarkdownRule</a></li>
+<li class=""><a href="https://yehyoung.github.io/markdown/markdown/">Markdown </a></li>
+</ul>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>
