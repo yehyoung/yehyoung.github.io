@@ -66,6 +66,132 @@
     </item>
     
     <item>
+      <title>Hugo 佈景概念</title>
+      <link>https://yehyoung.github.io/hugo/theme/themeintro/</link>
+      <pubDate>Mon, 13 Apr 2020 22:26:09 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/hugo/theme/themeintro/</guid>
+      <description>概念 layout ├─layouts │ 404.html │ index.html │ ├─blog │ li.html │ list.html │ single.html │ summary.html │ ├─partials │ content-footer.html │ custom-css.html │ custom-head.html │ edit-meta.html │ edit-page.html │ footer.html │ global-menu.html │ head.html │ last-updated.html │ notification.html │ pagination.html │ powered.html │ prepend-body.html │ sidebar-footer.html</description>
+    </item>
+    
+    <item>
+      <title>Float</title>
+      <link>https://yehyoung.github.io/css/float/</link>
+      <pubDate>Sun, 12 Apr 2020 18:10:10 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/css/float/</guid>
+      <description>float EX1 - 沒有float .container 父元素內文 span.float 子元素內文 | 父元素內文 span.float 子元素內文 | 父元素內文 * margin: 0 10px .container background-color: Orange .float background-color: YellowGreen padding: 10px float EX2 - 設float .container background-color: Orange .float background-color: YellowGreen padding: 10px float:</description>
+    </item>
+    
+    <item>
+      <title>Reset</title>
+      <link>https://yehyoung.github.io/css/reset/</link>
+      <pubDate>Sun, 12 Apr 2020 13:11:37 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/css/reset/</guid>
+      <description>html, body width: 100% height: 100% margin: 0 </description>
+    </item>
+    
+    <item>
+      <title>Transform</title>
+      <link>https://yehyoung.github.io/css/transform/</link>
+      <pubDate>Sun, 12 Apr 2020 12:44:34 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/css/transform/</guid>
+      <description>外層 transform，內層也會transform transform: rotate(45deg)</description>
+    </item>
+    
+    <item>
+      <title>BoxShadow</title>
+      <link>https://yehyoung.github.io/css/boxshadow/</link>
+      <pubDate>Sun, 12 Apr 2020 12:36:13 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/css/boxshadow/</guid>
+      <description>Lorem Ipsum.</description>
+    </item>
+    
+    <item>
+      <title>Position</title>
+      <link>https://yehyoung.github.io/css/position/</link>
+      <pubDate>Sun, 12 Apr 2020 12:36:04 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/css/position/</guid>
+      <description>static : 預設屬性 預設的排版 沒有辦法用left, top , bottom, right 定位的元素 relative 在排版內 ⇒ 原來的位置會保留 位移時，原來的位置會保留 absolute: 在排版外 ⇒ 原來的位置不會保</description>
+    </item>
+    
+    <item>
+      <title>Emmet</title>
+      <link>https://yehyoung.github.io/html/emmet/</link>
+      <pubDate>Sat, 11 Apr 2020 23:20:50 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/html/emmet/</guid>
+      <description>HTML html:5 &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;#34;en&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;UTF-8&amp;#34; /&amp;gt; &amp;lt;title&amp;gt;Document&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; ul&amp;gt;li*5 &amp;lt;ul&amp;gt; &amp;lt;li&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; ul&amp;gt;(li&amp;gt;a)*3 *可搭配小括號 &amp;lt;ul&amp;gt; &amp;lt;li&amp;gt;&amp;lt;a href=&amp;#34;&amp;#34;&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;&amp;lt;a href=&amp;#34;&amp;#34;&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;&amp;lt;a href=&amp;#34;&amp;#34;&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; ### `div+p+bq` ```html &amp;lt;div&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;p&amp;gt;&amp;lt;/p&amp;gt; &amp;lt;blockquote&amp;gt;&amp;lt;/blockquote&amp;gt; ul&amp;gt;li.item$*3 &amp;lt;ul&amp;gt; &amp;lt;li class=&amp;quot;item1&amp;quot;&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li class=&amp;quot;item2&amp;quot;&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li class=&amp;quot;item3&amp;quot;&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; ul&amp;gt;li.item$$*3 幾位數字就用幾個$ &amp;lt;ul&amp;gt; &amp;lt;li class=&amp;#34;item01&amp;#34;&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li class=&amp;#34;item02&amp;#34;&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li</description>
+    </item>
+    
+    <item>
+      <title>Sass</title>
+      <link>https://yehyoung.github.io/css/sass/</link>
+      <pubDate>Sat, 11 Apr 2020 23:07:10 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/css/sass/</guid>
+      <description>Sass特性 不需加大括號 結尾不需加分號 巢狀 註解:// 父選擇器: &amp;amp; .class color: red background-color: GreenYellow .subClass//.class.subClass=&amp;gt; class底下，具有subClass的子孫元素 color: blue &amp;amp;:hover // .class .subClass:hover color: red &amp;amp;subClass//.class.subClass=&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title>Pug</title>
+      <link>https://yehyoung.github.io/html/pug/</link>
+      <pubDate>Sat, 11 Apr 2020 22:39:16 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/html/pug/</guid>
+      <description>// 註解 div.bgYellow.green div span.blue span a(href=&amp;quot;https://www.google.com/?hl=zh-tw&amp;quot; target=&amp;quot;_blank&amp;quot;) google | 繼續div內文 說明 pug 範例 HTML註解 // //註解 &amp;lt;!-- 註解 --&amp;gt; pug註解 //- //-註解 元素 標籤 內容 div 內文 子元素 縮排 + 標籤 內容 縮排</description>
+    </item>
+    
+    <item>
+      <title>CSS - Display &amp; flex</title>
+      <link>https://yehyoung.github.io/css/display/</link>
+      <pubDate>Fri, 10 Apr 2020 21:53:51 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/css/display/</guid>
+      <description>inline, inline-block , block 屬性 換行 寬度 有Width, height屬性 inline 不換行 內容寬度 無 inline-block 內容寬度 不換行 有 block 換行 水平撐滿 有 Display:inline 時width, height屬性不會有</description>
+    </item>
+    
+    <item>
+      <title>LINQ</title>
+      <link>https://yehyoung.github.io/netcore/csharp/linq/linq/</link>
+      <pubDate>Wed, 08 Apr 2020 21:32:03 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/netcore/csharp/linq/linq/</guid>
+      <description>Lorem Ipsum.</description>
+    </item>
+    
+    <item>
+      <title>Enumerable</title>
+      <link>https://yehyoung.github.io/netcore/csharp/linq/enumerable/</link>
+      <pubDate>Wed, 08 Apr 2020 21:31:54 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/netcore/csharp/linq/enumerable/</guid>
+      <description>擴充函式 功能 範例 Aggregate 將累加函式套用到序列上。 使用指定的值做為初始累加值，並使用指定的函式來選取結果值。 累加intArray中的偶數 int numEven = intArray.Aggregate(0, (total, next)</description>
+    </item>
+    
+    <item>
+      <title>Lambda 運算式</title>
+      <link>https://yehyoung.github.io/netcore/csharp/linq/lambda/</link>
+      <pubDate>Wed, 08 Apr 2020 21:31:27 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/netcore/csharp/linq/lambda/</guid>
+      <description>委派 變數的型別不能是函式，只能是類別、int、String、&amp;hellip; 在C++中，函式指標(Function Pointer)可以讓變數</description>
+    </item>
+    
+    <item>
+      <title>Count</title>
+      <link>https://yehyoung.github.io/oracle/count/</link>
+      <pubDate>Mon, 06 Apr 2020 23:13:23 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/oracle/count/</guid>
+      <description>Count() COUNT( [ALL | DISTINCT | * ] expression) COUNT(*) : 回傳同Group裡的筆數 含NULL和重複的資料 COUNT(DISTINCT expression) 回傳的筆數，重複的只會算1筆，NULL不會算 expression 只能是欄位名稱 COUNT(ALL expression) 類似</description>
+    </item>
+    
+    <item>
       <title>程式碼高亮 Highlight</title>
       <link>https://yehyoung.github.io/hugo/highlight/</link>
       <pubDate>Sun, 05 Apr 2020 21:09:08 +0800</pubDate>

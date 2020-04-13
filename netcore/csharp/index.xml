@@ -11,5 +11,32 @@
 	<atom:link href="https://yehyoung.github.io/netcore/csharp/index.xml" rel="self" type="application/rss+xml" />
     
     
+    <item>
+      <title>LINQ</title>
+      <link>https://yehyoung.github.io/netcore/csharp/linq/linq/</link>
+      <pubDate>Wed, 08 Apr 2020 21:32:03 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/netcore/csharp/linq/linq/</guid>
+      <description>Lorem Ipsum.</description>
+    </item>
+    
+    <item>
+      <title>Enumerable</title>
+      <link>https://yehyoung.github.io/netcore/csharp/linq/enumerable/</link>
+      <pubDate>Wed, 08 Apr 2020 21:31:54 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/netcore/csharp/linq/enumerable/</guid>
+      <description>擴充函式 功能 範例 Aggregate 將累加函式套用到序列上。 使用指定的值做為初始累加值，並使用指定的函式來選取結果值。 累加intArray中的偶數 int numEven = intArray.Aggregate(0, (total, next)</description>
+    </item>
+    
+    <item>
+      <title>Lambda 運算式</title>
+      <link>https://yehyoung.github.io/netcore/csharp/linq/lambda/</link>
+      <pubDate>Wed, 08 Apr 2020 21:31:27 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/netcore/csharp/linq/lambda/</guid>
+      <description>委派 變數的型別不能是函式，只能是類別、int、String、&amp;hellip; 在C++中，函式指標(Function Pointer)可以讓變數</description>
+    </item>
+    
   </channel>
 </rss>
