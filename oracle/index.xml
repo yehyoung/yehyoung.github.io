@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Oracles on YehYeh 記事本2.0</title>
+    <link>https://yehyoung.github.io/oracle/</link>
+    <description>Recent content in Oracles on YehYeh 記事本2.0</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Mon, 06 Apr 2020 23:13:23 +0800</lastBuildDate>
+    
+	<atom:link href="https://yehyoung.github.io/oracle/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Count</title>
+      <link>https://yehyoung.github.io/oracle/count/</link>
+      <pubDate>Mon, 06 Apr 2020 23:13:23 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/oracle/count/</guid>
+      <description>Count() COUNT( [ALL | DISTINCT | * ] expression) COUNT(*) : 回傳同Group裡的筆數 含NULL和重複的資料 COUNT(DISTINCT expression) 回傳的筆數，重複的只會算1筆，NULL不會算 expression 只能是欄位名稱 COUNT(ALL expression) 類似</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="/images/favicon.ico">
+<title>Sass - YehYeh 記事本2.0</title>
+<meta name="description" content="竹科碼農的記事本">
+<meta name="generator" content="Hugo 0.68.3" />
+<link href="https://yehyoung.github.ioindex.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://yehyoung.github.io/css/sass/">
+<link rel="stylesheet" href="https://yehyoung.github.io/css/theme.min.css">
+<script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<link rel="stylesheet" href="https://yehyoung.github.io/css/chroma.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js"></script>
+<script src="https://yehyoung.github.io/js/bundle.js"></script><style>
+:root {--custom-background-color: DodgerBlue;}
+</style>
+<meta property="og:title" content="Sass" />
+<meta property="og:description" content="Sass特性 不需加大括號 結尾不需加分號 巢狀 註解:// 父選擇器: &amp; .class color: red background-color: GreenYellow .subClass//.class.subClass=&gt; class底下，具有subClass的子孫元素 color: blue &amp;:hover // .class .subClass:hover color: red &amp;subClass//.class.subClass=&gt;" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yehyoung.github.io/css/sass/" />
+<meta property="og:image" content="https://yehyoung.github.io/images/Test.jpg"/>
+<meta property="article:published_time" content="2020-04-11T23:07:10+08:00" />
+<meta property="article:modified_time" content="2020-04-11T23:07:10+08:00" /><meta property="og:site_name" content="Hugo Techdoc Theme 測試" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://yehyoung.github.io/images/Test.jpg"/>
+
+<meta name="twitter:title" content="Sass"/>
+<meta name="twitter:description" content="Sass特性 不需加大括號 結尾不需加分號 巢狀 註解:// 父選擇器: &amp; .class color: red background-color: GreenYellow .subClass//.class.subClass=&gt; class底下，具有subClass的子孫元素 color: blue &amp;:hover // .class .subClass:hover color: red &amp;subClass//.class.subClass=&gt;"/>
+<meta itemprop="name" content="Sass">
+<meta itemprop="description" content="Sass特性 不需加大括號 結尾不需加分號 巢狀 註解:// 父選擇器: &amp; .class color: red background-color: GreenYellow .subClass//.class.subClass=&gt; class底下，具有subClass的子孫元素 color: blue &amp;:hover // .class .subClass:hover color: red &amp;subClass//.class.subClass=&gt;">
+<meta itemprop="datePublished" content="2020-04-11T23:07:10&#43;08:00" />
+<meta itemprop="dateModified" content="2020-04-11T23:07:10&#43;08:00" />
+<meta itemprop="wordCount" content="1247">
+<meta itemprop="image" content="https://yehyoung.github.io/images/Test.jpg"/>
+
+
+
+<meta itemprop="keywords" content="" /></head>
+<body><div class="container"><header>
+<h1>YehYeh 記事本2.0</h1>
+
+ <span class="version">Version 0.8.3</span>
+<a href="https://github.com/thingsym/hugo-theme-techdoc" class="github"><i class="fab fa-github"></i></a>
+<p class="description">竹科碼農的記事本</p>
+
+</header>
+<div class="global-menu">
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="https://twitter.com/thingsym">Twitter</a></li>
+<li><a href="/about/">About Hugo</a></li></ul>
+</nav>
+</div>
+<div class="content-container">
+<main><h1>Sass</h1>
+<h2 id="sass特性">Sass特性</h2>
+<ul>
+<li>
+<p>不需加大括號</p>
+</li>
+<li>
+<p>結尾不需加分號</p>
+</li>
+<li>
+<p>巢狀</p>
+</li>
+<li>
+<p>註解:<code>//</code></p>
+</li>
+<li>
+<p>父選擇器: <code>&amp;</code></p>
+</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-sass" data-lang="sass"><span class="nc">.class</span>
+<span class="err">  </span><span class="na">color</span><span class="o">:</span> <span class="ni">red</span>
+<span class="err">  </span><span class="na">background-color</span><span class="o">:</span> <span class="ni">GreenYellow</span>
+
+<span class="err">  </span><span class="na">.subClass</span><span class="err">         </span><span class="na">//</span><span class="err"> </span><span class="na">.class</span><span class="err"> </span><span class="na">.subClass</span><span class="o">  =&gt;</span> <span class="n">class底下</span><span class="err">，具有</span><span class="n">subClass的子孫元素</span>
+<span class="err">    </span><span class="na">color</span><span class="o">:</span> <span class="ni">blue</span>
+
+    <span class="k">&amp;</span><span class="nd">:hover</span>         <span class="o">//</span> <span class="nc">.class</span> <span class="nc">.subClass</span><span class="nd">:hover</span>
+<span class="err">      </span><span class="na">color</span><span class="o">:</span> <span class="ni">red</span>
+
+<span class="err">  </span><span class="na">&amp;</span><span class="err"> </span><span class="na">subClass</span><span class="err">        </span><span class="na">//</span><span class="err"> </span><span class="na">.class</span><span class="err"> </span><span class="na">.subClass</span><span class="o">  =&gt;</span> <span class="err">同上</span><span class="o">,</span> <span class="n">class底下</span><span class="err">，具有</span><span class="n">subClass的子孫元素</span>
+<span class="err">    </span><span class="na">color</span><span class="o">:</span> <span class="ni">green</span>
+
+<span class="err">  </span><span class="na">&amp;.class2</span><span class="err">        </span><span class="na">//</span><span class="err"> </span><span class="na">.class.class2</span><span class="o">   =&gt;</span> <span class="err">同時具有</span><span class="mi">2</span><span class="err">個</span><span class="n">class</span>
+<span class="err">    </span><span class="na">color</span><span class="o">:</span> <span class="ni">red</span>
+
+  <span class="k">&amp;</span><span class="nd">:hover</span>           <span class="o">//</span> <span class="nc">.class</span><span class="nd">:hover</span>
+<span class="err">    </span><span class="na">color</span><span class="o">:</span> <span class="ni">blue</span>
+
+  <span class="o">&gt;</span> <span class="nc">.subElement</span>     <span class="o">//</span> <span class="nt">子元素選擇器</span><span class="o">(</span><span class="nt">不含孫元素</span><span class="o">)</span>
+<span class="err">    </span><span class="na">color</span><span class="o">:</span> <span class="ni">blue</span>
+  
+  <span class="o">+</span> <span class="nc">.nextOneElement</span>  <span class="o">//</span> <span class="nt">同層第1相鄰元素選擇器</span><span class="o">(</span><span class="nt">選擇第1個相鄰的元素</span><span class="o">)</span>
+<span class="err">    </span><span class="na">color</span><span class="o">:</span> <span class="ni">blue</span>
+
+  <span class="o">~</span> <span class="nc">.nextAllElement</span> <span class="o">//</span> <span class="nt">同層第全部元素選擇器</span><span class="o">(</span><span class="nt">選擇第1個相鄰的元素</span><span class="o">)</span>
+    <span class="nt">color</span> <span class="nt">blue</span>
+</code></pre></div><p>``</p>
+<h2 id="變數">變數</h2>
+<ul>
+<li>以<code>$</code>開頭宣告及使用變數</li>
+<li>變數有作用域，只能在宣告變數的同層級或子孫層級使用變數</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-sass" data-lang="sass"><span class="nv">$bgColor</span><span class="o">:</span> <span class="ni">lightYellow</span>
+
+<span class="nc">.div</span>
+<span class="err">  </span><span class="na">background-color</span><span class="o">:</span> <span class="nv">$bgColor</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-sass" data-lang="sass"><span class="nv">$bigMargin</span><span class="o">:</span> <span class="mi">10</span><span class="kt">px</span> <span class="mi">20</span><span class="kt">px</span>
+<span class="nv">$smallMargin</span><span class="o">:</span> <span class="mi">5</span><span class="kt">px</span> <span class="mi">10</span><span class="kt">px</span>
+
+<span class="nt">div</span>
+<span class="err">  </span><span class="na">margin</span><span class="o">:</span> <span class="nv">$bigMargin</span>
+
+<span class="nt">span</span>
+<span class="err">  </span><span class="na">margin</span><span class="o">:</span> <span class="nv">$smallMargin</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-sass" data-lang="sass"><span class="nv">$bigMargin</span><span class="o">:</span> <span class="mi">10</span><span class="kt">px</span>
+<span class="nv">$smallMargin</span><span class="o">:</span> <span class="mi">5</span><span class="kt">px</span>
+
+<span class="nt">div</span>
+<span class="err">  </span><span class="na">margin</span><span class="o">:</span> <span class="nv">$bigMargin</span> <span class="nv">$bigMargin</span><span class="o">*</span><span class="mi">2</span>
+
+<span class="nt">span</span>
+<span class="err">  </span><span class="na">margin</span><span class="o">:</span> <span class="nv">$smallMargin</span> <span class="nv">$smallMargin</span><span class="o">*</span><span class="mi">2</span>
+</code></pre></div><h2 id="mixin">mixin</h2>
+<p>mixin常用來管理顏色、字型、大小、media</p>
+<div class="highlight"><pre class="chroma"><code class="language-sass" data-lang="sass"><span class="o">//</span> <span class="nt">定義</span> <span class="nt">mixin</span>
+<span class="k">@mixin</span><span class="nf"> color</span>
+<span class="err">  </span><span class="na">color</span><span class="o">:</span> <span class="ni">blue</span>
+<span class="err">  </span><span class="na">font-weight</span><span class="o">:</span> <span class="no">bold</span>
+
+<span class="nc">.class2</span><span class="o">,</span> <span class="nc">.class4</span>
+  <span class="o">+</span><span class="nt">color</span>    <span class="o">//</span> <span class="nt">使用mixin</span>
+</code></pre></div><p><img src="/img/CSS/Sass_mixin_EX1.png" alt="Pug"></p>
+<h3 id="帶參數mixin">帶參數mixin</h3>
+<ul>
+<li>語法: <code>@mixin 名字($變數1)</code></li>
+<li>語法: <code>@mixin 名字($變數1, $變數2)</code></li>
+<li>語法: <code>@mixin 名字($變數1:預設值)</code></li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-sass" data-lang="sass"><span class="o">//</span> <span class="nt">定義</span> <span class="nt">mixin</span>
+<span class="k">@mixin</span><span class="nf"> color</span><span class="p">(</span><span class="nv">$color</span><span class="p">)</span>
+<span class="err">  </span><span class="na">color</span><span class="o">:</span> <span class="nv">$color</span>
+<span class="err">  </span><span class="na">font-weight</span><span class="o">:</span> <span class="no">bold</span>
+
+<span class="nc">.class2</span><span class="o">,</span> <span class="nc">.class4</span>
+  <span class="o">+</span><span class="nt">color</span>    <span class="o">//</span> <span class="nt">使用mixin</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-sass" data-lang="sass"><span class="o">//</span> <span class="nt">定義</span> <span class="nt">mixin</span>
+<span class="k">@mixin</span><span class="nf"> color</span><span class="p">(</span><span class="nv">$color</span><span class="p">)</span>
+<span class="err">  </span><span class="na">color</span><span class="o">:</span> <span class="nv">$color</span>
+<span class="err">  </span><span class="na">font-weight</span><span class="o">:</span> <span class="no">bold</span>
+
+  <span class="k">&amp;</span><span class="nc">.big</span>
+<span class="err">    </span><span class="na">font-size</span><span class="o">:</span> <span class="mi">20</span><span class="kt">px</span>
+  
+  <span class="k">&amp;</span><span class="nc">.middle</span>
+<span class="err">    </span><span class="na">font-size</span><span class="o">:</span> <span class="mi">14</span><span class="kt">px</span>
+  
+  <span class="k">&amp;</span><span class="nc">.small</span>
+<span class="err">    </span><span class="na">font-size</span><span class="o">:</span> <span class="mi">10</span><span class="kt">px</span>
+</code></pre></div><h3 id="上一層元素-">上一層元素 &amp;</h3>
+<div class="highlight"><pre class="chroma"><code class="language-sass" data-lang="sass"><span class="k">@mixin</span><span class="nf"> color</span>
+<span class="err">  </span><span class="na">color</span><span class="o">:</span> <span class="ni">blue</span>
+<span class="err">  </span><span class="na">font-weight</span><span class="o">:</span> <span class="no">bold</span>
+  <span class="k">&amp;</span><span class="nd">:hover</span>
+<span class="err">    </span><span class="na">background-color</span><span class="o">:</span> <span class="ni">yellow</span>
+</code></pre></div><h3 id="陣列">陣列</h3>
+<ul>
+<li>格式: <code>(元素1, 元素2)</code></li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-sass" data-lang="sass"><span class="nv">$colors</span><span class="o">:</span> <span class="p">(</span><span class="ni">red</span><span class="o">,</span> <span class="ni">black</span><span class="p">)</span>
+
+</code></pre></div><h3 id="if">if</h3>
+<pre><code>$bodyColor: nth($colors,random(5))
+  $ribbonColor: nth($colors,random(5))
+  // 如果ribbonColor顏色和bodyColor顏色相同，重新產生ribbonColor
+  @if ($ribbonColor==$bodyColor)
+    $ribbonColor: nth($colors,random(5))
+</code></pre><h2 id="回圈">回圈</h2>
+<ul>
+<li><code>#</code>: 前計算
+<ul>
+<li>
+<p>格式: <code>#{前計算的內容}</code></p>
+</li>
+<li>
+<p>EX: <code>#{$i}</code></p>
+</li>
+<li>
+<p>EX: <code>+size(#{$size}px)</code></p>
+</li>
+<li>
+<p>EX:</p>
+<ul>
+<li>錯誤寫法: <code>$sizepx</code></li>
+<li>正確寫法: <code>#{$size}px</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-sass" data-lang="sass"><span class="k">@for</span> <span class="nv">$i</span> <span class="ow">from</span> <span class="mi">1</span> <span class="ow">through</span> <span class="mi">50</span>
+<span class="err">  </span><span class="na">$size</span><span class="o">:</span> <span class="nf">random</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="o">+</span><span class="mi">50</span>
+<span class="err">  </span><span class="na">$rotateDeg</span><span class="o">:</span> <span class="nf">random</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="mi">-10</span>
+<span class="err">  </span><span class="na">$bodyColor</span><span class="o">:</span> <span class="nf">nth</span><span class="p">(</span><span class="nv">$colors</span><span class="o">,</span><span class="nf">random</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="err">  </span><span class="na">$ribbonColor</span><span class="o">:</span> <span class="nf">nth</span><span class="p">(</span><span class="nv">$colors</span><span class="o">,</span><span class="nf">random</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="err">  </span><span class="na">@if</span><span class="err"> </span><span class="na">($ribbonColor</span><span class="o">==</span><span class="nv">$bodyColor</span><span class="p">)</span>
+<span class="err">    </span><span class="na">$ribbonColor</span><span class="o">:</span> <span class="nf">nth</span><span class="p">(</span><span class="nv">$colors</span><span class="o">,</span><span class="nf">random</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+  <span class="nc">.present</span><span class="si">#{</span><span class="nv">$i</span><span class="si">}</span>
+    <span class="o">+</span><span class="nt">present</span><span class="o">(</span><span class="nn">#</span><span class="err">{$</span><span class="nt">size</span><span class="err">}</span><span class="nt">px</span><span class="o">,</span><span class="err">$</span><span class="nt">bodyColor</span><span class="o">,</span><span class="err">$</span><span class="nt">ribbonColor</span><span class="o">,</span><span class="nn">#</span><span class="err">{$</span><span class="nt">rotateDeg</span><span class="err">}</span><span class="nt">deg</span><span class="o">)</span>
+</code></pre></div><h2 id="sass-內建模組">SASS 內建模組</h2>
+<ul>
+<li><code>width: calc(100% + 10px)</code></li>
+<li><code>nth(陣列, 第n個)</code>
+<ul>
+<li><code>color : nth($colors, 3)</code></li>
+<li><code>color : nth($colors, random(10))</code> : $color中隨機第1~10個元素</li>
+</ul>
+</li>
+</ul>
+<h3 id="顏色模組">顏色模組</h3>
+<ul>
+<li><code>random(MaxValue)</code>
+<ul>
+<li>EX: <code>random(10)</code> : 產生數字0~10</li>
+<li>EX: <code>random(10)+10</code> : 產生數字10~20</li>
+</ul>
+</li>
+<li><code>color:scale()</code> : 用百分比縮放color
+<ul>
+<li>格式: <code>color.scale($color,$red: null, $green: null, $blue: null, $saturation: null, $lightness: null, $alpha: null)</code>
+<ul>
+<li><code>$color</code>: 要縮放的顏色</li>
+<li><code>$red</code>: 紅色的百分比(0%~100%)</li>
+<li><code>$green</code>: 綠色的百分比(0%~100%)</li>
+<li><code>$blue</code>: 藍色的百分比(0%~100%)</li>
+<li><code>$saturation</code>: 飽和度的百分比(0%~100%)</li>
+<li><code>$lightness</code>: 亮度百分比(0%~100%)</li>
+<li><code>$alpha</code>: 透明度百分比(0%~100%)</li>
+<li>回傳值: <code>color</code></li>
+</ul>
+</li>
+<li>color.scale()是以目前顏色的值去縮放指定的百分比
+<ul>
+<li>亮度值增加 : <code>$lightness:50%</code> = 原本的亮度值 + (最大亮度 - 目前亮度) * 50%</li>
+<li>可以用<code>color.lightness($color)</code>查顏色的亮度值</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>color:adjust()</code> : 用固定值增減color
+<ul>
+<li>格式: <code>color.adjust($color, $red: null, $green: null, $blue: null,$hue: null, $saturation: null, $lightness: null,$alpha: null)</code>
+<ul>
+<li><code>$red</code>: 無單位數字 -255 ~ 255</li>
+<li><code>$green</code>: 無單位數字 -255 ~ 255</li>
+<li><code>$blue</code>: 無單位數字 -255 ~ 255</li>
+<li><code>$hue</code>: 無單位或單位為deg數字 -360deg ~ 360deg</li>
+<li><code>$saturation</code>: -100% ~100%</li>
+<li><code>$lightness</code>: -100% ~100%</li>
+<li><code>$alpha</code>: 無單位數字 -1 ~ 1</li>
+</ul>
+</li>
+<li>EX: <code>color.adjust(#d2e1dd, $red: -10, $blue: 10)  // #c8e1e7</code></li>
+</ul>
+</li>
+<li><code>color:change()</code> : 修改$color的一個或多個屬性，回傳修改後的新顏色
+<ul>
+<li>RGB和HSL屬性的值不能同時設定
+<ul>
+<li><code>$red</code>: 無單位數字 -255 ~ 255</li>
+<li><code>$green</code>: 無單位數字 -255 ~ 255</li>
+<li><code>$blue</code>: 無單位數字 -255 ~ 255</li>
+<li><code>$hue</code>: 無單位或單位為deg數字 -360deg ~ 360deg</li>
+<li><code>$saturation</code>: -100% ~100%</li>
+<li><code>$lightness</code>: -100% ~100%</li>
+<li><code>$alpha</code>: 無單位數字 -1 ~ 1</li>
+</ul>
+</li>
+<li>EX:
+<ul>
+<li><code>color.change(#d2e1dd, $red: 100, $blue: 50)  // #64e132</code></li>
+<li><code>color.change(#998099, $lightness: 30%, $alpha: 0.5)  // rgba(85, 68, 85, 0.5)</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>lighten($color, $amount), darken($color, $amount) 已不建議使用
+<ul>
+<li>lighten(), darken()只會增滅顏色的灰度，常和預期的結果不符</li>
+<li>調整顏色可以改用: <code>color.scale()</code>
+<ul>
+<li><code>color.scale($color, $lightness: +30%)</code></li>
+<li><code>color.scale($color, $lightness: -30%)</code></li>
+</ul>
+</li>
+<li>要增減灰度可以改用 <code>color.adjust()</code>
+<ul>
+<li><code>color.adjust($color, $lightness: +30%)</code></li>
+<li><code>color.adjust($color, $lightness: -30%)</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="導入-import">導入 @import</h2>
+<p>Sass的<code>@import</code>和CSS的不同，CSS是在要使用<code>@import</code>時再發出一個HTTP Request去抓檔，而Sass則是在預編譯時，就將檔案併入產生的css檔中</p>
+<ul>
+<li>格式: <code>@import 檔名</code>
+<ul>
+<li>檔名不需加附檔名<code>.sass</code></li>
+</ul>
+</li>
+</ul>
+<pre><code>@import reset
+
+html
+  margin: 0
+  padding: 0
+</code></pre><hr>
+<h2 id="參考">參考</h2>
+<ul>
+<li><a href="https://www.sass-china.com/api/Modules/Color.html#color-adjust">Sass中文文档 - sass:color</a></li>
+</ul>
+<div class="edit-meta">
+Last updated on 2020-04-11
+
+
+<br>
+Published on 2020-04-11
+<br><a href="https://github.com/thingsym/hugo-theme-techdoc/edit/master/content/CSS%5cSass.md" class="edit-page"><i class="fas fa-pen-square"></i> Edit on GitHub</a></div><nav class="pagination"><a class="nav nav-prev" href="https://yehyoung.github.io/css/position/" title="Position"><i class="fas fa-arrow-left" aria-hidden="true"></i> Prev - Position</a>
+<a class="nav nav-next" href="https://yehyoung.github.io/css/display/" title="CSS - Display &amp; flex">Next - CSS - Display &amp; flex <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main><div class="sidebar">
+
+<nav class="slide-menu">
+<ul>
+<li class=""><a href="https://yehyoung.github.io">Home</a></li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/hugo/">Hugo<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/hugo/01_hugoinstall/">Hugo 安裝</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/02_themesetup/">Hugo 佈景安裝及設定</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/04_newpost/">Hugo 新增一篇文章</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/03_structure/">Hugo 資料夾與檔案結構</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/05_runserver/">Hugo 本機啓動一個伺服器</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/06_pushtogit/">將網站上傳到Github</a></li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/hugo/theme/">Theme<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/hugo/theme/menu/">Menu</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/theme/functions/">Functions</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/theme/sectionpagevariableandmethods/">Section 的變數及方法</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/theme/templating/">Templating</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/theme/sass/">Sass</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/theme/themeintro/">Hugo 佈景概念</a></li>
+</ul>
+  
+</li>
+<li class=""><a href="https://yehyoung.github.io/hugo/highlight/">程式碼高亮 Highlight</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/sass/">在 Hugo 裡使用 SASS</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/otherfunction/">OtherFunction</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/frontmatter/">Hugo FrontMatter</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/reference/">參考網站</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/hugoreference/">HugoReference</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/07_hugocommand/">HugoCommand</a></li>
+</ul>
+  
+</li>
+
+<li class="parent has-sub-menu"><a href="https://yehyoung.github.io/css/">CSS<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/css/codesnippet/">CodeSnippet</a></li>
+<li class=""><a href="https://yehyoung.github.io/css/float/">Float</a></li>
+<li class=""><a href="https://yehyoung.github.io/css/reset/">Reset</a></li>
+<li class=""><a href="https://yehyoung.github.io/css/transform/">Transform</a></li>
+<li class=""><a href="https://yehyoung.github.io/css/boxshadow/">BoxShadow</a></li>
+<li class=""><a href="https://yehyoung.github.io/css/position/">Position</a></li>
+<li class="active"><a href="https://yehyoung.github.io/css/sass/">Sass</a></li>
+<li class=""><a href="https://yehyoung.github.io/css/display/">CSS - Display &amp; flex</a></li>
+</ul>
+  
+</li>
+
+<li class=""><a href="https://yehyoung.github.io/ai/">人工智慧</a>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/linebot/">LINE Bot<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/linebot/linebotintro/">LINEBot 概念</a></li>
+<li class=""><a href="https://yehyoung.github.io/linebot/django/djintro/">Django 介紹及安裝</a></li>
+<li class=""><a href="https://yehyoung.github.io/linebot/reference/">參考網站</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/python/">Python<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/python/sqlite/sql/">SQLite - SQL Sample</a></li>
+<li class=""><a href="https://yehyoung.github.io/python/sqlite/intro/">SQLite 簡介</a></li>
+<li class=""><a href="https://yehyoung.github.io/python/basic/csv/">Python - CSV</a></li>
+<li class=""><a href="https://yehyoung.github.io/python/stock/stock/">Stock</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/html/">HTMLs<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/html/emmet/">Emmet</a></li>
+<li class=""><a href="https://yehyoung.github.io/html/pug/">Pug</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/netcore/">NetCores<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=""><a href="https://yehyoung.github.io/netcore/entityframework/">Entity Framework</a>
+  
+</li>
+
+<li class=""><a href="https://yehyoung.github.io/netcore/linq/">LINQ</a>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/netcore/csharp/">C#<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/netcore/csharp/linq/linq/">LINQ</a></li>
+<li class=""><a href="https://yehyoung.github.io/netcore/csharp/linq/enumerable/">Enumerable</a></li>
+<li class=""><a href="https://yehyoung.github.io/netcore/csharp/linq/lambda/">Lambda 運算式</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/oracle/">Oracles<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/oracle/count/">Count</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/gulp/">Gulps<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/gulp/gulpv4sample2/">GulpV4Sample2</a></li>
+<li class=""><a href="https://yehyoung.github.io/gulp/gulpv4sample1/">GulpV4Sample1</a></li>
+<li class=""><a href="https://yehyoung.github.io/gulp/gulptask/">GulpTask</a></li>
+<li class=""><a href="https://yehyoung.github.io/gulp/gulpplugin/">GulpPlugin</a></li>
+<li class=""><a href="https://yehyoung.github.io/gulp/glob/">Glob</a></li>
+<li class=""><a href="https://yehyoung.github.io/gulp/gulpintro/">Gulp 4 介紹及安裝</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/webpack/">Webpacks<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/webpack/reference/">Reference</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/markdown/">Markdowns<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/markdown/markdownrule/">MarkdownRule</a></li>
+<li class=""><a href="https://yehyoung.github.io/markdown/markdown/">Markdown </a></li>
+</ul>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>

@@ -66,12 +66,66 @@
     </item>
     
     <item>
+      <title>Menu</title>
+      <link>https://yehyoung.github.io/hugo/theme/menu/</link>
+      <pubDate>Tue, 21 Apr 2020 22:38:21 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/hugo/theme/menu/</guid>
+      <description>Hugo 的 Menu 在Site的變數中有個Menus變數 ⇒ .Site.Menus Menu的實體屬性 VARIABLES AND PARAMS Menu Entry Properties 要將文章加入Menus需要透過front matter 直接將文章加入Menu</description>
+    </item>
+    
+    <item>
+      <title>Functions</title>
+      <link>https://yehyoung.github.io/hugo/theme/functions/</link>
+      <pubDate>Sun, 19 Apr 2020 12:18:50 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/hugo/theme/functions/</guid>
+      <description>Lorem Ipsum.</description>
+    </item>
+    
+    <item>
+      <title>Section 的變數及方法</title>
+      <link>https://yehyoung.github.io/hugo/theme/sectionpagevariableandmethods/</link>
+      <pubDate>Sun, 19 Apr 2020 11:57:54 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/hugo/theme/sectionpagevariableandmethods/</guid>
+      <description>Hugo - Section Page Variables and Methods Section的定義 content資料夾裡的第1級目錄 content資料夾裡，不是第1級目錄的話，目錄裡要有_index.md</description>
+    </item>
+    
+    <item>
+      <title>Templating</title>
+      <link>https://yehyoung.github.io/hugo/theme/templating/</link>
+      <pubDate>Sat, 18 Apr 2020 23:40:27 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/hugo/theme/templating/</guid>
+      <description>. 在Hugo中，.類似其它程式語言的this . = context safeHTML &amp;amp; safeCSS safeHTML 在輸入的字前面加上safeHTML，代表這串字是安全的HTML，叫go不要處理這串</description>
+    </item>
+    
+    <item>
+      <title>Sass</title>
+      <link>https://yehyoung.github.io/hugo/theme/sass/</link>
+      <pubDate>Sat, 18 Apr 2020 22:38:48 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/hugo/theme/sass/</guid>
+      <description>新建一個SASS檔，放在assets資料夾下面下 在佈景的partials\head.html的&amp;lt;head&amp;gt;裡加入下面程式碼 2.1 toCSS: 將</description>
+    </item>
+    
+    <item>
+      <title>CodeSnippet</title>
+      <link>https://yehyoung.github.io/css/codesnippet/</link>
+      <pubDate>Fri, 17 Apr 2020 23:34:45 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/css/codesnippet/</guid>
+      <description>flex 上下左右置中 .container display: flex; justify-content: center; align-item: center; `</description>
+    </item>
+    
+    <item>
       <title>Hugo 佈景概念</title>
       <link>https://yehyoung.github.io/hugo/theme/themeintro/</link>
       <pubDate>Mon, 13 Apr 2020 22:26:09 +0800</pubDate>
       
       <guid>https://yehyoung.github.io/hugo/theme/themeintro/</guid>
-      <description>概念 layout ├─layouts │ 404.html │ index.html │ ├─blog │ li.html │ list.html │ single.html │ summary.html │ ├─partials │ content-footer.html │ custom-css.html │ custom-head.html │ edit-meta.html │ edit-page.html │ footer.html │ global-menu.html │ head.html │ last-updated.html │ notification.html │ pagination.html │ powered.html │ prepend-body.html │ sidebar-footer.html</description>
+      <description>概念 新佈景的基本架構 hugo new theme HUGO-NOTEPAD 網站\THEMES\HUGO-NOTEPAD │ LICENSE │ theme.toml │ ├─archetypes │ default.md │ ├─layouts │ │ 404.html │ │</description>
     </item>
     
     <item>
@@ -116,7 +170,7 @@
       <pubDate>Sun, 12 Apr 2020 12:36:04 +0800</pubDate>
       
       <guid>https://yehyoung.github.io/css/position/</guid>
-      <description>static : 預設屬性 預設的排版 沒有辦法用left, top , bottom, right 定位的元素 relative 在排版內 ⇒ 原來的位置會保留 位移時，原來的位置會保留 absolute: 在排版外 ⇒ 原來的位置不會保</description>
+      <description>static : 預設屬性 預設的排版 沒有辦法用left, top , bottom, right 定位的元素 只能調內外距 relative 在排版內 ⇒ 原來的位置會保留 位移時，原來的位置會保留 left, top 的偏移是根據</description>
     </item>
     
     <item>
@@ -216,6 +270,15 @@
       
       <guid>https://yehyoung.github.io/hugo/otherfunction/</guid>
       <description>SASS / SCSS 要使用SASS，hugo安裝的版本要是extended版 &amp;lt;!-- 指定sass的原始檔 --&amp;gt; {{ $sass := resources.Get &amp;#34;sass/main.scss&amp;#34; }} &amp;lt;!-- 用resources.ToCSS將sas</description>
+    </item>
+    
+    <item>
+      <title>SQLite - SQL Sample</title>
+      <link>https://yehyoung.github.io/python/sqlite/sql/</link>
+      <pubDate>Fri, 03 Apr 2020 23:20:32 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/python/sqlite/sql/</guid>
+      <description>with sp(stock_id, date, price) AS ( SELECT stock_id, date, 收盤價 FROM price WHERE stock_id in (&amp;#39;2330&amp;#39;, &amp;#39;2610&amp;#39;, &amp;#39;2618&amp;#39;, &amp;#39;2603&amp;#39;, &amp;#39;2731&amp;#39;, &amp;#39;5706&amp;#39;, &amp;#39;2704&amp;#39;, &amp;#39;9943&amp;#39;, &amp;#39;3596&amp;#39;, &amp;#39;00752&amp;#39;, &amp;#39;0056&amp;#39;, &amp;#39;2727&amp;#39;, &amp;#39;2729&amp;#39;, &amp;#39;1268&amp;#39;, &amp;#39;2633&amp;#39;, &amp;#39;2207&amp;#39;, &amp;#39;8044&amp;#39;, &amp;#39;8454&amp;#39;, &amp;#39;4938&amp;#39;, &amp;#39;2884&amp;#39;, &amp;#39;4919&amp;#39;, &amp;#39;2412&amp;#39;, &amp;#39;1303&amp;#39;, &amp;#39;1301&amp;#39;, &amp;#39;6505&amp;#39;, &amp;#39;1326&amp;#39;) and date = &amp;#39;2020-01-20 00:00:00&amp;#39; ), ep(stock_id, date, price) AS ( SELECT stock_id, date, 收盤價 FROM price WHERE stock_id in (&amp;#39;2330&amp;#39;, &amp;#39;2610&amp;#39;, &amp;#39;2618&amp;#39;, &amp;#39;2603&amp;#39;, &amp;#39;2731&amp;#39;,</description>
     </item>
     
     <item>
@@ -386,7 +449,7 @@
       <pubDate>Sun, 22 Mar 2020 11:14:08 +0800</pubDate>
       
       <guid>https://yehyoung.github.io/hugo/07_hugocommand/</guid>
-      <description></description>
+      <description>新增文章 hugo new 路徑 啓動Server hug server -D 建立新網站 hugo new site 名稱 建立新佈景 ``</description>
     </item>
     
     <item>

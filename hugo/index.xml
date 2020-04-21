@@ -125,7 +125,7 @@
       <pubDate>Sun, 22 Mar 2020 11:14:08 +0800</pubDate>
       
       <guid>https://yehyoung.github.io/hugo/07_hugocommand/</guid>
-      <description></description>
+      <description>新增文章 hugo new 路徑 啓動Server hug server -D 建立新網站 hugo new site 名稱 建立新佈景 ``</description>
     </item>
     
   </channel>

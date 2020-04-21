@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="/images/favicon.ico">
+<title>CSS - Display &amp; flex - YehYeh 記事本2.0</title>
+<meta name="description" content="竹科碼農的記事本">
+<meta name="generator" content="Hugo 0.68.3" />
+<link href="https://yehyoung.github.ioindex.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://yehyoung.github.io/css/display/">
+<link rel="stylesheet" href="https://yehyoung.github.io/css/theme.min.css">
+<script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<link rel="stylesheet" href="https://yehyoung.github.io/css/chroma.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js"></script>
+<script src="https://yehyoung.github.io/js/bundle.js"></script><style>
+:root {--custom-background-color: DodgerBlue;}
+</style>
+<meta property="og:title" content="CSS - Display &amp; flex" />
+<meta property="og:description" content="inline, inline-block , block 屬性 換行 寬度 有Width, height屬性 inline 不換行 內容寬度 無 inline-block 內容寬度 不換行 有 block 換行 水平撐滿 有 Display:inline 時width, height屬性不會有" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yehyoung.github.io/css/display/" />
+<meta property="og:image" content="https://yehyoung.github.io/images/Test.jpg"/>
+<meta property="article:published_time" content="2020-04-10T21:53:51+08:00" />
+<meta property="article:modified_time" content="2020-04-10T21:53:51+08:00" /><meta property="og:site_name" content="Hugo Techdoc Theme 測試" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://yehyoung.github.io/images/Test.jpg"/>
+
+<meta name="twitter:title" content="CSS - Display &amp; flex"/>
+<meta name="twitter:description" content="inline, inline-block , block 屬性 換行 寬度 有Width, height屬性 inline 不換行 內容寬度 無 inline-block 內容寬度 不換行 有 block 換行 水平撐滿 有 Display:inline 時width, height屬性不會有"/>
+<meta itemprop="name" content="CSS - Display &amp; flex">
+<meta itemprop="description" content="inline, inline-block , block 屬性 換行 寬度 有Width, height屬性 inline 不換行 內容寬度 無 inline-block 內容寬度 不換行 有 block 換行 水平撐滿 有 Display:inline 時width, height屬性不會有">
+<meta itemprop="datePublished" content="2020-04-10T21:53:51&#43;08:00" />
+<meta itemprop="dateModified" content="2020-04-10T21:53:51&#43;08:00" />
+<meta itemprop="wordCount" content="1015">
+<meta itemprop="image" content="https://yehyoung.github.io/images/Test.jpg"/>
+
+
+
+<meta itemprop="keywords" content="" /></head>
+<body><div class="container"><header>
+<h1>YehYeh 記事本2.0</h1>
+
+ <span class="version">Version 0.8.3</span>
+<a href="https://github.com/thingsym/hugo-theme-techdoc" class="github"><i class="fab fa-github"></i></a>
+<p class="description">竹科碼農的記事本</p>
+
+</header>
+<div class="global-menu">
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="https://twitter.com/thingsym">Twitter</a></li>
+<li><a href="/about/">About Hugo</a></li></ul>
+</nav>
+</div>
+<div class="content-container">
+<main><h1>CSS - Display &amp; flex</h1>
+<h2 id="inline-inline-block--block">inline, inline-block , block</h2>
+<table>
+<thead>
+<tr>
+<th>屬性</th>
+<th>換行</th>
+<th>寬度</th>
+<th>有Width, height屬性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>inline</td>
+<td>不換行</td>
+<td>內容寬度</td>
+<td>無</td>
+</tr>
+<tr>
+<td>inline-block</td>
+<td>內容寬度</td>
+<td>不換行</td>
+<td>有</td>
+</tr>
+<tr>
+<td>block</td>
+<td>換行</td>
+<td>水平撐滿</td>
+<td>有</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Display:inline 時width, height屬性不會有作用</li>
+</ul>
+<h2 id="flex-inline-flex">flex, inline-flex</h2>
+<p><img src="/img/CSS/flex.png" alt="flex"></p>
+<ul>
+<li>彈性容器(flex container): 外層
+<ul>
+<li><code>display</code>:
+<ul>
+<li><code>flex</code> : 區塊彈性容器</li>
+<li><code>inline-flex</code> : 行內彈性容器</li>
+</ul>
+</li>
+<li><code>flow-direction</code>:子元素排列方向
+<ul>
+<li><code>row</code>: 左→右</li>
+<li><code>row-reverse</code>: 右→左</li>
+<li><code>column</code>: 上→下</li>
+<li><code>column-reverse</code>: 下→上</li>
+</ul>
+</li>
+<li><code>flex-wrap</code>: 內容超過1行時如何處理
+<ul>
+<li><code>nowrap</code>: 只有一行
+<ul>
+<li><code>flex-shrink</code>為預設值時，當內層的物件寬度超過容器時，會按比例縮小內層物件的寬度</li>
+</ul>
+</li>
+<li><code>wrap</code>: 由上到下換行</li>
+<li><code>wrap-reverse</code>: 由下到上換行</li>
+</ul>
+</li>
+<li><code>justify-content</code>:水平對齊的方式(留白的位置)
+<ul>
+<li><code>flex-start</code>: 靠左對齊</li>
+<li><code>flex-end</code>: 靠右對齊</li>
+<li><code>center</code>: 置中</li>
+<li><code>space-between</code>: 等寬(最左及最右不留白)</li>
+<li><code>space-around</code>:  等寬(最左及最右留白)</li>
+</ul>
+</li>
+<li><code>align-items</code>:垂直對齊的方式(垂直留白的處理)
+<ul>
+<li><code>stretch</code>: 自動填滿高度</li>
+<li><code>flex-start</code>: 靠上對齊</li>
+<li><code>flex-end</code>: 靠下對齊</li>
+<li><code>center</code>: 垂直置中</li>
+<li><code>baseline</code>: 基準線</li>
+</ul>
+</li>
+<li><code>align-content</code>: 多行時垂直留白的處理
+<ul>
+<li><code>stretch</code>: 有設<code>height</code>時平均分配</li>
+<li><code>flex-start</code>:內容在上面，留白在下面</li>
+<li><code>flex-end</code>:內容在下面，留白在上面</li>
+<li><code>center</code>: 內容在中間，留白在上下</li>
+<li><code>space-between</code>:平均分配留白，最上、最下不留白</li>
+<li><code>space-around</code>::平均分配留白，最上、最下留白為中間留白的一半</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>彈性物件 : 內層
+<ul>
+<li>留白: 內層比外層小時，空白的部分</li>
+<li>出血: 內層比外層大時，超出的部分</li>
+<li><code>order</code>: 顯示的順序
+<ul>
+<li>預設值為0</li>
+<li>依原始碼的順序顯示
+<ul>
+<li>沒有設定時(全部都為預設值0)</li>
+<li>有2個以上數字相同時</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>flex-grow</code>: 將留白按比例分配給內層元素
+<ul>
+<li>當寬度為滿版時 ⇒ 沒有留白 ⇒ 可以直接使用 <code>flex-grow</code>切版</li>
+<li><code>#item1 { flex-grow:1; }</code> : 1/3留白分配給item1</li>
+<li><code>#item2 { flex-grow:2; }</code> : 2/3留白分配給item2</li>
+</ul>
+</li>
+<li><code>flex-shrink</code>: 將出血的部分按比例縮小內層元素，預設為1，0為不縮小
+<ul>
+<li><code>#item1 { flex-shrink:1; }</code> : 1/3出血分配給item1</li>
+<li><code>#item2 { flex-shrink:2; }</code> : 2/3出血分配給item2</li>
+</ul>
+</li>
+<li><code>flex-basis</code>: 高度或寬度，優先權較height, width高
+<ul>
+<li>在容器<code>flow-direction:row</code>時，<code>flex-basis</code>為寬度</li>
+<li>在容器<code>flow-direction:column</code>時，<code>flex-basis</code>為高度</li>
+</ul>
+</li>
+<li><code>flex</code>: 一次指定<code>flex-grow</code>, <code>flex-shrink</code>, <code>flex-basis</code> 3個參數
+<ul>
+<li><code>flex-grow flex-shrink flex-basis</code></li>
+</ul>
+</li>
+<li><code>align-self</code>: 垂直對齊的方式，優先權比容器的<code>align-items</code>高
+<ul>
+<li>有少數彈性物件不使用容器<code>align-items</code>設定的垂直對齊方式時使用</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="flex-example-1">Flex Example 1</h2>
+<div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="p">#</span><span class="nn">container</span> <span class="p">{</span> 
+  <span class="k">display</span><span class="p">:</span> <span class="kc">flex</span><span class="p">;</span> 
+  <span class="k">flex-direction</span><span class="p">:</span> <span class="kc">row</span><span class="o">-</span><span class="kc">reverse</span><span class="p">;</span> 
+  <span class="k">flex-wrap</span><span class="p">:</span> <span class="kc">wrap</span><span class="p">;</span>
+  <span class="k">justify-content</span><span class="p">:</span> <span class="kc">space</span><span class="o">-</span><span class="n">between</span><span class="p">;</span>
+  <span class="k">align-items</span><span class="p">:</span> <span class="kc">flex</span><span class="o">-</span><span class="kc">start</span><span class="p">;</span>
+  <span class="k">align-content</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span> 
+<span class="p">}</span>
+<span class="p">#</span><span class="nn">container</span><span class="o">&gt;</span><span class="nt">div</span><span class="p">{</span> 
+  <span class="k">order</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">flex-grow</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">flex-shrink</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">flex-basis</span><span class="p">:</span> <span class="mi">60</span><span class="kt">px</span><span class="p">;</span>  
+  <span class="k">align-self</span><span class="p">:</span> <span class="kc">flex</span><span class="o">-</span><span class="kc">end</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p><img src="/img/CSS/flex_EX1.png" alt="flex"></p>
+<h2 id="flex-example-2">Flex Example 2</h2>
+<div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="p">.</span><span class="nc">container</span> <span class="p">{</span>
+  <span class="k">display</span><span class="p">:</span> <span class="kc">flex</span><span class="p">;</span>
+  <span class="k">flex-direction</span><span class="p">:</span> <span class="kc">row</span><span class="p">;</span>
+  <span class="k">flex-wrap</span><span class="p">:</span> <span class="kc">wrap</span><span class="p">;</span>  
+<span class="p">}</span>
+
+<span class="nt">header</span> <span class="p">{</span> <span class="k">flex-basis</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">nav</span> <span class="p">{</span> <span class="k">flex-basis</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="c">/* 用flex-basis切版 */</span>
+<span class="nt">aside</span> <span class="p">{</span><span class="k">flex-basis</span><span class="p">:</span> <span class="mi">20</span><span class="kt">%</span><span class="p">;</span> <span class="k">height</span><span class="p">:</span> <span class="mi">300</span><span class="kt">px</span><span class="p">;</span> <span class="p">}</span>
+<span class="nt">article</span> <span class="p">{</span><span class="k">flex-basis</span><span class="p">:</span> <span class="mi">20</span><span class="kt">%</span><span class="o">:</span> <span class="k">height</span><span class="o">:</span> <span class="mi">300</span><span class="kt">px</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="c">/* 用flex-grow切版 */</span>
+<span class="p">.</span><span class="nc">div1</span> <span class="p">{</span> <span class="k">flex-grow</span><span class="p">:</span> <span class="mi">3</span><span class="p">;</span> <span class="p">}</span>
+<span class="p">.</span><span class="nc">div2</span> <span class="p">{</span> <span class="k">flex-grow</span><span class="p">:</span> <span class="mi">1</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="nt">footer</span> <span class="p">{</span> <span class="k">flex-basis</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span> <span class="p">}</span>
+</code></pre></div><p><img src="/img/CSS/flex_EX2.png" alt="flex"></p>
+<h3 id="flex-置中">flex 置中</h3>
+<div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="p">.</span><span class="nc">flexCenter</span> <span class="p">{</span>
+  <span class="k">display</span><span class="p">:</span> <span class="kc">flex</span><span class="p">;</span>
+  <span class="k">justify-content</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span>
+  <span class="k">align-items</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><div class="edit-meta">
+Last updated on 2020-04-10
+
+
+<br>
+Published on 2020-04-10
+<br><a href="https://github.com/thingsym/hugo-theme-techdoc/edit/master/content/CSS%5cDisplay.md" class="edit-page"><i class="fas fa-pen-square"></i> Edit on GitHub</a></div><nav class="pagination"><a class="nav nav-prev" href="https://yehyoung.github.io/css/sass/" title="Sass"><i class="fas fa-arrow-left" aria-hidden="true"></i> Prev - Sass</a>
+<a class="nav nav-next" href="https://yehyoung.github.io/ai/" title="人工智慧">Next - 人工智慧 <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main><div class="sidebar">
+
+<nav class="slide-menu">
+<ul>
+<li class=""><a href="https://yehyoung.github.io">Home</a></li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/hugo/">Hugo<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/hugo/01_hugoinstall/">Hugo 安裝</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/02_themesetup/">Hugo 佈景安裝及設定</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/04_newpost/">Hugo 新增一篇文章</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/03_structure/">Hugo 資料夾與檔案結構</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/05_runserver/">Hugo 本機啓動一個伺服器</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/06_pushtogit/">將網站上傳到Github</a></li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/hugo/theme/">Theme<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/hugo/theme/menu/">Menu</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/theme/functions/">Functions</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/theme/sectionpagevariableandmethods/">Section 的變數及方法</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/theme/templating/">Templating</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/theme/sass/">Sass</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/theme/themeintro/">Hugo 佈景概念</a></li>
+</ul>
+  
+</li>
+<li class=""><a href="https://yehyoung.github.io/hugo/highlight/">程式碼高亮 Highlight</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/sass/">在 Hugo 裡使用 SASS</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/otherfunction/">OtherFunction</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/frontmatter/">Hugo FrontMatter</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/reference/">參考網站</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/hugoreference/">HugoReference</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/07_hugocommand/">HugoCommand</a></li>
+</ul>
+  
+</li>
+
+<li class="parent has-sub-menu"><a href="https://yehyoung.github.io/css/">CSS<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/css/codesnippet/">CodeSnippet</a></li>
+<li class=""><a href="https://yehyoung.github.io/css/float/">Float</a></li>
+<li class=""><a href="https://yehyoung.github.io/css/reset/">Reset</a></li>
+<li class=""><a href="https://yehyoung.github.io/css/transform/">Transform</a></li>
+<li class=""><a href="https://yehyoung.github.io/css/boxshadow/">BoxShadow</a></li>
+<li class=""><a href="https://yehyoung.github.io/css/position/">Position</a></li>
+<li class=""><a href="https://yehyoung.github.io/css/sass/">Sass</a></li>
+<li class="active"><a href="https://yehyoung.github.io/css/display/">CSS - Display &amp; flex</a></li>
+</ul>
+  
+</li>
+
+<li class=""><a href="https://yehyoung.github.io/ai/">人工智慧</a>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/linebot/">LINE Bot<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/linebot/linebotintro/">LINEBot 概念</a></li>
+<li class=""><a href="https://yehyoung.github.io/linebot/django/djintro/">Django 介紹及安裝</a></li>
+<li class=""><a href="https://yehyoung.github.io/linebot/reference/">參考網站</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/python/">Python<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/python/sqlite/sql/">SQLite - SQL Sample</a></li>
+<li class=""><a href="https://yehyoung.github.io/python/sqlite/intro/">SQLite 簡介</a></li>
+<li class=""><a href="https://yehyoung.github.io/python/basic/csv/">Python - CSV</a></li>
+<li class=""><a href="https://yehyoung.github.io/python/stock/stock/">Stock</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/html/">HTMLs<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/html/emmet/">Emmet</a></li>
+<li class=""><a href="https://yehyoung.github.io/html/pug/">Pug</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/netcore/">NetCores<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=""><a href="https://yehyoung.github.io/netcore/entityframework/">Entity Framework</a>
+  
+</li>
+
+<li class=""><a href="https://yehyoung.github.io/netcore/linq/">LINQ</a>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/netcore/csharp/">C#<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/netcore/csharp/linq/linq/">LINQ</a></li>
+<li class=""><a href="https://yehyoung.github.io/netcore/csharp/linq/enumerable/">Enumerable</a></li>
+<li class=""><a href="https://yehyoung.github.io/netcore/csharp/linq/lambda/">Lambda 運算式</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/oracle/">Oracles<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/oracle/count/">Count</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/gulp/">Gulps<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/gulp/gulpv4sample2/">GulpV4Sample2</a></li>
+<li class=""><a href="https://yehyoung.github.io/gulp/gulpv4sample1/">GulpV4Sample1</a></li>
+<li class=""><a href="https://yehyoung.github.io/gulp/gulptask/">GulpTask</a></li>
+<li class=""><a href="https://yehyoung.github.io/gulp/gulpplugin/">GulpPlugin</a></li>
+<li class=""><a href="https://yehyoung.github.io/gulp/glob/">Glob</a></li>
+<li class=""><a href="https://yehyoung.github.io/gulp/gulpintro/">Gulp 4 介紹及安裝</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/webpack/">Webpacks<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/webpack/reference/">Reference</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/markdown/">Markdowns<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/markdown/markdownrule/">MarkdownRule</a></li>
+<li class=""><a href="https://yehyoung.github.io/markdown/markdown/">Markdown </a></li>
+</ul>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>

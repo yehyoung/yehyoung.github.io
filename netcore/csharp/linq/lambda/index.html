@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="/images/favicon.ico">
+<title>Lambda 運算式 - YehYeh 記事本2.0</title>
+<meta name="description" content="竹科碼農的記事本">
+<meta name="generator" content="Hugo 0.68.3" />
+<link href="https://yehyoung.github.ioindex.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://yehyoung.github.io/netcore/csharp/linq/lambda/">
+<link rel="stylesheet" href="https://yehyoung.github.io/css/theme.min.css">
+<script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<link rel="stylesheet" href="https://yehyoung.github.io/css/chroma.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js"></script>
+<script src="https://yehyoung.github.io/js/bundle.js"></script><style>
+:root {--custom-background-color: DodgerBlue;}
+</style>
+<meta property="og:title" content="Lambda 運算式" />
+<meta property="og:description" content="委派 變數的型別不能是函式，只能是類別、int、String、&hellip; 在C&#43;&#43;中，函式指標(Function Pointer)可以讓變數" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yehyoung.github.io/netcore/csharp/linq/lambda/" />
+<meta property="og:image" content="https://yehyoung.github.io/images/Test.jpg"/>
+<meta property="article:published_time" content="2020-04-08T21:31:27+08:00" />
+<meta property="article:modified_time" content="2020-04-08T21:31:27+08:00" /><meta property="og:site_name" content="Hugo Techdoc Theme 測試" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://yehyoung.github.io/images/Test.jpg"/>
+
+<meta name="twitter:title" content="Lambda 運算式"/>
+<meta name="twitter:description" content="委派 變數的型別不能是函式，只能是類別、int、String、&hellip; 在C&#43;&#43;中，函式指標(Function Pointer)可以讓變數"/>
+<meta itemprop="name" content="Lambda 運算式">
+<meta itemprop="description" content="委派 變數的型別不能是函式，只能是類別、int、String、&hellip; 在C&#43;&#43;中，函式指標(Function Pointer)可以讓變數">
+<meta itemprop="datePublished" content="2020-04-08T21:31:27&#43;08:00" />
+<meta itemprop="dateModified" content="2020-04-08T21:31:27&#43;08:00" />
+<meta itemprop="wordCount" content="998">
+<meta itemprop="image" content="https://yehyoung.github.io/images/Test.jpg"/>
+
+
+
+<meta itemprop="keywords" content="" /></head>
+<body><div class="container"><header>
+<h1>YehYeh 記事本2.0</h1>
+
+ <span class="version">Version 0.8.3</span>
+<a href="https://github.com/thingsym/hugo-theme-techdoc" class="github"><i class="fab fa-github"></i></a>
+<p class="description">竹科碼農的記事本</p>
+
+</header>
+<div class="global-menu">
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="https://twitter.com/thingsym">Twitter</a></li>
+<li><a href="/about/">About Hugo</a></li></ul>
+</nav>
+</div>
+<div class="content-container">
+<main><h1>Lambda 運算式</h1>
+<h2 id="委派">委派</h2>
+<ul>
+<li>
+<p>變數的型別不能是函式，只能是類別、int、String、&hellip;</p>
+<ul>
+<li>在C++中，函式指標(Function Pointer)可以讓變數指向函式</li>
+<li>在JavaScript中，變數可以是函式
+<ul>
+<li><code>var func = function sum(a, b){ return a+ b}</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>在C#中，要把函式當作變數來使用，就要用委派</p>
+</li>
+<li>
+<p>委派可以作為函式的參數 ⇒ 可以用來回呼(Call back)</p>
+</li>
+<li>
+<p>委派鏈 ⇒ 委派可以連結在一起 ⇒ 一個事件可以呼叫多個方法</p>
+</li>
+<li>
+<p>Delegate可以有0~32個參數</p>
+</li>
+</ul>
+<h3 id="委派的類型">委派的類型</h3>
+<table>
+<thead>
+<tr>
+<th>委派</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Delegate</td>
+<td>需宣告自訂委派</td>
+</tr>
+<tr>
+<td>Action</td>
+<td>不需宣告自訂委派, 無回傳值委派</td>
+</tr>
+<tr>
+<td>Func</td>
+<td>不需宣告自訂委派,有回傳值委派</td>
+</tr>
+<tr>
+<td>predicate</td>
+<td>不需宣告自訂委派,回傳值為bool型別委派</td>
+</tr>
+</tbody>
+</table>
+<h3 id="實作一個委派">實作一個委派</h3>
+<ol>
+<li>宣告自訂委派 : 由於函式有回傳型別，輸入參數，所以使用委派要先定義 ⇒ 定義一個委派類別</li>
+</ol>
+<ul>
+<li><code>public delegate 回傳型別 MyDel(輸入參數)</code></li>
+</ul>
+<ol start="2">
+<li>要實作函式的本體 ⇒ 回傳型別與輸入參數需要與委派一樣</li>
+</ol>
+<ul>
+<li><code>public static void DelegateMethod1(string msg) {  Console.WriteLine(msg);  }</code></li>
+</ul>
+<ol start="3">
+<li>將委派類別實體化</li>
+</ol>
+<ul>
+<li><code>MyDel handler = DelegateMethod1;</code></li>
+</ul>
+<ol start="4">
+<li>呼叫函式</li>
+</ol>
+<ul>
+<li><code>handler();</code></li>
+</ul>
+<h4 id="例1-1-定義委派及函式">例1-1 定義委派及函式</h4>
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="c1">// 定義一個委派(回傳值, 名字, 參數) =&gt; 可以想像宣告一個指標
+</span><span class="c1"></span><span class="k">public</span> <span class="k">delegate</span> <span class="k">void</span> <span class="n">MyDel</span><span class="p">(</span><span class="kt">string</span> <span class="n">msg</span><span class="p">);</span> 
+
+<span class="c1">// 實作委派的方法 =&gt; 實作一個函式
+</span><span class="c1"></span><span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="n">DelegateMethod1</span><span class="p">(</span><span class="kt">string</span> <span class="n">msg</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">msg</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="n">DelegateMethod2</span><span class="p">(</span><span class="kt">string</span> <span class="n">msg</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&#34;Hello: &#34;</span> <span class="p">+</span> <span class="n">msg</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div><h4 id="例1-2-執行">例1-2 執行</h4>
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">MyDel</span> <span class="n">handler</span> <span class="p">=</span> <span class="n">DelegateMethod1</span><span class="p">;</span>     <span class="c1">// handler為MyDel型別，指向DelegateMethod
+</span><span class="c1"></span><span class="n">handler</span><span class="p">(</span><span class="s">&#34;World&#34;</span><span class="p">);</span>             <span class="c1">// 執行委派
+</span><span class="c1"></span>
+<span class="n">handler</span> <span class="p">=</span> <span class="n">DelegateMethod2</span><span class="p">;</span>
+<span class="n">handler</span><span class="p">(</span><span class="s">&#34;World&#34;</span><span class="p">);</span>
+</code></pre></div><h4 id="例1-3-回呼">例1-3 回呼</h4>
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="n">MyDelCallback</span><span class="p">(</span> <span class="kt">string</span> <span class="n">name</span><span class="p">,</span> <span class="n">MyDel</span> <span class="n">callback</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">callback</span><span class="p">(</span> <span class="n">name</span> <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div><h4 id="例1-4-委派鏈">例1-4 委派鏈</h4>
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">MyDel</span> <span class="n">handler</span> <span class="p">=</span> <span class="k">null</span><span class="p">;</span>
+<span class="n">handler</span> <span class="p">+=</span> <span class="n">DelegateMethod1</span><span class="p">;</span>   <span class="c1">// 鏈結委派
+</span><span class="c1"></span><span class="n">handler</span> <span class="p">+=</span> <span class="n">DelegateMethod2</span><span class="p">;</span>   <span class="c1">// 鏈結委派
+</span><span class="c1"></span>
+<span class="n">handler</span><span class="p">();</span>    <span class="c1">// 執行 DelegateMethod1 和 DelegateMethod2
+</span><span class="c1"></span>
+<span class="n">handler</span> <span class="p">-=</span> <span class="n">DelegateMethod1</span><span class="p">;</span>   <span class="c1">// 將委派由委派鏈中移除
+</span></code></pre></div><h3 id="action">Action</h3>
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">Name</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">void</span> <span class="n">DisplayToWindow</span><span class="p">()</span>
+    <span class="p">{</span>
+      <span class="n">MessageBox</span><span class="p">.</span><span class="n">Show</span><span class="p">(</span><span class="s">&#34;My name is yehyeh&#34;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">Name</span> <span class="n">myName</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Name</span><span class="p">();</span>
+
+<span class="n">Action</span> <span class="n">showMethod</span> <span class="p">=</span> <span class="n">testName</span><span class="p">.</span><span class="n">DisplayToWindow</span><span class="p">;</span>
+<span class="n">Action</span> <span class="n">showMethod</span> <span class="p">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="n">testName</span><span class="p">.</span><span class="n">DisplayToWindow</span><span class="p">();</span>
+<span class="n">Action</span> <span class="n">showMethod</span> <span class="p">=</span> <span class="k">delegate</span><span class="p">()</span> <span class="p">{</span> <span class="n">testName</span><span class="p">.</span><span class="n">DisplayToWindow</span><span class="p">();}</span> <span class="p">;</span>
+</code></pre></div><h2 id="lambda-運算式">Lambda 運算式</h2>
+<ul>
+<li>Lambda是一種匿名函式</li>
+<li>Lambda可以分成2種
+<ul>
+<li>以運算式為主體 <code>(輸入參數) =&gt; expression</code></li>
+<li>以陳述式區塊為主體  <code>(輸入參數) =&gt; {敘述}</code></li>
+</ul>
+</li>
+<li><code>=&gt;</code> 用來將lambda左側的輸入和右側的主體分開
+<ul>
+<li>念作 goes to</li>
+</ul>
+</li>
+<li>Lambda 一定可轉成委派型別
+<ul>
+<li>Lambda無回傳值 → 可轉換成Action委派型別</li>
+<li>Lambda有回傳值 → 可轉換成Func委派型別</li>
+</ul>
+</li>
+</ul>
+<h3 id="以運算式為主體-lambda">以運算式為主體 Lambda</h3>
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="c1">// Lambda無輸入參數
+</span><span class="c1"></span><span class="n">Action</span> <span class="n">line</span> <span class="p">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">();</span>
+
+<span class="c1">// Lambda輸入參數無指定型別
+</span><span class="c1"></span><span class="n">Func</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="kt">bool</span><span class="p">&gt;</span> <span class="n">testForEquality</span> <span class="p">=</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="n">x</span> <span class="p">==</span> <span class="n">y</span><span class="p">;</span>
+
+<span class="c1">// 編譯器無法判斷型別時，需自行定義型別
+</span><span class="c1"></span><span class="n">Func</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">string</span><span class="p">,</span> <span class="kt">bool</span><span class="p">&gt;</span> <span class="n">isTooLong</span> <span class="p">=</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">string</span> <span class="n">s</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="n">s</span><span class="p">.</span><span class="n">Length</span> <span class="p">&gt;</span> <span class="n">x</span><span class="p">;</span>
+</code></pre></div><h3 id="以陳述式區塊為主體-lambda">以陳述式區塊為主體 Lambda</h3>
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="n">Action</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">&gt;</span> <span class="n">greet</span> <span class="p">=</span> <span class="n">name</span> <span class="p">=&gt;</span> 
+<span class="p">{</span> 
+    <span class="kt">string</span> <span class="n">greeting</span> <span class="p">=</span> <span class="s">$&#34;Hello {name}!&#34;</span><span class="p">;</span>
+    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">greeting</span><span class="p">);</span>            <span class="c1">// Hello World;
+</span><span class="c1"></span><span class="p">};</span>
+<span class="n">greet</span><span class="p">(</span><span class="s">&#34;World&#34;</span><span class="p">);</span>     
+</code></pre></div><h3 id="lambda-運算式和元組">Lambda 運算式和元組</h3>
+<ul>
+<li>C# 7.0 開始，支援元組(tuples)
+<ul>
+<li>可以將元組當做引數提供給 Lambda 運算式</li>
+<li>Lambda 運算式可以傳回元組。</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-csharp" data-lang="csharp"><span class="c1">// 將元組當做引數
+</span><span class="c1"></span><span class="n">Func</span><span class="p">&lt;(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">),</span> <span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">)&gt;</span> <span class="n">doubleThem</span> <span class="p">=</span> <span class="n">ns</span> <span class="p">=&gt;</span> <span class="p">(</span><span class="m">2</span> <span class="p">*</span> <span class="n">ns</span><span class="p">.</span><span class="n">Item1</span><span class="p">,</span> <span class="m">2</span> <span class="p">*</span> <span class="n">ns</span><span class="p">.</span><span class="n">Item2</span><span class="p">,</span> <span class="m">2</span> <span class="p">*</span> <span class="n">ns</span><span class="p">.</span><span class="n">Item3</span><span class="p">);</span>
+
+<span class="kt">var</span> <span class="n">numbers</span> <span class="p">=</span> <span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">3</span><span class="p">,</span> <span class="m">4</span><span class="p">);</span>
+<span class="kt">var</span> <span class="n">doubledNumbers</span> <span class="p">=</span> <span class="n">doubleThem</span><span class="p">(</span><span class="n">numbers</span><span class="p">);</span>
+
+<span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$&#34;The set {numbers} doubled: {doubledNumbers}&#34;</span><span class="p">);</span>
+<span class="c1">// Output:
+</span><span class="c1">// The set (2, 3, 4) doubled: (4, 6, 8)
+</span></code></pre></div><hr>
+<h2 id="參考">參考</h2>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-tw/dotnet/api/system.action?redirectedfrom=MSDN&amp;view=netframework-4.8">MS DOC - Action</a></li>
+<li><a href="https://docs.microsoft.com/zh-tw/dotnet/api/system.func-1?redirectedfrom=MSDN&amp;view=netframework-4.8">MS DOC - Func</a></li>
+<li><a href="https://docs.microsoft.com/zh-tw/dotnet/api/system.predicate-1?redirectedfrom=MSDN&amp;view=netframework-4.8">MS DOC - predicate</a></li>
+<li><a href="https://docs.microsoft.com/zh-tw/dotnet/csharp/programming-guide/statements-expressions-operators/lambda-expressions">MS DOC - lambda</a></li>
+</ul>
+<div class="edit-meta">
+Last updated on 2020-04-08
+
+
+<br>
+Published on 2020-04-08
+<br><a href="https://github.com/thingsym/hugo-theme-techdoc/edit/master/content/NetCore%5cCSharp%5cLINQ%5clambda.md" class="edit-page"><i class="fas fa-pen-square"></i> Edit on GitHub</a></div><nav class="pagination"><a class="nav nav-prev" href="https://yehyoung.github.io/netcore/csharp/linq/enumerable/" title="Enumerable"><i class="fas fa-arrow-left" aria-hidden="true"></i> Prev - Enumerable</a>
+<a class="nav nav-next" href="https://yehyoung.github.io/oracle/" title="Oracles">Next - Oracles <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main><div class="sidebar">
+
+<nav class="slide-menu">
+<ul>
+<li class=""><a href="https://yehyoung.github.io">Home</a></li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/hugo/">Hugo<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/hugo/01_hugoinstall/">Hugo 安裝</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/02_themesetup/">Hugo 佈景安裝及設定</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/04_newpost/">Hugo 新增一篇文章</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/03_structure/">Hugo 資料夾與檔案結構</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/05_runserver/">Hugo 本機啓動一個伺服器</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/06_pushtogit/">將網站上傳到Github</a></li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/hugo/theme/">Theme<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/hugo/theme/menu/">Menu</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/theme/functions/">Functions</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/theme/sectionpagevariableandmethods/">Section 的變數及方法</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/theme/templating/">Templating</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/theme/sass/">Sass</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/theme/themeintro/">Hugo 佈景概念</a></li>
+</ul>
+  
+</li>
+<li class=""><a href="https://yehyoung.github.io/hugo/highlight/">程式碼高亮 Highlight</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/sass/">在 Hugo 裡使用 SASS</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/otherfunction/">OtherFunction</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/frontmatter/">Hugo FrontMatter</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/reference/">參考網站</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/hugoreference/">HugoReference</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/07_hugocommand/">HugoCommand</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/css/">CSS<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/css/codesnippet/">CodeSnippet</a></li>
+<li class=""><a href="https://yehyoung.github.io/css/float/">Float</a></li>
+<li class=""><a href="https://yehyoung.github.io/css/reset/">Reset</a></li>
+<li class=""><a href="https://yehyoung.github.io/css/transform/">Transform</a></li>
+<li class=""><a href="https://yehyoung.github.io/css/boxshadow/">BoxShadow</a></li>
+<li class=""><a href="https://yehyoung.github.io/css/position/">Position</a></li>
+<li class=""><a href="https://yehyoung.github.io/css/sass/">Sass</a></li>
+<li class=""><a href="https://yehyoung.github.io/css/display/">CSS - Display &amp; flex</a></li>
+</ul>
+  
+</li>
+
+<li class=""><a href="https://yehyoung.github.io/ai/">人工智慧</a>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/linebot/">LINE Bot<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/linebot/linebotintro/">LINEBot 概念</a></li>
+<li class=""><a href="https://yehyoung.github.io/linebot/django/djintro/">Django 介紹及安裝</a></li>
+<li class=""><a href="https://yehyoung.github.io/linebot/reference/">參考網站</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/python/">Python<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/python/sqlite/sql/">SQLite - SQL Sample</a></li>
+<li class=""><a href="https://yehyoung.github.io/python/sqlite/intro/">SQLite 簡介</a></li>
+<li class=""><a href="https://yehyoung.github.io/python/basic/csv/">Python - CSV</a></li>
+<li class=""><a href="https://yehyoung.github.io/python/stock/stock/">Stock</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/html/">HTMLs<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/html/emmet/">Emmet</a></li>
+<li class=""><a href="https://yehyoung.github.io/html/pug/">Pug</a></li>
+</ul>
+  
+</li>
+
+<li class="parent has-sub-menu"><a href="https://yehyoung.github.io/netcore/">NetCores<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+
+<li class=""><a href="https://yehyoung.github.io/netcore/entityframework/">Entity Framework</a>
+  
+</li>
+
+<li class=""><a href="https://yehyoung.github.io/netcore/linq/">LINQ</a>
+  
+</li>
+
+<li class="parent has-sub-menu"><a href="https://yehyoung.github.io/netcore/csharp/">C#<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/netcore/csharp/linq/linq/">LINQ</a></li>
+<li class=""><a href="https://yehyoung.github.io/netcore/csharp/linq/enumerable/">Enumerable</a></li>
+<li class="active"><a href="https://yehyoung.github.io/netcore/csharp/linq/lambda/">Lambda 運算式</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/oracle/">Oracles<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/oracle/count/">Count</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/gulp/">Gulps<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/gulp/gulpv4sample2/">GulpV4Sample2</a></li>
+<li class=""><a href="https://yehyoung.github.io/gulp/gulpv4sample1/">GulpV4Sample1</a></li>
+<li class=""><a href="https://yehyoung.github.io/gulp/gulptask/">GulpTask</a></li>
+<li class=""><a href="https://yehyoung.github.io/gulp/gulpplugin/">GulpPlugin</a></li>
+<li class=""><a href="https://yehyoung.github.io/gulp/glob/">Glob</a></li>
+<li class=""><a href="https://yehyoung.github.io/gulp/gulpintro/">Gulp 4 介紹及安裝</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/webpack/">Webpacks<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/webpack/reference/">Reference</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/markdown/">Markdowns<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/markdown/markdownrule/">MarkdownRule</a></li>
+<li class=""><a href="https://yehyoung.github.io/markdown/markdown/">Markdown </a></li>
+</ul>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>

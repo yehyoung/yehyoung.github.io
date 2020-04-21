@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>HTMLs on YehYeh 記事本2.0</title>
+    <link>https://yehyoung.github.io/html/</link>
+    <description>Recent content in HTMLs on YehYeh 記事本2.0</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Sat, 11 Apr 2020 23:20:50 +0800</lastBuildDate>
+    
+	<atom:link href="https://yehyoung.github.io/html/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Emmet</title>
+      <link>https://yehyoung.github.io/html/emmet/</link>
+      <pubDate>Sat, 11 Apr 2020 23:20:50 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/html/emmet/</guid>
+      <description>HTML html:5 &amp;lt;!DOCTYPE html&amp;gt; &amp;lt;html lang=&amp;#34;en&amp;#34;&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;UTF-8&amp;#34; /&amp;gt; &amp;lt;title&amp;gt;Document&amp;lt;/title&amp;gt; &amp;lt;/head&amp;gt; &amp;lt;body&amp;gt; &amp;lt;/body&amp;gt; &amp;lt;/html&amp;gt; ul&amp;gt;li*5 &amp;lt;ul&amp;gt; &amp;lt;li&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; ul&amp;gt;(li&amp;gt;a)*3 *可搭配小括號 &amp;lt;ul&amp;gt; &amp;lt;li&amp;gt;&amp;lt;a href=&amp;#34;&amp;#34;&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;&amp;lt;a href=&amp;#34;&amp;#34;&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li&amp;gt;&amp;lt;a href=&amp;#34;&amp;#34;&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; ### `div+p+bq` ```html &amp;lt;div&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;p&amp;gt;&amp;lt;/p&amp;gt; &amp;lt;blockquote&amp;gt;&amp;lt;/blockquote&amp;gt; ul&amp;gt;li.item$*3 &amp;lt;ul&amp;gt; &amp;lt;li class=&amp;quot;item1&amp;quot;&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li class=&amp;quot;item2&amp;quot;&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li class=&amp;quot;item3&amp;quot;&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;/ul&amp;gt; ul&amp;gt;li.item$$*3 幾位數字就用幾個$ &amp;lt;ul&amp;gt; &amp;lt;li class=&amp;#34;item01&amp;#34;&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li class=&amp;#34;item02&amp;#34;&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li</description>
+    </item>
+    
+    <item>
+      <title>Pug</title>
+      <link>https://yehyoung.github.io/html/pug/</link>
+      <pubDate>Sat, 11 Apr 2020 22:39:16 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/html/pug/</guid>
+      <description>// 註解 div.bgYellow.green div span.blue span a(href=&amp;quot;https://www.google.com/?hl=zh-tw&amp;quot; target=&amp;quot;_blank&amp;quot;) google | 繼續div內文 說明 pug 範例 HTML註解 // //註解 &amp;lt;!-- 註解 --&amp;gt; pug註解 //- //-註解 元素 標籤 內容 div 內文 子元素 縮排 + 標籤 內容 縮排</description>
+    </item>
+    
+  </channel>
+</rss>

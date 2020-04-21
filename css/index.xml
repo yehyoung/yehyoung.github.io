@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CSS on YehYeh 記事本2.0</title>
+    <link>https://yehyoung.github.io/css/</link>
+    <description>Recent content in CSS on YehYeh 記事本2.0</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Mon, 23 Mar 2020 23:37:03 +0800</lastBuildDate>
+    
+	<atom:link href="https://yehyoung.github.io/css/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>CodeSnippet</title>
+      <link>https://yehyoung.github.io/css/codesnippet/</link>
+      <pubDate>Fri, 17 Apr 2020 23:34:45 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/css/codesnippet/</guid>
+      <description>flex 上下左右置中 .container display: flex; justify-content: center; align-item: center; `</description>
+    </item>
+    
+    <item>
+      <title>Float</title>
+      <link>https://yehyoung.github.io/css/float/</link>
+      <pubDate>Sun, 12 Apr 2020 18:10:10 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/css/float/</guid>
+      <description>float EX1 - 沒有float .container 父元素內文 span.float 子元素內文 | 父元素內文 span.float 子元素內文 | 父元素內文 * margin: 0 10px .container background-color: Orange .float background-color: YellowGreen padding: 10px float EX2 - 設float .container background-color: Orange .float background-color: YellowGreen padding: 10px float:</description>
+    </item>
+    
+    <item>
+      <title>Reset</title>
+      <link>https://yehyoung.github.io/css/reset/</link>
+      <pubDate>Sun, 12 Apr 2020 13:11:37 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/css/reset/</guid>
+      <description>html, body width: 100% height: 100% margin: 0 </description>
+    </item>
+    
+    <item>
+      <title>Transform</title>
+      <link>https://yehyoung.github.io/css/transform/</link>
+      <pubDate>Sun, 12 Apr 2020 12:44:34 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/css/transform/</guid>
+      <description>外層 transform，內層也會transform transform: rotate(45deg)</description>
+    </item>
+    
+    <item>
+      <title>BoxShadow</title>
+      <link>https://yehyoung.github.io/css/boxshadow/</link>
+      <pubDate>Sun, 12 Apr 2020 12:36:13 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/css/boxshadow/</guid>
+      <description>Lorem Ipsum.</description>
+    </item>
+    
+    <item>
+      <title>Position</title>
+      <link>https://yehyoung.github.io/css/position/</link>
+      <pubDate>Sun, 12 Apr 2020 12:36:04 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/css/position/</guid>
+      <description>static : 預設屬性 預設的排版 沒有辦法用left, top , bottom, right 定位的元素 只能調內外距 relative 在排版內 ⇒ 原來的位置會保留 位移時，原來的位置會保留 left, top 的偏移是根據</description>
+    </item>
+    
+    <item>
+      <title>Sass</title>
+      <link>https://yehyoung.github.io/css/sass/</link>
+      <pubDate>Sat, 11 Apr 2020 23:07:10 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/css/sass/</guid>
+      <description>Sass特性 不需加大括號 結尾不需加分號 巢狀 註解:// 父選擇器: &amp;amp; .class color: red background-color: GreenYellow .subClass//.class.subClass=&amp;gt; class底下，具有subClass的子孫元素 color: blue &amp;amp;:hover // .class .subClass:hover color: red &amp;amp;subClass//.class.subClass=&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title>CSS - Display &amp; flex</title>
+      <link>https://yehyoung.github.io/css/display/</link>
+      <pubDate>Fri, 10 Apr 2020 21:53:51 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/css/display/</guid>
+      <description>inline, inline-block , block 屬性 換行 寬度 有Width, height屬性 inline 不換行 內容寬度 無 inline-block 內容寬度 不換行 有 block 換行 水平撐滿 有 Display:inline 時width, height屬性不會有</description>
+    </item>
+    
+  </channel>
+</rss>

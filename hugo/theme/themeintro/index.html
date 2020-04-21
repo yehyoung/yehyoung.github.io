@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="/images/favicon.ico">
+<title>Hugo 佈景概念 - YehYeh 記事本2.0</title>
+<meta name="description" content="竹科碼農的記事本">
+<meta name="generator" content="Hugo 0.68.3" />
+<link href="https://yehyoung.github.ioindex.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://yehyoung.github.io/hugo/theme/themeintro/">
+<link rel="stylesheet" href="https://yehyoung.github.io/css/theme.min.css">
+<script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<link rel="stylesheet" href="https://yehyoung.github.io/css/chroma.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js"></script>
+<script src="https://yehyoung.github.io/js/bundle.js"></script><style>
+:root {--custom-background-color: DodgerBlue;}
+</style>
+<meta property="og:title" content="Hugo 佈景概念" />
+<meta property="og:description" content="概念 新佈景的基本架構 hugo new theme HUGO-NOTEPAD 網站\THEMES\HUGO-NOTEPAD │ LICENSE │ theme.toml │ ├─archetypes │ default.md │ ├─layouts │ │ 404.html │ │" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yehyoung.github.io/hugo/theme/themeintro/" />
+<meta property="og:image" content="https://yehyoung.github.io/images/Test.jpg"/>
+<meta property="article:published_time" content="2020-04-13T22:26:09+08:00" />
+<meta property="article:modified_time" content="2020-04-13T22:26:09+08:00" /><meta property="og:site_name" content="Hugo Techdoc Theme 測試" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://yehyoung.github.io/images/Test.jpg"/>
+
+<meta name="twitter:title" content="Hugo 佈景概念"/>
+<meta name="twitter:description" content="概念 新佈景的基本架構 hugo new theme HUGO-NOTEPAD 網站\THEMES\HUGO-NOTEPAD │ LICENSE │ theme.toml │ ├─archetypes │ default.md │ ├─layouts │ │ 404.html │ │"/>
+<meta itemprop="name" content="Hugo 佈景概念">
+<meta itemprop="description" content="概念 新佈景的基本架構 hugo new theme HUGO-NOTEPAD 網站\THEMES\HUGO-NOTEPAD │ LICENSE │ theme.toml │ ├─archetypes │ default.md │ ├─layouts │ │ 404.html │ │">
+<meta itemprop="datePublished" content="2020-04-13T22:26:09&#43;08:00" />
+<meta itemprop="dateModified" content="2020-04-13T22:26:09&#43;08:00" />
+<meta itemprop="wordCount" content="1816">
+<meta itemprop="image" content="https://yehyoung.github.io/images/Test.jpg"/>
+
+
+
+<meta itemprop="keywords" content="" /></head>
+<body><div class="container"><header>
+<h1>YehYeh 記事本2.0</h1>
+
+ <span class="version">Version 0.8.3</span>
+<a href="https://github.com/thingsym/hugo-theme-techdoc" class="github"><i class="fab fa-github"></i></a>
+<p class="description">竹科碼農的記事本</p>
+
+</header>
+<div class="global-menu">
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="https://twitter.com/thingsym">Twitter</a></li>
+<li><a href="/about/">About Hugo</a></li></ul>
+</nav>
+</div>
+<div class="content-container">
+<main><h1>Hugo 佈景概念</h1>
+<h2 id="概念">概念</h2>
+<h2 id="新佈景的基本架構">新佈景的基本架構</h2>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">hugo new theme HUGO-NOTEPAD
+</code></pre></div><pre><code>網站\THEMES\HUGO-NOTEPAD
+│  LICENSE
+│  theme.toml
+│  
+├─archetypes
+│      default.md
+│      
+├─layouts
+│  │  404.html
+│  │  index.html
+│  │  
+│  ├─partials
+│  │      footer.html
+│  │      head.html
+│  │      header.html
+│  │      
+│  └─_default
+│          baseof.html
+│          list.html
+│          single.html
+│          
+└─static
+    ├─css
+    └─js
+
+</code></pre><h2 id="layout">layout</h2>
+<pre><code class="language-tree" data-lang="tree">├─layouts
+  │  404.html
+  │  index.html
+  │  
+  ├─blog
+  │      li.html
+  │      list.html
+  │      single.html
+  │      summary.html
+  │      
+  ├─partials
+     │  content-footer.html
+     │  custom-css.html
+     │  custom-head.html
+     │  edit-meta.html
+     │  edit-page.html
+     │  footer.html
+     │  global-menu.html
+     │  head.html
+     │  last-updated.html
+     │  notification.html
+     │  pagination.html
+     │  powered.html
+     │  prepend-body.html
+     │  sidebar-footer.html
+     │  sidebar.html
+     │  site-header.html
+     │  table-of-contents.html
+     │  
+     ├─menu
+     │      open-menu.html
+     │      slide-menu.html
+     │      
+     └─meta
+             chroma.html
+             google-analytics-async.html
+              google-site-verification.html
+</code></pre><ul>
+<li>
+<p>以頁面(page)為基本單位</p>
+<ul>
+<li>瀏覽資料夾時，相當於瀏覽<code>_index.md</code></li>
+</ul>
+</li>
+<li>
+<p>所有的網頁都是以theme/layouts資料夾裡的檔案來渲染</p>
+</li>
+<li>
+<p>檔案可以透過<code>FrontMatter</code>來指定用什麼模板渲染</p>
+</li>
+<li>
+<p>每個頁面都會自動綁定 <code>Page</code> 變數</p>
+</li>
+<li>
+<p>layout</p>
+<ul>
+<li>_default: 預設模板
+<ul>
+<li><code>baseof.html</code> ⇒ 根模板</li>
+<li><code>首頁</code> ⇒ <code>index.html</code>    用index.html來渲染_index.md</li>
+<li><code>_index.md</code> ⇒ <code>list.html</code>   用list.html來渲染_index.md</li>
+<li><code>一般文章</code> ⇒ <code>single.html</code>   用single.html來渲染一般文章</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="模板的概念">模板的概念</h2>
+<h4 id="baseofhtml">baseof.html</h4>
+<ul>
+<li>定義有一個區塊，名字為main</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#34;en&#34;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&#34;UTF-8&#34;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>My Blog<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="c">&lt;!-- 定義這裡要填入名為main的區塊內容 --&gt;</span>
+{{ block &#34;main&#34; . }}
+{{ end }}
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div><h4 id="default-baseofhtml">default baseof.html</h4>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&#34;en&#34;</span><span class="p">&gt;</span>
+    {{- partial &#34;head.html&#34; . -}}
+    <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+        {{- partial &#34;header.html&#34; . -}}
+        {{- block &#34;main&#34; . -}}{{- end -}}
+        {{- partial &#34;footer.html&#34; . -}}
+    <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div><h4 id="indexhtml">index.html</h4>
+<ul>
+<li>渲染首頁(index.html)時，會以<code>baseof.html</code>為基礎</li>
+<li>再將<code>define &quot;main&quot;</code>的內容插入到<code>baseof.html</code>中</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!--定義main區塊是什麼--&gt;</span>
+{{ define &#34;main&#34; }}
+  {{ .Content }}    <span class="c">&lt;!-- .Content是Page的變數，即為文章的內容 --&gt;</span>
+{{ end }}
+</code></pre></div><h2 id="partial">Partial</h2>
+<pre><code class="language-tree" data-lang="tree">│  ├─partials
+      │  content-footer.html
+      │  custom-css.html
+      │  custom-head.html
+      │  edit-meta.html
+      │  edit-page.html
+      │  footer.html
+      │  global-menu.html
+      │  head.html
+      │  last-updated.html
+      │  notification.html
+      │  pagination.html
+      │  powered.html
+      │  prepend-body.html
+      │  sidebar-footer.html
+      │  sidebar.html
+      │  site-header.html
+      │  table-of-contents.html
+</code></pre><h2 id="menu">menu</h2>
+<ul>
+<li>menu一般是由Hugo去尋找Content資料夾裡的子資料夾，並存到變數中
+<ul>
+<li>這些子資料夾，在Hugo中稱為Section</li>
+<li>通常會用Section裡的<code>_index.md</code>的title來做為menu要顯示的字</li>
+</ul>
+</li>
+<li>透過變數來顯示menu</li>
+</ul>
+<ol>
+<li>在網站的<code>config.toml</code>中，做如下設定，表示將Section存到main變數</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-toml" data-lang="toml"><span class="nx">SectionPagesMenu</span><span class="err">:</span> <span class="nx">main</span>
+</code></pre></div><h4 id="layoutspartialsheaderhtml">layouts/partials/header.html</h4>
+<ul>
+<li>用回圈顯示<code>.Site.Menus.main</code>的內容，做為menu</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">header</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">nav</span><span class="p">&gt;</span>
+    {{ range .Site.Menus.main }}
+      <span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;{{if eq $.URL .URL}}active{{end}}&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;{{ .URL }}&#34;</span><span class="p">&gt;</span>
+        {{ .Name }}
+      <span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+    {{ end }}
+  <span class="p">&lt;/</span><span class="nt">nav</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">header</span><span class="p">&gt;</span>
+</code></pre></div><h4 id="將partial加到-首頁indexhtml">將partial加到 首頁(index.html)</h4>
+<ul>
+<li><code>{{ partial &quot;header&quot; . }}</code>
+<ul>
+<li>表示這裡要用partial header.html的內容代替</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html">{{ define &#34;main&#34; }}
+  <span class="p">&lt;</span><span class="nt">main</span><span class="p">&gt;</span>
+    {{ partial &#34;header&#34; . }}  <span class="c">&lt;!--表示這裡要用partial header.html的內容代替--&gt;</span>
+    <span class="p">&lt;</span><span class="nt">article</span><span class="p">&gt;</span>
+      {{ .Content }}
+    <span class="p">&lt;/</span><span class="nt">article</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">main</span><span class="p">&gt;</span>
+{{ end }}
+</code></pre></div><h2 id="佈景的架構參考">佈景的架構參考</h2>
+<pre><code class="language-tree" data-lang="tree">│  .editorconfig
+│  .gitignore
+│  gulpfile.js
+│  LICENSE.md
+│  package-lock.json
+│  package.json
+│  README.md
+│  theme.toml
+│  tree.txt
+│  webpack.config.js
+│  
+├─archetypes
+│      default.md
+│      
+├─exampleSite
+│  │  config.toml
+│  │  
+│  ├─content
+│  │  │  about.md
+│  │  │  _index.md
+│  │  │  
+│  │  ├─archives
+│  │  │      hello_world.md
+│  │  │      
+│  │  ├─blog
+│  │  │      hello_world.md
+│  │  │      
+│  │  ├─chapter1
+│  │  │      1.md
+│  │  │      _index.md
+│  │  │      
+│  │  ├─chapter2
+│  │  │  │  1.md
+│  │  │  │  _index.md
+│  │  │  │  
+│  │  │  └─chapter2-1
+│  │  │          1.md
+│  │  │          _index.md
+│  │  │          
+│  │  ├─entry
+│  │  │      hello_world.md
+│  │  │      
+│  │  ├─getting-started
+│  │  │      installation.md
+│  │  │      _index.md
+│  │  │      
+│  │  ├─post
+│  │  │      creating-a-new-theme.md
+│  │  │      
+│  │  ├─posts
+│  │  │      hello_world.md
+│  │  │      
+│  │  └─sample
+│  │          build-in-shortcodes.md
+│  │          _index.md
+│  │
+│  ├─resources
+│  │  └─_gen
+│  │      ├─assets
+│  │      └─images
+│  └─static
+│      └─images
+│              og-image.png
+│              pexels-photo-196666.jpeg
+│              
+├─images
+│      screenshot-edit-link.png
+│      screenshot-open-menu.png
+│      screenshot-slide-menu.gif
+│      screenshot-theme-color.png
+│      screenshot.png
+│      tn.png
+│      
+├─layouts
+│  │  404.html
+│  │  index.html
+│  │  
+│  ├─blog
+│  │      li.html
+│  │      list.html
+│  │      single.html
+│  │      summary.html
+│  │      
+│  ├─partials
+│  │  │  content-footer.html
+│  │  │  custom-css.html
+│  │  │  custom-head.html
+│  │  │  edit-meta.html
+│  │  │  edit-page.html
+│  │  │  footer.html
+│  │  │  global-menu.html
+│  │  │  head.html
+│  │  │  last-updated.html
+│  │  │  notification.html
+│  │  │  pagination.html
+│  │  │  powered.html
+│  │  │  prepend-body.html
+│  │  │  sidebar-footer.html
+│  │  │  sidebar.html
+│  │  │  site-header.html
+│  │  │  table-of-contents.html
+│  │  │  
+│  │  ├─menu
+│  │  │      open-menu.html
+│  │  │      slide-menu.html
+│  │  │      
+│  │  └─meta
+│  │          chroma.html
+│  │          google-analytics-async.html
+│  │          google-site-verification.html
+│  │          tag-manager.html
+│  │          
+│  ├─posts
+│  │      list.html
+│  │      single.html
+│  │      
+│  ├─shortcodes
+│  │      button.html
+│  │      panel.html
+│  │      
+│  └─_default
+│          baseof.html
+│          list.html
+│          single.html
+│
+├─src
+│  ├─js
+│  │  │  keydown-nav.js
+│  │  │  main.js
+│  │  │  sidebar-menu.js
+│  │  │  
+│  │  └─jquery.backtothetop
+│  │          jquery.backtothetop.js
+│  │          jquery.backtothetop.min.js
+│  │
+│  └─scss
+│      │  chroma.scss
+│      │  theme.scss
+│      │  _component.scss
+│      │  _foundation.scss
+│      │  _function.scss
+│      │  _project.scss
+│      │  _structure.scss
+│      │  _variable.scss
+│      │  
+│      ├─foundation
+│      │      _element.scss
+│      │      _normalize.scss
+│      │      _reset.scss
+│      │      _stack.scss
+│      │      
+│      └─function
+│              _calc-font-size.scss
+│              _calc-stack.scss
+│              _contrast-color.scss
+│              _strip-unit.scss
+│
+└─static
+    ├─css
+    │      chroma.css
+    │      chroma.min.css
+    │      theme.css
+    │      theme.min.css
+    │
+    └─js
+            bundle.js
+</code></pre><hr>
+<h2 id="參考">參考</h2>
+<ul>
+<li><a href="https://cjting.me/2017/06/04/migrate-to-hugo-from-jekyll/">从 Jekyll 迁移到 Hugo，Hugo 不完全指南</a></li>
+<li><a href="https://segmentfault.com/a/1190000016078760">Hugo-框架学习</a></li>
+<li><a href="https://hugo.aiaide.com/post/hugo%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/">Hugo的工作原理</a></li>
+<li><a href="http://llever.com/2017/11/14/hugo-templete-%E8%AF%AD%E6%B3%95/">hugo templete 语法</a></li>
+</ul>
+<div class="edit-meta">
+Last updated on 2020-04-13
+
+
+<br>
+Published on 2020-04-13
+<br><a href="https://github.com/thingsym/hugo-theme-techdoc/edit/master/content/Hugo%5cTheme%5cThemeIntro.md" class="edit-page"><i class="fas fa-pen-square"></i> Edit on GitHub</a></div><nav class="pagination"><a class="nav nav-prev" href="https://yehyoung.github.io/hugo/theme/sass/" title="Sass"><i class="fas fa-arrow-left" aria-hidden="true"></i> Prev - Sass</a>
+<a class="nav nav-next" href="https://yehyoung.github.io/hugo/highlight/" title="程式碼高亮 Highlight">Next - 程式碼高亮 Highlight <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main><div class="sidebar">
+
+<nav class="slide-menu">
+<ul>
+<li class=""><a href="https://yehyoung.github.io">Home</a></li>
+
+<li class="parent has-sub-menu"><a href="https://yehyoung.github.io/hugo/">Hugo<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/hugo/01_hugoinstall/">Hugo 安裝</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/02_themesetup/">Hugo 佈景安裝及設定</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/04_newpost/">Hugo 新增一篇文章</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/03_structure/">Hugo 資料夾與檔案結構</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/05_runserver/">Hugo 本機啓動一個伺服器</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/06_pushtogit/">將網站上傳到Github</a></li>
+
+<li class="parent has-sub-menu"><a href="https://yehyoung.github.io/hugo/theme/">Theme<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/hugo/theme/menu/">Menu</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/theme/functions/">Functions</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/theme/sectionpagevariableandmethods/">Section 的變數及方法</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/theme/templating/">Templating</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/theme/sass/">Sass</a></li>
+<li class="active"><a href="https://yehyoung.github.io/hugo/theme/themeintro/">Hugo 佈景概念</a></li>
+</ul>
+  
+</li>
+<li class=""><a href="https://yehyoung.github.io/hugo/highlight/">程式碼高亮 Highlight</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/sass/">在 Hugo 裡使用 SASS</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/otherfunction/">OtherFunction</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/frontmatter/">Hugo FrontMatter</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/reference/">參考網站</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/hugoreference/">HugoReference</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/07_hugocommand/">HugoCommand</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/css/">CSS<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/css/codesnippet/">CodeSnippet</a></li>
+<li class=""><a href="https://yehyoung.github.io/css/float/">Float</a></li>
+<li class=""><a href="https://yehyoung.github.io/css/reset/">Reset</a></li>
+<li class=""><a href="https://yehyoung.github.io/css/transform/">Transform</a></li>
+<li class=""><a href="https://yehyoung.github.io/css/boxshadow/">BoxShadow</a></li>
+<li class=""><a href="https://yehyoung.github.io/css/position/">Position</a></li>
+<li class=""><a href="https://yehyoung.github.io/css/sass/">Sass</a></li>
+<li class=""><a href="https://yehyoung.github.io/css/display/">CSS - Display &amp; flex</a></li>
+</ul>
+  
+</li>
+
+<li class=""><a href="https://yehyoung.github.io/ai/">人工智慧</a>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/linebot/">LINE Bot<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/linebot/linebotintro/">LINEBot 概念</a></li>
+<li class=""><a href="https://yehyoung.github.io/linebot/django/djintro/">Django 介紹及安裝</a></li>
+<li class=""><a href="https://yehyoung.github.io/linebot/reference/">參考網站</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/python/">Python<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/python/sqlite/sql/">SQLite - SQL Sample</a></li>
+<li class=""><a href="https://yehyoung.github.io/python/sqlite/intro/">SQLite 簡介</a></li>
+<li class=""><a href="https://yehyoung.github.io/python/basic/csv/">Python - CSV</a></li>
+<li class=""><a href="https://yehyoung.github.io/python/stock/stock/">Stock</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/html/">HTMLs<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/html/emmet/">Emmet</a></li>
+<li class=""><a href="https://yehyoung.github.io/html/pug/">Pug</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/netcore/">NetCores<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+
+<li class=""><a href="https://yehyoung.github.io/netcore/entityframework/">Entity Framework</a>
+  
+</li>
+
+<li class=""><a href="https://yehyoung.github.io/netcore/linq/">LINQ</a>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/netcore/csharp/">C#<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/netcore/csharp/linq/linq/">LINQ</a></li>
+<li class=""><a href="https://yehyoung.github.io/netcore/csharp/linq/enumerable/">Enumerable</a></li>
+<li class=""><a href="https://yehyoung.github.io/netcore/csharp/linq/lambda/">Lambda 運算式</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/oracle/">Oracles<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/oracle/count/">Count</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/gulp/">Gulps<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/gulp/gulpv4sample2/">GulpV4Sample2</a></li>
+<li class=""><a href="https://yehyoung.github.io/gulp/gulpv4sample1/">GulpV4Sample1</a></li>
+<li class=""><a href="https://yehyoung.github.io/gulp/gulptask/">GulpTask</a></li>
+<li class=""><a href="https://yehyoung.github.io/gulp/gulpplugin/">GulpPlugin</a></li>
+<li class=""><a href="https://yehyoung.github.io/gulp/glob/">Glob</a></li>
+<li class=""><a href="https://yehyoung.github.io/gulp/gulpintro/">Gulp 4 介紹及安裝</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/webpack/">Webpacks<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/webpack/reference/">Reference</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/markdown/">Markdowns<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/markdown/markdownrule/">MarkdownRule</a></li>
+<li class=""><a href="https://yehyoung.github.io/markdown/markdown/">Markdown </a></li>
+</ul>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>

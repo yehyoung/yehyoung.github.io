@@ -12,6 +12,15 @@
     
     
     <item>
+      <title>SQLite - SQL Sample</title>
+      <link>https://yehyoung.github.io/python/sqlite/sql/</link>
+      <pubDate>Fri, 03 Apr 2020 23:20:32 +0800</pubDate>
+      
+      <guid>https://yehyoung.github.io/python/sqlite/sql/</guid>
+      <description>with sp(stock_id, date, price) AS ( SELECT stock_id, date, 收盤價 FROM price WHERE stock_id in (&amp;#39;2330&amp;#39;, &amp;#39;2610&amp;#39;, &amp;#39;2618&amp;#39;, &amp;#39;2603&amp;#39;, &amp;#39;2731&amp;#39;, &amp;#39;5706&amp;#39;, &amp;#39;2704&amp;#39;, &amp;#39;9943&amp;#39;, &amp;#39;3596&amp;#39;, &amp;#39;00752&amp;#39;, &amp;#39;0056&amp;#39;, &amp;#39;2727&amp;#39;, &amp;#39;2729&amp;#39;, &amp;#39;1268&amp;#39;, &amp;#39;2633&amp;#39;, &amp;#39;2207&amp;#39;, &amp;#39;8044&amp;#39;, &amp;#39;8454&amp;#39;, &amp;#39;4938&amp;#39;, &amp;#39;2884&amp;#39;, &amp;#39;4919&amp;#39;, &amp;#39;2412&amp;#39;, &amp;#39;1303&amp;#39;, &amp;#39;1301&amp;#39;, &amp;#39;6505&amp;#39;, &amp;#39;1326&amp;#39;) and date = &amp;#39;2020-01-20 00:00:00&amp;#39; ), ep(stock_id, date, price) AS ( SELECT stock_id, date, 收盤價 FROM price WHERE stock_id in (&amp;#39;2330&amp;#39;, &amp;#39;2610&amp;#39;, &amp;#39;2618&amp;#39;, &amp;#39;2603&amp;#39;, &amp;#39;2731&amp;#39;,</description>
+    </item>
+    
+    <item>
       <title>SQLite 簡介</title>
       <link>https://yehyoung.github.io/python/sqlite/intro/</link>
       <pubDate>Fri, 03 Apr 2020 23:20:32 +0800</pubDate>

@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="shortcut icon" href="/images/favicon.ico">
+<title>Enumerable - YehYeh 記事本2.0</title>
+<meta name="description" content="竹科碼農的記事本">
+<meta name="generator" content="Hugo 0.68.3" />
+<link href="https://yehyoung.github.ioindex.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="https://yehyoung.github.io/netcore/csharp/linq/enumerable/">
+<link rel="stylesheet" href="https://yehyoung.github.io/css/theme.min.css">
+<script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<link rel="stylesheet" href="https://yehyoung.github.io/css/chroma.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js"></script>
+<script src="https://yehyoung.github.io/js/bundle.js"></script><style>
+:root {--custom-background-color: DodgerBlue;}
+</style>
+<meta property="og:title" content="Enumerable" />
+<meta property="og:description" content="擴充函式 功能 範例 Aggregate 將累加函式套用到序列上。 使用指定的值做為初始累加值，並使用指定的函式來選取結果值。 累加intArray中的偶數 int numEven = intArray.Aggregate(0, (total, next)" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://yehyoung.github.io/netcore/csharp/linq/enumerable/" />
+<meta property="og:image" content="https://yehyoung.github.io/images/Test.jpg"/>
+<meta property="article:published_time" content="2020-04-08T21:31:54+08:00" />
+<meta property="article:modified_time" content="2020-04-08T21:31:54+08:00" /><meta property="og:site_name" content="Hugo Techdoc Theme 測試" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://yehyoung.github.io/images/Test.jpg"/>
+
+<meta name="twitter:title" content="Enumerable"/>
+<meta name="twitter:description" content="擴充函式 功能 範例 Aggregate 將累加函式套用到序列上。 使用指定的值做為初始累加值，並使用指定的函式來選取結果值。 累加intArray中的偶數 int numEven = intArray.Aggregate(0, (total, next)"/>
+<meta itemprop="name" content="Enumerable">
+<meta itemprop="description" content="擴充函式 功能 範例 Aggregate 將累加函式套用到序列上。 使用指定的值做為初始累加值，並使用指定的函式來選取結果值。 累加intArray中的偶數 int numEven = intArray.Aggregate(0, (total, next)">
+<meta itemprop="datePublished" content="2020-04-08T21:31:54&#43;08:00" />
+<meta itemprop="dateModified" content="2020-04-08T21:31:54&#43;08:00" />
+<meta itemprop="wordCount" content="10299">
+<meta itemprop="image" content="https://yehyoung.github.io/images/Test.jpg"/>
+
+
+
+<meta itemprop="keywords" content="" /></head>
+<body><div class="container"><header>
+<h1>YehYeh 記事本2.0</h1>
+
+ <span class="version">Version 0.8.3</span>
+<a href="https://github.com/thingsym/hugo-theme-techdoc" class="github"><i class="fab fa-github"></i></a>
+<p class="description">竹科碼農的記事本</p>
+
+</header>
+<div class="global-menu">
+<nav>
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="https://twitter.com/thingsym">Twitter</a></li>
+<li><a href="/about/">About Hugo</a></li></ul>
+</nav>
+</div>
+<div class="content-container">
+<main><h1>Enumerable</h1>
+<table>
+<thead>
+<tr>
+<th>擴充函式</th>
+<th>功能</th>
+<th>範例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Aggregate</td>
+<td>將累加函式套用到序列上。 使用指定的值做為初始累加值，並使用指定的函式來選取結果值。</td>
+<td>累加intArray中的偶數 <code>int numEven = intArray.Aggregate(0, (total, next) =&gt; next % 2 == 0 ? total + 1 : total);</code></td>
+</tr>
+<tr>
+<td>All</td>
+<td>判斷序列的所有項目是否全都符合條件</td>
+<td>bool allStartWithB = pets.All(pet =&gt; pet.Name.StartsWith(&ldquo;B&rdquo;));</td>
+</tr>
+</tbody>
+</table>
+<p>資料表 1
+Aggregate&lt;TSource,TAccumulate,TResult&gt;(IEnumerable<TSource>, TAccumulate, Func&lt;TAccumulate,TSource,TAccumulate&gt;, Func&lt;TAccumulate,TResult&gt;)
+將累加函式套用到序列上。 使用指定的值做為初始累加值，並使用指定的函式來選取結果值。
+Aggregate&lt;TSource,TAccumulate&gt;(IEnumerable<TSource>, TAccumulate, Func&lt;TAccumulate,TSource,TAccumulate&gt;)
+將累加函式套用到序列上。 使用指定的初始值做為初始累加值。
+Aggregate<TSource>(IEnumerable<TSource>, Func&lt;TSource,TSource,TSource&gt;)
+將累加函式套用到序列上。
+All<TSource>(IEnumerable<TSource>, Func&lt;TSource,Boolean&gt;)
+判斷序列的所有項目是否全都符合條件。
+Any<TSource>(IEnumerable<TSource>)
+判斷序列是否包含任何項目。
+Any<TSource>(IEnumerable<TSource>, Func&lt;TSource,Boolean&gt;)
+判斷序列的任何項目是否符合條件。
+Append<TSource>(IEnumerable<TSource>, TSource)
+將值附加在序列結尾。
+AsEnumerable<TSource>(IEnumerable<TSource>)
+傳回 IEnumerable<T> 類型的輸入。
+Average(IEnumerable<Decimal>)
+計算 Decimal 值序列的平均值。
+Average(IEnumerable<Double>)
+計算 Double 值序列的平均值。
+Average(IEnumerable<Int32>)
+計算 Int32 值序列的平均值。
+Average(IEnumerable<Int64>)
+計算 Int64 值序列的平均值。
+Average(IEnumerable&lt;Nullable<Decimal>&gt;)
+計算可為 Null 之 Decimal 值序列的平均值。
+Average(IEnumerable&lt;Nullable<Double>&gt;)
+計算可為 Null 之 Double 值序列的平均值。
+Average(IEnumerable&lt;Nullable<Int32>&gt;)
+計算可為 Null 之 Int32 值序列的平均值。
+Average(IEnumerable&lt;Nullable<Int64>&gt;)
+計算可為 Null 之 Int64 值序列的平均值。
+Average(IEnumerable&lt;Nullable<Single>&gt;)
+計算可為 Null 之 Single 值序列的平均值。
+Average(IEnumerable<Single>)
+計算 Single 值序列的平均值。
+Average<TSource>(IEnumerable<TSource>, Func&lt;TSource,Decimal&gt;)
+計算在輸入序列中各項目上叫用轉換函式後所取得之 Decimal 值序列的平均值。
+Average<TSource>(IEnumerable<TSource>, Func&lt;TSource,Double&gt;)
+計算在輸入序列中各項目上叫用轉換函式後所取得之 Double 值序列的平均值。
+Average<TSource>(IEnumerable<TSource>, Func&lt;TSource,Int32&gt;)
+計算在輸入序列中各項目上叫用轉換函式後所取得之 Int32 值序列的平均值。
+Average<TSource>(IEnumerable<TSource>, Func&lt;TSource,Int64&gt;)
+計算在輸入序列中各項目上叫用轉換函式後所取得之 Int64 值序列的平均值。
+Average<TSource>(IEnumerable<TSource>, Func&lt;TSource,Nullable<Decimal>&gt;)
+計算在輸入序列中各項目上叫用轉換函式後所取得可為 Null 之 Decimal 值的平均值。
+Average<TSource>(IEnumerable<TSource>, Func&lt;TSource,Nullable<Double>&gt;)
+計算在輸入序列中各項目上叫用轉換函式後所取得可為 Null 之 Double 值的平均值。
+Average<TSource>(IEnumerable<TSource>, Func&lt;TSource,Nullable<Int32>&gt;)
+計算在輸入序列中各項目上叫用轉換函式後所取得可為 Null 之 Int32 值的平均值。
+Average<TSource>(IEnumerable<TSource>, Func&lt;TSource,Nullable<Int64>&gt;)
+計算在輸入序列中各項目上叫用轉換函式後所取得可為 Null 之 Int64 值的平均值。
+Average<TSource>(IEnumerable<TSource>, Func&lt;TSource,Nullable<Single>&gt;)
+計算在輸入序列中各項目上叫用轉換函式後所取得可為 Null 之 Single 值的平均值。
+Average<TSource>(IEnumerable<TSource>, Func&lt;TSource,Single&gt;)
+計算在輸入序列中各項目上叫用轉換函式後所取得之 Single 值序列的平均值。
+Cast<TResult>(IEnumerable)
+將 IEnumerable 的項目轉換成指定的型別。
+Concat<TSource>(IEnumerable<TSource>, IEnumerable<TSource>)
+串連兩個序列。
+Contains<TSource>(IEnumerable<TSource>, TSource)
+使用預設的相等比較子 (Comparer) 來判斷序列是否包含指定的項目。
+Contains<TSource>(IEnumerable<TSource>, TSource, IEqualityComparer<TSource>)
+使用指定的 IEqualityComparer<T> 來判斷序列是否包含指定的項目。
+Count<TSource>(IEnumerable<TSource>)
+傳回序列中的項目數。
+Count<TSource>(IEnumerable<TSource>, Func&lt;TSource,Boolean&gt;)
+傳回數字，代表指定之序列中符合條件的項目數目。
+DefaultIfEmpty<TSource>(IEnumerable<TSource>)
+傳回指定之序列的項目；如果序列是空的，則傳回單一集合中型別參數的預設值。
+DefaultIfEmpty<TSource>(IEnumerable<TSource>, TSource)
+傳回指定之序列的項目；如果序列是空的，則傳回單一集合中型別參數的預設值。
+Distinct<TSource>(IEnumerable<TSource>)
+使用預設的相等比較子來比較值，以便從序列傳回獨特的項目。
+Distinct<TSource>(IEnumerable<TSource>, IEqualityComparer<TSource>)
+使用指定的 IEqualityComparer<T> 來比較值，以便從序列傳回獨特的項目。
+ElementAt<TSource>(IEnumerable<TSource>, Int32)
+傳回位於序列中指定索引處的項目。
+ElementAtOrDefault<TSource>(IEnumerable<TSource>, Int32)
+傳回位於序列中指定索引處的元素；如果索引超出範圍，則傳回預設值。
+Empty<TResult>()
+傳回具有指定之型別引數的空白 IEnumerable<T>。
+Except<TSource>(IEnumerable<TSource>, IEnumerable<TSource>)
+使用預設相等比較子來比較值，以便產生兩個序列的差異。
+Except<TSource>(IEnumerable<TSource>, IEnumerable<TSource>, IEqualityComparer<TSource>)
+使用指定的 IEqualityComparer<T> 來比較值，以便產生兩個序列的差異。
+First<TSource>(IEnumerable<TSource>)
+傳回序列的第一個項目。
+First<TSource>(IEnumerable<TSource>, Func&lt;TSource,Boolean&gt;)
+傳回序列中符合指定條件的第一個元素。
+FirstOrDefault<TSource>(IEnumerable<TSource>)
+傳回序列的第一個元素；如果序列中沒有包含任何元素，則傳回預設值。
+FirstOrDefault<TSource>(IEnumerable<TSource>, Func&lt;TSource,Boolean&gt;)
+傳回序列中符合條件的第一個元素；如果找不到這類元素，則傳回預設值。
+GroupBy&lt;TSource,TKey,TElement,TResult&gt;(IEnumerable<TSource>, Func&lt;TSource,TKey&gt;, Func&lt;TSource,TElement&gt;, Func&lt;TKey,IEnumerable<TElement>,TResult&gt;)
+依據指定的索引鍵選取器函式來群組序列的項目，並從每個群組及其索引鍵建立結果值。 每個群組的項目都是利用指定的函式進行投影。
+GroupBy&lt;TSource,TKey,TElement,TResult&gt;(IEnumerable<TSource>, Func&lt;TSource,TKey&gt;, Func&lt;TSource,TElement&gt;, Func&lt;TKey,IEnumerable<TElement>,TResult&gt;, IEqualityComparer<TKey>)
+依據指定的索引鍵選取器函式來群組序列的項目，並從每個群組及其索引鍵建立結果值。 索引鍵值是使用指定的比較子來進行比較，而每個群組的項目則都是利用指定的函式進行投影。
+GroupBy&lt;TSource,TKey,TElement&gt;(IEnumerable<TSource>, Func&lt;TSource,TKey&gt;, Func&lt;TSource,TElement&gt;)
+依據指定的索引鍵選取器函式來群組序列的項目，並使用指定的函式來投影每個群組的項目。
+GroupBy&lt;TSource,TKey,TElement&gt;(IEnumerable<TSource>, Func&lt;TSource,TKey&gt;, Func&lt;TSource,TElement&gt;, IEqualityComparer<TKey>)
+依據索引鍵選取器函式來群組序列中的項目。 索引鍵是使用比較子來進行比較，而每個群組的項目都是利用指定的函式進行投影。
+GroupBy&lt;TSource,TKey,TResult&gt;(IEnumerable<TSource>, Func&lt;TSource,TKey&gt;, Func&lt;TKey,IEnumerable<TSource>,TResult&gt;)
+依據指定的索引鍵選取器函式來群組序列的項目，並從每個群組及其索引鍵建立結果值。
+GroupBy&lt;TSource,TKey,TResult&gt;(IEnumerable<TSource>, Func&lt;TSource,TKey&gt;, Func&lt;TKey,IEnumerable<TSource>,TResult&gt;, IEqualityComparer<TKey>)
+依據指定的索引鍵選取器函式來群組序列的項目，並從每個群組及其索引鍵建立結果值。 索引鍵是使用指定的比較子來進行比較。
+GroupBy&lt;TSource,TKey&gt;(IEnumerable<TSource>, Func&lt;TSource,TKey&gt;)
+依據指定的索引鍵選擇器函式來群組序列的項目。
+GroupBy&lt;TSource,TKey&gt;(IEnumerable<TSource>, Func&lt;TSource,TKey&gt;, IEqualityComparer<TKey>)
+依據指定的索引鍵選取器函式來群組序列的項目，並使用指定的比較子來比較索引鍵。
+GroupJoin&lt;TOuter,TInner,TKey,TResult&gt;(IEnumerable<TOuter>, IEnumerable<TInner>, Func&lt;TOuter,TKey&gt;, Func&lt;TInner,TKey&gt;, Func&lt;TOuter,IEnumerable<TInner>,TResult&gt;)
+根據索引鍵相等與否，將兩個序列的項目相互關聯，並群組產生的結果。 預設的相等比較子是用於比較索引鍵。
+GroupJoin&lt;TOuter,TInner,TKey,TResult&gt;(IEnumerable<TOuter>, IEnumerable<TInner>, Func&lt;TOuter,TKey&gt;, Func&lt;TInner,TKey&gt;, Func&lt;TOuter,IEnumerable<TInner>,TResult&gt;, IEqualityComparer<TKey>)
+根據索引鍵相等與否，將兩個序列的項目相互關聯，並群組產生的結果。 指定的 IEqualityComparer<T> 是用於比較索引鍵。
+Intersect<TSource>(IEnumerable<TSource>, IEnumerable<TSource>)
+使用預設相等比較子來比較值，以便產生兩個序列的交集。
+Intersect<TSource>(IEnumerable<TSource>, IEnumerable<TSource>, IEqualityComparer<TSource>)
+使用指定的 IEqualityComparer<T> 來比較值，以便產生兩個序列的交集。
+Join&lt;TOuter,TInner,TKey,TResult&gt;(IEnumerable<TOuter>, IEnumerable<TInner>, Func&lt;TOuter,TKey&gt;, Func&lt;TInner,TKey&gt;, Func&lt;TOuter,TInner,TResult&gt;)
+根據相符索引鍵，將兩個序列的項目相互關聯。 預設的相等比較子是用於比較索引鍵。
+Join&lt;TOuter,TInner,TKey,TResult&gt;(IEnumerable<TOuter>, IEnumerable<TInner>, Func&lt;TOuter,TKey&gt;, Func&lt;TInner,TKey&gt;, Func&lt;TOuter,TInner,TResult&gt;, IEqualityComparer<TKey>)
+根據相符索引鍵，將兩個序列的項目相互關聯。 指定的 IEqualityComparer<T> 是用於比較索引鍵。
+Last<TSource>(IEnumerable<TSource>)
+傳回序列的最後一個項目。
+Last<TSource>(IEnumerable<TSource>, Func&lt;TSource,Boolean&gt;)
+傳回序列中符合指定之條件的最後一個元素。
+LastOrDefault<TSource>(IEnumerable<TSource>)
+傳回序列的最後一個元素；如果序列中沒有包含任何元素，則傳回預設值。
+LastOrDefault<TSource>(IEnumerable<TSource>, Func&lt;TSource,Boolean&gt;)
+傳回序列中符合條件的最後一個元素；如果找不到這類元素，則傳回預設值。
+LongCount<TSource>(IEnumerable<TSource>)
+傳回代表序列中項目總數的 Int64。
+LongCount<TSource>(IEnumerable<TSource>, Func&lt;TSource,Boolean&gt;)
+傳回 Int64，其代表序列中符合條件的項目數目。
+Max(IEnumerable<Decimal>)
+傳回 Decimal 值序列中的最大值。
+Max(IEnumerable<Double>)
+傳回 Double 值序列中的最大值。
+Max(IEnumerable<Int32>)
+傳回 Int32 值序列中的最大值。
+Max(IEnumerable<Int64>)
+傳回 Int64 值序列中的最大值。
+Max(IEnumerable&lt;Nullable<Decimal>&gt;)
+傳回可為 Null 之 Decimal 值序列中的最大值。
+Max(IEnumerable&lt;Nullable<Double>&gt;)
+傳回可為 Null 之 Double 值序列中的最大值。
+Max(IEnumerable&lt;Nullable<Int32>&gt;)
+傳回可為 Null 之 Int32 值序列中的最大值。
+Max(IEnumerable&lt;Nullable<Int64>&gt;)
+傳回可為 Null 之 Int64 值序列中的最大值。
+Max(IEnumerable&lt;Nullable<Single>&gt;)
+傳回可為 Null 之 Single 值序列中的最大值。
+Max(IEnumerable<Single>)
+傳回 Single 值序列中的最大值。
+Max&lt;TSource,TResult&gt;(IEnumerable<TSource>, Func&lt;TSource,TResult&gt;)
+在泛型序列的每個項目上叫用轉換函式，並傳回最大的結果值。
+Max<TSource>(IEnumerable<TSource>)
+傳回泛型序列中的最大值。
+Max<TSource>(IEnumerable<TSource>, Func&lt;TSource,Decimal&gt;)
+在序列的每個項目上叫用轉換函式，並傳回最大的 Decimal 值。
+Max<TSource>(IEnumerable<TSource>, Func&lt;TSource,Double&gt;)
+在序列的每個項目上叫用轉換函式，並傳回最大的 Double 值。
+Max<TSource>(IEnumerable<TSource>, Func&lt;TSource,Int32&gt;)
+在序列的每個項目上叫用轉換函式，並傳回最大的 Int32 值。
+Max<TSource>(IEnumerable<TSource>, Func&lt;TSource,Int64&gt;)
+在序列的每個項目上叫用轉換函式，並傳回最大的 Int64 值。
+Max<TSource>(IEnumerable<TSource>, Func&lt;TSource,Nullable<Decimal>&gt;)
+在序列的每個項目上叫用轉換函式，並傳回最大的可為 Null 之 Decimal 值。
+Max<TSource>(IEnumerable<TSource>, Func&lt;TSource,Nullable<Double>&gt;)
+在序列的每個項目上叫用轉換函式，並傳回最大的可為 Null 之 Double 值。
+Max<TSource>(IEnumerable<TSource>, Func&lt;TSource,Nullable<Int32>&gt;)
+在序列的每個項目上叫用轉換函式，並傳回最大的可為 Null 之 Int32 值。
+Max<TSource>(IEnumerable<TSource>, Func&lt;TSource,Nullable<Int64>&gt;)
+在序列的每個項目上叫用轉換函式，並傳回最大的可為 Null 之 Int64 值。
+Max<TSource>(IEnumerable<TSource>, Func&lt;TSource,Nullable<Single>&gt;)
+在序列的每個項目上叫用轉換函式，並傳回最大的可為 Null 之 Single 值。
+Max<TSource>(IEnumerable<TSource>, Func&lt;TSource,Single&gt;)
+在序列的每個項目上叫用轉換函式，並傳回最大的 Single 值。
+Min(IEnumerable<Decimal>)
+傳回 Decimal 值序列中的最小值。
+Min(IEnumerable<Double>)
+傳回 Double 值序列中的最小值。
+Min(IEnumerable<Int32>)
+傳回 Int32 值序列中的最小值。
+Min(IEnumerable<Int64>)
+傳回 Int64 值序列中的最小值。
+Min(IEnumerable&lt;Nullable<Decimal>&gt;)
+傳回可為 Null 之 Decimal 值序列中的最小值。
+Min(IEnumerable&lt;Nullable<Double>&gt;)
+傳回可為 Null 之 Double 值序列中的最小值。
+Min(IEnumerable&lt;Nullable<Int32>&gt;)
+傳回可為 Null 之 Int32 值序列中的最小值。
+Min(IEnumerable&lt;Nullable<Int64>&gt;)
+傳回可為 Null 之 Int64 值序列中的最小值。
+Min(IEnumerable&lt;Nullable<Single>&gt;)
+傳回可為 Null 之 Single 值序列中的最小值。
+Min(IEnumerable<Single>)
+傳回 Single 值序列中的最小值。
+Min&lt;TSource,TResult&gt;(IEnumerable<TSource>, Func&lt;TSource,TResult&gt;)
+在泛型序列的每個項目上叫用轉換函式，並傳回最小的結果值。
+Min<TSource>(IEnumerable<TSource>)
+傳回泛型序列中的最小值。
+Min<TSource>(IEnumerable<TSource>, Func&lt;TSource,Decimal&gt;)
+在序列的每個項目上叫用轉換函式，並傳回最小的 Decimal 值。
+Min<TSource>(IEnumerable<TSource>, Func&lt;TSource,Double&gt;)
+在序列的每個項目上叫用轉換函式，並傳回最小的 Double 值。
+Min<TSource>(IEnumerable<TSource>, Func&lt;TSource,Int32&gt;)
+在序列的每個項目上叫用轉換函式，並傳回最小的 Int32 值。
+Min<TSource>(IEnumerable<TSource>, Func&lt;TSource,Int64&gt;)
+在序列的每個項目上叫用轉換函式，並傳回最小的 Int64 值。
+Min<TSource>(IEnumerable<TSource>, Func&lt;TSource,Nullable<Decimal>&gt;)
+在序列的每個項目上叫用轉換函式，並傳回最小的可為 Null 之 Decimal 值。
+Min<TSource>(IEnumerable<TSource>, Func&lt;TSource,Nullable<Double>&gt;)
+在序列的每個項目上叫用轉換函式，並傳回最小的可為 Null 之 Double 值。
+Min<TSource>(IEnumerable<TSource>, Func&lt;TSource,Nullable<Int32>&gt;)
+在序列的每個項目上叫用轉換函式，並傳回最小的可為 Null 之 Int32 值。
+Min<TSource>(IEnumerable<TSource>, Func&lt;TSource,Nullable<Int64>&gt;)
+在序列的每個項目上叫用轉換函式，並傳回最小的可為 Null 之 Int64 值。
+Min<TSource>(IEnumerable<TSource>, Func&lt;TSource,Nullable<Single>&gt;)
+在序列的每個項目上叫用轉換函式，並傳回最小的可為 Null 之 Single 值。
+Min<TSource>(IEnumerable<TSource>, Func&lt;TSource,Single&gt;)
+在序列的每個項目上叫用轉換函式，並傳回最小的 Single 值。
+OfType<TResult>(IEnumerable)
+根據指定的型別來篩選 IEnumerable 的項目。
+OrderBy&lt;TSource,TKey&gt;(IEnumerable<TSource>, Func&lt;TSource,TKey&gt;)
+依據索引鍵，按遞增順序排序序列中的項目。
+OrderBy&lt;TSource,TKey&gt;(IEnumerable<TSource>, Func&lt;TSource,TKey&gt;, IComparer<TKey>)
+使用指定的比較子，依遞增順序排序序列中的項目。
+OrderByDescending&lt;TSource,TKey&gt;(IEnumerable<TSource>, Func&lt;TSource,TKey&gt;)
+依據索引鍵，按遞減順序排序序列中的項目。
+OrderByDescending&lt;TSource,TKey&gt;(IEnumerable<TSource>, Func&lt;TSource,TKey&gt;, IComparer<TKey>)
+使用指定的比較子，依遞減順序排序序列中的項目。
+Prepend<TSource>(IEnumerable<TSource>, TSource)
+將值新增至序列的開頭。
+Range(Int32, Int32)
+產生在指定之範圍內的整數序列。
+Repeat<TResult>(TResult, Int32)
+產生包含一個重複值的序列。
+Reverse<TSource>(IEnumerable<TSource>)
+反轉序列中項目的排序方向。
+Select&lt;TSource,TResult&gt;(IEnumerable<TSource>, Func&lt;TSource,Int32,TResult&gt;)
+透過加入項目的索引，將序列的每個項目投影成新的表單。
+Select&lt;TSource,TResult&gt;(IEnumerable<TSource>, Func&lt;TSource,TResult&gt;)
+將序列的每個元素規劃成一個新的表單。
+SelectMany&lt;TSource,TCollection,TResult&gt;(IEnumerable<TSource>, Func&lt;TSource,IEnumerable<TCollection>&gt;, Func&lt;TSource,TCollection,TResult&gt;)
+將序列的每個項目投影為 IEnumerable<T>、將產生的序列簡化成單一序列，並對其中的每個項目叫用結果選取器函式。
+SelectMany&lt;TSource,TCollection,TResult&gt;(IEnumerable<TSource>, Func&lt;TSource,Int32,IEnumerable<TCollection>&gt;, Func&lt;TSource,TCollection,TResult&gt;)
+將序列的每個項目投影為 IEnumerable<T>、將產生的序列簡化成單一序列，並對其中的每個項目叫用結果選取器函式。 各來源項目的索引是在該項目的中繼投影表單中使用。
+SelectMany&lt;TSource,TResult&gt;(IEnumerable<TSource>, Func&lt;TSource,IEnumerable<TResult>&gt;)
+將序列的每個項目都投影成 IEnumerable<T>，並將產生的序列簡化成單一序列。
+SelectMany&lt;TSource,TResult&gt;(IEnumerable<TSource>, Func&lt;TSource,Int32,IEnumerable<TResult>&gt;)
+將序列的每個項目都投影成 IEnumerable<T>，並將產生的序列簡化成單一序列。 各來源項目的索引是在該項目的投影表單中使用。
+SequenceEqual<TSource>(IEnumerable<TSource>, IEnumerable<TSource>)
+使用項目之型別的預設相等比較子來比較項目，以判斷兩個序列是否相等。
+SequenceEqual<TSource>(IEnumerable<TSource>, IEnumerable<TSource>, IEqualityComparer<TSource>)
+使用指定的 IEqualityComparer<T> 來比較項目，以判斷兩個序列是否相等。
+Single<TSource>(IEnumerable<TSource>)
+傳回序列的唯一一個元素，如果序列中不是正好一個元素，則擲回例外狀況。
+Single<TSource>(IEnumerable<TSource>, Func&lt;TSource,Boolean&gt;)
+傳回序列中符合指定之條件的唯一一個元素，如果有一個以上這類元素，則擲回例外狀況。
+SingleOrDefault<TSource>(IEnumerable<TSource>)
+傳回序列的唯一一個項目，如果序列是空白，則為預設值，如果序列中有一個以上的項目，這個方法就會擲回例外狀況。
+SingleOrDefault<TSource>(IEnumerable<TSource>, Func&lt;TSource,Boolean&gt;)
+傳回序列中符合指定之條件的唯一一個元素，如果沒有這類元素，則為預設值，如果有一個以上的元素符合條件，這個方法就會擲回例外狀況。
+Skip<TSource>(IEnumerable<TSource>, Int32)
+略過序列中指定的項目數目，然後傳回其餘項目。
+SkipLast<TSource>(IEnumerable<TSource>, Int32)
+傳回新的可列舉集合，其包含已省略來源集合最後 count 元素的所有 source 元素。
+SkipWhile<TSource>(IEnumerable<TSource>, Func&lt;TSource,Boolean&gt;)
+只要指定的條件為 true，便略過序列中的項目，然後傳回其餘項目。
+SkipWhile<TSource>(IEnumerable<TSource>, Func&lt;TSource,Int32,Boolean&gt;)
+只要指定的條件為 true，便略過序列中的項目，然後傳回其餘項目。 項目的索引是用於述詞功能的邏輯中。
+Sum(IEnumerable<Decimal>)
+計算 Decimal 值序列的總和。
+Sum(IEnumerable<Double>)
+計算 Double 值序列的總和。
+Sum(IEnumerable<Int32>)
+計算 Int32 值序列的總和。
+Sum(IEnumerable<Int64>)
+計算 Int64 值序列的總和。
+Sum(IEnumerable&lt;Nullable<Decimal>&gt;)
+計算可為 Null 之 Decimal 值序列的總和。
+Sum(IEnumerable&lt;Nullable<Double>&gt;)
+計算可為 Null 之 Double 值序列的總和。
+Sum(IEnumerable&lt;Nullable<Int32>&gt;)
+計算可為 Null 之 Int32 值序列的總和。
+Sum(IEnumerable&lt;Nullable<Int64>&gt;)
+計算可為 Null 之 Int64 值序列的總和。
+Sum(IEnumerable&lt;Nullable<Single>&gt;)
+計算可為 Null 之 Single 值序列的總和。
+Sum(IEnumerable<Single>)
+計算 Single 值序列的總和。
+Sum<TSource>(IEnumerable<TSource>, Func&lt;TSource,Decimal&gt;)
+計算在輸入序列中各項目上叫用轉換函式後所取得之 Decimal 值序列的總和。
+Sum<TSource>(IEnumerable<TSource>, Func&lt;TSource,Double&gt;)
+計算在輸入序列中各項目上叫用轉換函式後所取得之 Double 值序列的總和。
+Sum<TSource>(IEnumerable<TSource>, Func&lt;TSource,Int32&gt;)
+計算在輸入序列中各項目上叫用轉換函式後所取得之 Int32 值序列的總和。
+Sum<TSource>(IEnumerable<TSource>, Func&lt;TSource,Int64&gt;)
+計算在輸入序列中各項目上叫用轉換函式後所取得之 Int64 值序列的總和。
+Sum<TSource>(IEnumerable<TSource>, Func&lt;TSource,Nullable<Decimal>&gt;)
+計算在輸入序列中各項目上叫用轉換函式後所取得可為 Null 之 Decimal 值的總和。
+Sum<TSource>(IEnumerable<TSource>, Func&lt;TSource,Nullable<Double>&gt;)
+計算在輸入序列中各項目上叫用轉換函式後所取得可為 Null 之 Double 值的總和。
+Sum<TSource>(IEnumerable<TSource>, Func&lt;TSource,Nullable<Int32>&gt;)
+計算在輸入序列中各項目上叫用轉換函式後所取得可為 Null 之 Int32 值的總和。
+Sum<TSource>(IEnumerable<TSource>, Func&lt;TSource,Nullable<Int64>&gt;)
+計算在輸入序列中各項目上叫用轉換函式後所取得可為 Null 之 Int64 值的總和。
+Sum<TSource>(IEnumerable<TSource>, Func&lt;TSource,Nullable<Single>&gt;)
+計算在輸入序列中各項目上叫用轉換函式後所取得可為 Null 之 Single 值的總和。
+Sum<TSource>(IEnumerable<TSource>, Func&lt;TSource,Single&gt;)
+計算在輸入序列中各項目上叫用轉換函式後所取得之 Single 值序列的總和。
+Take<TSource>(IEnumerable<TSource>, Int32)
+從序列開頭傳回指定的連續項目數目。
+TakeLast<TSource>(IEnumerable<TSource>, Int32)
+傳回新的可列舉集合，其包含 source 的最後 count 元素。
+TakeWhile<TSource>(IEnumerable<TSource>, Func&lt;TSource,Boolean&gt;)
+只要指定的條件為 true，就會傳回序列中的項目。
+TakeWhile<TSource>(IEnumerable<TSource>, Func&lt;TSource,Int32,Boolean&gt;)
+只要指定的條件為 true，就會傳回序列中的項目。 項目的索引是用於述詞功能的邏輯中。
+ThenBy&lt;TSource,TKey&gt;(IOrderedEnumerable<TSource>, Func&lt;TSource,TKey&gt;)
+依據索引鍵，按遞增順序執行序列中項目的後續排序作業。
+ThenBy&lt;TSource,TKey&gt;(IOrderedEnumerable<TSource>, Func&lt;TSource,TKey&gt;, IComparer<TKey>)
+使用指定的比較子，依遞增順序執行序列中項目的後續排序作業。
+ThenByDescending&lt;TSource,TKey&gt;(IOrderedEnumerable<TSource>, Func&lt;TSource,TKey&gt;)
+依據索引鍵，按遞減順序執行序列中項目的後續排序作業。
+ThenByDescending&lt;TSource,TKey&gt;(IOrderedEnumerable<TSource>, Func&lt;TSource,TKey&gt;, IComparer<TKey>)
+使用指定的比較子，依遞減順序執行序列中項目的後續排序作業。
+ToArray<TSource>(IEnumerable<TSource>)
+從 IEnumerable<T> 建立陣列。
+ToDictionary&lt;TSource,TKey,TElement&gt;(IEnumerable<TSource>, Func&lt;TSource,TKey&gt;, Func&lt;TSource,TElement&gt;)
+根據指定的索引鍵選取器和項目選取器函式，從 Dictionary&lt;TKey,TValue&gt; 建立 IEnumerable<T>。
+ToDictionary&lt;TSource,TKey,TElement&gt;(IEnumerable<TSource>, Func&lt;TSource,TKey&gt;, Func&lt;TSource,TElement&gt;, IEqualityComparer<TKey>)
+根據指定的索引鍵選取器函式、比較子和項目選取器函式，從 Dictionary&lt;TKey,TValue&gt; 建立 IEnumerable<T>。
+ToDictionary&lt;TSource,TKey&gt;(IEnumerable<TSource>, Func&lt;TSource,TKey&gt;)
+根據指定的索引鍵選擇器函式，從 Dictionary&lt;TKey,TValue&gt; 建立 IEnumerable<T>。
+ToDictionary&lt;TSource,TKey&gt;(IEnumerable<TSource>, Func&lt;TSource,TKey&gt;, IEqualityComparer<TKey>)
+根據指定的索引鍵選取器函式和索引鍵比較子，從 Dictionary&lt;TKey,TValue&gt; 建立 IEnumerable<T>。
+ToHashSet<TSource>(IEnumerable<TSource>)
+從 IEnumerable<T> 建立 HashSet<T>。
+ToHashSet<TSource>(IEnumerable<TSource>, IEqualityComparer<TSource>)
+使用比較金鑰的 comparer 從 IEnumerable<T> 建立 HashSet<T>。
+ToList<TSource>(IEnumerable<TSource>)
+從 IEnumerable<T> 建立 List<T>。
+ToLookup&lt;TSource,TKey,TElement&gt;(IEnumerable<TSource>, Func&lt;TSource,TKey&gt;, Func&lt;TSource,TElement&gt;)
+根據指定的索引鍵選取器和項目選取器函式，從 Lookup&lt;TKey,TElement&gt; 建立 IEnumerable<T>。
+ToLookup&lt;TSource,TKey,TElement&gt;(IEnumerable<TSource>, Func&lt;TSource,TKey&gt;, Func&lt;TSource,TElement&gt;, IEqualityComparer<TKey>)
+根據指定的索引鍵選取器函式、比較子和項目選取器函式，從 Lookup&lt;TKey,TElement&gt; 建立 IEnumerable<T>。
+ToLookup&lt;TSource,TKey&gt;(IEnumerable<TSource>, Func&lt;TSource,TKey&gt;)
+根據指定的索引鍵選擇器函式，從 Lookup&lt;TKey,TElement&gt; 建立 IEnumerable<T>。
+ToLookup&lt;TSource,TKey&gt;(IEnumerable<TSource>, Func&lt;TSource,TKey&gt;, IEqualityComparer<TKey>)
+根據指定的索引鍵選取器函式和索引鍵比較子，從 Lookup&lt;TKey,TElement&gt; 建立 IEnumerable<T>。
+Union<TSource>(IEnumerable<TSource>, IEnumerable<TSource>)
+使用預設相等比較值來比較值，以便產生兩個序列的集合等位。
+Union<TSource>(IEnumerable<TSource>, IEnumerable<TSource>, IEqualityComparer<TSource>)
+使用指定的 IEqualityComparer<T> 產生兩個序列的集合等位。
+Where<TSource>(IEnumerable<TSource>, Func&lt;TSource,Boolean&gt;)
+根據述詞來篩選值序列。
+Where<TSource>(IEnumerable<TSource>, Func&lt;TSource,Int32,Boolean&gt;)
+根據述詞來篩選值序列。 述詞函式的邏輯中使用各項目的索引。
+Zip&lt;TFirst,TSecond,TResult&gt;(IEnumerable<TFirst>, IEnumerable<TSecond>, Func&lt;TFirst,TSecond,TResult&gt;)
+將指定的函式套用至兩個序列的對應項目，產生結果的序列。
+Zip&lt;TFirst,TSecond&gt;(IEnumerable<TFirst>, IEnumerable<TSecond>)
+從兩個指定序列中的元素產生一系列元組。</p>
+<ul>
+<li>如果要讓物件具有列舉的功能，就要實作 IEnumerable
+<ul>
+<li>可以用foreach</li>
+</ul>
+</li>
+</ul>
+<h2 id="ienumerable-擴充方法">IEnumerable 擴充方法</h2>
+<ul>
+<li>GetEnumerator()
+<ul>
+<li>傳回逐一查看集合的列舉值。</li>
+</ul>
+</li>
+</ul>
+<h2 id="ienumerable-擴充方法-1">IEnumerable 擴充方法</h2>
+<p>擴充方法
+資料表 2
+ToImmutableArray<TSource>(IEnumerable<TSource>)
+從指定的集合建立不可變的陣列。</p>
+<p>ToImmutableDictionary&lt;TSource,TKey&gt;(IEnumerable<TSource>, Func&lt;TSource,TKey&gt;)
+從現有的項目集合建構不可變的字典，將轉換函式套用至來源索引鍵。
+ToImmutableDictionary&lt;TSource,TKey&gt;(IEnumerable<TSource>, Func&lt;TSource,TKey&gt;, IEqualityComparer<TKey>)
+根據序列的某些轉換來建構不可變的字典。
+ToImmutableDictionary&lt;TSource,TKey,TValue&gt;(IEnumerable<TSource>, Func&lt;TSource,TKey&gt;, Func&lt;TSource,TValue&gt;)
+列舉及轉換序列，並產生其內容的不可變字典。
+ToImmutableDictionary&lt;TSource,TKey,TValue&gt;(IEnumerable<TSource>, Func&lt;TSource,TKey&gt;, Func&lt;TSource,TValue&gt;, IEqualityComparer<TKey>)
+列舉及轉換序列，並使用指定的索引鍵比較子產生其內容的不可變字典。
+ToImmutableDictionary&lt;TSource,TKey,TValue&gt;(IEnumerable<TSource>, Func&lt;TSource,TKey&gt;, Func&lt;TSource,TValue&gt;, IEqualityComparer<TKey>, IEqualityComparer<TValue>)
+列舉及轉換序列，並使用指定的索引鍵與值比較子產生其內容的不可變字典。</p>
+<p>ToImmutableHashSet<TSource>(IEnumerable<TSource>)
+列舉序列，並產生其內容之不可變雜湊集。
+ToImmutableHashSet<TSource>(IEnumerable<TSource>, IEqualityComparer<TSource>)
+列舉序列、產生其內容之不可變雜湊集，且針對集合類型使用指定的相等比較子。</p>
+<p>ToImmutableList<TSource>(IEnumerable<TSource>)
+列舉序列，並產生其內容的不可變清單。</p>
+<p>ToImmutableSortedDictionary&lt;TSource,TKey,TValue&gt;(IEnumerable<TSource>, Func&lt;TSource,TKey&gt;, Func&lt;TSource,TValue&gt;)
+列舉及轉換序列，並產生不可變的排序字典作為內容。
+ToImmutableSortedDictionary&lt;TSource,TKey,TValue&gt;(IEnumerable<TSource>, Func&lt;TSource,TKey&gt;, Func&lt;TSource,TValue&gt;, IComparer<TKey>)
+列舉及轉換序列，並使用指定的索引鍵比較子產生不可變的排序字典作為內容。
+ToImmutableSortedDictionary&lt;TSource,TKey,TValue&gt;(IEnumerable<TSource>, Func&lt;TSource,TKey&gt;, Func&lt;TSource,TValue&gt;, IComparer<TKey>, IEqualityComparer<TValue>)
+列舉及轉換序列，並使用指定的索引鍵與值比較子產生不可變的排序字典作為內容。</p>
+<p>ToImmutableSortedSet<TSource>(IEnumerable<TSource>)
+列舉序列，並產生其內容的不可變排序資料集。
+ToImmutableSortedSet<TSource>(IEnumerable<TSource>, IComparer<TSource>)
+列舉序列、產生其內容的不可變排序資料集，並使用指定的比較子。</p>
+<p>CopyToDataTable<T>(IEnumerable<T>)
+根據輸入 DataTable 物件 (其中泛型參數 T 為 DataRow) 傳回包含 IEnumerable<T> 物件複本的 DataRow。
+CopyToDataTable<T>(IEnumerable<T>, DataTable, LoadOption)
+根據輸入 DataRow 物件 (其中泛型參數 T 為 DataTable)，將 IEnumerable<T> 物件複製到指定的 DataRow。
+CopyToDataTable<T>(IEnumerable<T>, DataTable, LoadOption, FillErrorEventHandler)
+根據輸入 DataRow 物件 (其中泛型參數 T 為 DataTable)，將 IEnumerable<T> 物件複製到指定的 DataRow。</p>
+<p>Aggregate<TSource>(IEnumerable<TSource>, Func&lt;TSource,TSource,TSource&gt;)
+將累加函式套用到序列上。
+Aggregate&lt;TSource,TAccumulate&gt;(IEnumerable<TSource>, TAccumulate, Func&lt;TAccumulate,TSource,TAccumulate&gt;)
+將累加函式套用到序列上。 使用指定的初始值做為初始累加值。
+Aggregate&lt;TSource,TAccumulate,TResult&gt;(IEnumerable<TSource>, TAccumulate, Func&lt;TAccumulate,TSource,TAccumulate&gt;, Func&lt;TAccumulate,TResult&gt;)
+將累加函式套用到序列上。 使用指定的值做為初始累加值，並使用指定的函式來選取結果值。</p>
+<p>All<TSource>(IEnumerable<TSource>, Func&lt;TSource,Boolean&gt;)
+判斷序列的所有項目是否全都符合條件。</p>
+<p>Any<TSource>(IEnumerable<TSource>)
+判斷序列是否包含任何項目。
+Any<TSource>(IEnumerable<TSource>, Func&lt;TSource,Boolean&gt;)
+判斷序列的任何項目是否符合條件。</p>
+<p>Append<TSource>(IEnumerable<TSource>, TSource)
+將值附加在序列結尾。</p>
+<p>AsEnumerable<TSource>(IEnumerable<TSource>)
+傳回 IEnumerable<T> 類型的輸入。</p>
+<p>Average<TSource>(IEnumerable<TSource>, Func&lt;TSource,Decimal&gt;)
+計算在輸入序列中各項目上叫用轉換函式後所取得之 Decimal 值序列的平均值。
+Average<TSource>(IEnumerable<TSource>, Func&lt;TSource,Double&gt;)
+計算在輸入序列中各項目上叫用轉換函式後所取得之 Double 值序列的平均值。
+Average<TSource>(IEnumerable<TSource>, Func&lt;TSource,Int32&gt;)
+計算在輸入序列中各項目上叫用轉換函式後所取得之 Int32 值序列的平均值。
+Average<TSource>(IEnumerable<TSource>, Func&lt;TSource,Int64&gt;)
+計算在輸入序列中各項目上叫用轉換函式後所取得之 Int64 值序列的平均值。
+Average<TSource>(IEnumerable<TSource>, Func&lt;TSource,Nullable<Decimal>&gt;)
+計算在輸入序列中各項目上叫用轉換函式後所取得可為 Null 之 Decimal 值的平均值。
+Average<TSource>(IEnumerable<TSource>, Func&lt;TSource,Nullable<Double>&gt;)
+計算在輸入序列中各項目上叫用轉換函式後所取得可為 Null 之 Double 值的平均值。
+Average<TSource>(IEnumerable<TSource>, Func&lt;TSource,Nullable<Int32>&gt;)
+計算在輸入序列中各項目上叫用轉換函式後所取得可為 Null 之 Int32 值的平均值。
+Average<TSource>(IEnumerable<TSource>, Func&lt;TSource,Nullable<Int64>&gt;)
+計算在輸入序列中各項目上叫用轉換函式後所取得可為 Null 之 Int64 值的平均值。
+Average<TSource>(IEnumerable<TSource>, Func&lt;TSource,Nullable<Single>&gt;)
+計算在輸入序列中各項目上叫用轉換函式後所取得可為 Null 之 Single 值的平均值。
+Average<TSource>(IEnumerable<TSource>, Func&lt;TSource,Single&gt;)
+計算在輸入序列中各項目上叫用轉換函式後所取得之 Single 值序列的平均值。</p>
+<p>Cast<TResult>(IEnumerable)
+將 IEnumerable 的項目轉換成指定的型別。</p>
+<p>Concat<TSource>(IEnumerable<TSource>, IEnumerable<TSource>)
+串連兩個序列。</p>
+<p>Contains<TSource>(IEnumerable<TSource>, TSource)
+使用預設的相等比較子 (Comparer) 來判斷序列是否包含指定的項目。</p>
+<p>Contains<TSource>(IEnumerable<TSource>, TSource, IEqualityComparer<TSource>)
+使用指定的 IEqualityComparer<T> 來判斷序列是否包含指定的項目。</p>
+<p>Count<TSource>(IEnumerable<TSource>)
+傳回序列中的項目數。
+Count<TSource>(IEnumerable<TSource>, Func&lt;TSource,Boolean&gt;)
+傳回數字，代表指定之序列中符合條件的項目數目。</p>
+<p>DefaultIfEmpty<TSource>(IEnumerable<TSource>)
+傳回指定之序列的項目；如果序列是空的，則傳回單一集合中型別參數的預設值。
+DefaultIfEmpty<TSource>(IEnumerable<TSource>, TSource)
+傳回指定之序列的項目；如果序列是空的，則傳回單一集合中型別參數的預設值。</p>
+<p>Distinct<TSource>(IEnumerable<TSource>)
+使用預設的相等比較子來比較值，以便從序列傳回獨特的項目。
+Distinct<TSource>(IEnumerable<TSource>, IEqualityComparer<TSource>)
+使用指定的 IEqualityComparer<T> 來比較值，以便從序列傳回獨特的項目。</p>
+<p>ElementAt<TSource>(IEnumerable<TSource>, Int32)
+傳回位於序列中指定索引處的項目。</p>
+<p>ElementAtOrDefault<TSource>(IEnumerable<TSource>, Int32)
+傳回位於序列中指定索引處的元素；如果索引超出範圍，則傳回預設值。</p>
+<p>Except<TSource>(IEnumerable<TSource>, IEnumerable<TSource>)
+使用預設相等比較子來比較值，以便產生兩個序列的差異。
+Except<TSource>(IEnumerable<TSource>, IEnumerable<TSource>, IEqualityComparer<TSource>)
+使用指定的 IEqualityComparer<T> 來比較值，以便產生兩個序列的差異。</p>
+<p>First<TSource>(IEnumerable<TSource>)
+傳回序列的第一個項目。
+First<TSource>(IEnumerable<TSource>, Func&lt;TSource,Boolean&gt;)
+傳回序列中符合指定條件的第一個元素。</p>
+<p>FirstOrDefault<TSource>(IEnumerable<TSource>)
+傳回序列的第一個元素；如果序列中沒有包含任何元素，則傳回預設值。
+FirstOrDefault<TSource>(IEnumerable<TSource>, Func&lt;TSource,Boolean&gt;)
+傳回序列中符合條件的第一個元素；如果找不到這類元素，則傳回預設值。</p>
+<p>GroupBy&lt;TSource,TKey&gt;(IEnumerable<TSource>, Func&lt;TSource,TKey&gt;)
+依據指定的索引鍵選擇器函式來群組序列的項目。
+GroupBy&lt;TSource,TKey&gt;(IEnumerable<TSource>, Func&lt;TSource,TKey&gt;, IEqualityComparer<TKey>)
+依據指定的索引鍵選取器函式來群組序列的項目，並使用指定的比較子來比較索引鍵。
+GroupBy&lt;TSource,TKey,TElement&gt;(IEnumerable<TSource>, Func&lt;TSource,TKey&gt;, Func&lt;TSource,TElement&gt;)
+依據指定的索引鍵選取器函式來群組序列的項目，並使用指定的函式來投影每個群組的項目。
+GroupBy&lt;TSource,TKey,TElement&gt;(IEnumerable<TSource>, Func&lt;TSource,TKey&gt;, Func&lt;TSource,TElement&gt;, IEqualityComparer<TKey>)
+依據索引鍵選取器函式來群組序列中的項目。 索引鍵是使用比較子來進行比較，而每個群組的項目都是利用指定的函式進行投影。
+GroupBy&lt;TSource,TKey,TResult&gt;(IEnumerable<TSource>, Func&lt;TSource,TKey&gt;, Func&lt;TKey,IEnumerable<TSource>,TResult&gt;)
+依據指定的索引鍵選取器函式來群組序列的項目，並從每個群組及其索引鍵建立結果值。
+GroupBy&lt;TSource,TKey,TResult&gt;(IEnumerable<TSource>, Func&lt;TSource,TKey&gt;, Func&lt;TKey,IEnumerable<TSource>,TResult&gt;, IEqualityComparer<TKey>)
+依據指定的索引鍵選取器函式來群組序列的項目，並從每個群組及其索引鍵建立結果值。 索引鍵是使用指定的比較子來進行比較。
+GroupBy&lt;TSource,TKey,TElement,TResult&gt;(IEnumerable<TSource>, Func&lt;TSource,TKey&gt;, Func&lt;TSource,TElement&gt;, Func&lt;TKey,IEnumerable<TElement>,TResult&gt;)
+依據指定的索引鍵選取器函式來群組序列的項目，並從每個群組及其索引鍵建立結果值。 每個群組的項目都是利用指定的函式進行投影。
+GroupBy&lt;TSource,TKey,TElement,TResult&gt;(IEnumerable<TSource>, Func&lt;TSource,TKey&gt;, Func&lt;TSource,TElement&gt;, Func&lt;TKey,IEnumerable<TElement>,TResult&gt;, IEqualityComparer<TKey>)
+依據指定的索引鍵選取器函式來群組序列的項目，並從每個群組及其索引鍵建立結果值。 索引鍵值是使用指定的比較子來進行比較，而每個群組的項目則都是利用指定的函式進行投影。</p>
+<p>GroupJoin&lt;TOuter,TInner,TKey,TResult&gt;(IEnumerable<TOuter>, IEnumerable<TInner>, Func&lt;TOuter,TKey&gt;, Func&lt;TInner,TKey&gt;, Func&lt;TOuter,IEnumerable<TInner>,TResult&gt;)
+根據索引鍵相等與否，將兩個序列的項目相互關聯，並群組產生的結果。 預設的相等比較子是用於比較索引鍵。
+GroupJoin&lt;TOuter,TInner,TKey,TResult&gt;(IEnumerable<TOuter>, IEnumerable<TInner>, Func&lt;TOuter,TKey&gt;, Func&lt;TInner,TKey&gt;, Func&lt;TOuter,IEnumerable<TInner>,TResult&gt;, IEqualityComparer<TKey>)
+根據索引鍵相等與否，將兩個序列的項目相互關聯，並群組產生的結果。 指定的 IEqualityComparer<T> 是用於比較索引鍵。</p>
+<p>Intersect<TSource>(IEnumerable<TSource>, IEnumerable<TSource>)
+使用預設相等比較子來比較值，以便產生兩個序列的交集。
+Intersect<TSource>(IEnumerable<TSource>, IEnumerable<TSource>, IEqualityComparer<TSource>)
+使用指定的 IEqualityComparer<T> 來比較值，以便產生兩個序列的交集。</p>
+<p>Join&lt;TOuter,TInner,TKey,TResult&gt;(IEnumerable<TOuter>, IEnumerable<TInner>, Func&lt;TOuter,TKey&gt;, Func&lt;TInner,TKey&gt;, Func&lt;TOuter,TInner,TResult&gt;)
+根據相符索引鍵，將兩個序列的項目相互關聯。 預設的相等比較子是用於比較索引鍵。
+Join&lt;TOuter,TInner,TKey,TResult&gt;(IEnumerable<TOuter>, IEnumerable<TInner>, Func&lt;TOuter,TKey&gt;, Func&lt;TInner,TKey&gt;, Func&lt;TOuter,TInner,TResult&gt;, IEqualityComparer<TKey>)
+根據相符索引鍵，將兩個序列的項目相互關聯。 指定的 IEqualityComparer<T> 是用於比較索引鍵。</p>
+<p>Last<TSource>(IEnumerable<TSource>)
+傳回序列的最後一個項目。
+Last<TSource>(IEnumerable<TSource>, Func&lt;TSource,Boolean&gt;)
+傳回序列中符合指定之條件的最後一個元素。</p>
+<p>LastOrDefault<TSource>(IEnumerable<TSource>)
+傳回序列的最後一個元素；如果序列中沒有包含任何元素，則傳回預設值。
+LastOrDefault<TSource>(IEnumerable<TSource>, Func&lt;TSource,Boolean&gt;)
+傳回序列中符合條件的最後一個元素；如果找不到這類元素，則傳回預設值。</p>
+<p>LongCount<TSource>(IEnumerable<TSource>)
+傳回代表序列中項目總數的 Int64。
+LongCount<TSource>(IEnumerable<TSource>, Func&lt;TSource,Boolean&gt;)
+傳回 Int64，其代表序列中符合條件的項目數目。</p>
+<p>Max<TSource>(IEnumerable<TSource>)
+傳回泛型序列中的最大值。
+Max<TSource>(IEnumerable<TSource>, Func&lt;TSource,Decimal&gt;)
+在序列的每個項目上叫用轉換函式，並傳回最大的 Decimal 值。
+Max<TSource>(IEnumerable<TSource>, Func&lt;TSource,Double&gt;)
+在序列的每個項目上叫用轉換函式，並傳回最大的 Double 值。
+Max<TSource>(IEnumerable<TSource>, Func&lt;TSource,Int32&gt;)
+在序列的每個項目上叫用轉換函式，並傳回最大的 Int32 值。
+Max<TSource>(IEnumerable<TSource>, Func&lt;TSource,Int64&gt;)
+在序列的每個項目上叫用轉換函式，並傳回最大的 Int64 值。
+Max<TSource>(IEnumerable<TSource>, Func&lt;TSource,Nullable<Decimal>&gt;)
+在序列的每個項目上叫用轉換函式，並傳回最大的可為 Null 之 Decimal 值。
+Max<TSource>(IEnumerable<TSource>, Func&lt;TSource,Nullable<Double>&gt;)
+在序列的每個項目上叫用轉換函式，並傳回最大的可為 Null 之 Double 值。
+Max<TSource>(IEnumerable<TSource>, Func&lt;TSource,Nullable<Int32>&gt;)
+在序列的每個項目上叫用轉換函式，並傳回最大的可為 Null 之 Int32 值。
+Max<TSource>(IEnumerable<TSource>, Func&lt;TSource,Nullable<Int64>&gt;)
+在序列的每個項目上叫用轉換函式，並傳回最大的可為 Null 之 Int64 值。
+Max<TSource>(IEnumerable<TSource>, Func&lt;TSource,Nullable<Single>&gt;)
+在序列的每個項目上叫用轉換函式，並傳回最大的可為 Null 之 Single 值。
+Max<TSource>(IEnumerable<TSource>, Func&lt;TSource,Single&gt;)
+在序列的每個項目上叫用轉換函式，並傳回最大的 Single 值。
+Max&lt;TSource,TResult&gt;(IEnumerable<TSource>, Func&lt;TSource,TResult&gt;)
+在泛型序列的每個項目上叫用轉換函式，並傳回最大的結果值。</p>
+<p>Min<TSource>(IEnumerable<TSource>)
+傳回泛型序列中的最小值。
+Min<TSource>(IEnumerable<TSource>, Func&lt;TSource,Decimal&gt;)
+在序列的每個項目上叫用轉換函式，並傳回最小的 Decimal 值。
+Min<TSource>(IEnumerable<TSource>, Func&lt;TSource,Double&gt;)
+在序列的每個項目上叫用轉換函式，並傳回最小的 Double 值。
+Min<TSource>(IEnumerable<TSource>, Func&lt;TSource,Int32&gt;)
+在序列的每個項目上叫用轉換函式，並傳回最小的 Int32 值。
+Min<TSource>(IEnumerable<TSource>, Func&lt;TSource,Int64&gt;)
+在序列的每個項目上叫用轉換函式，並傳回最小的 Int64 值。
+Min<TSource>(IEnumerable<TSource>, Func&lt;TSource,Nullable<Decimal>&gt;)
+在序列的每個項目上叫用轉換函式，並傳回最小的可為 Null 之 Decimal 值。
+Min<TSource>(IEnumerable<TSource>, Func&lt;TSource,Nullable<Double>&gt;)
+在序列的每個項目上叫用轉換函式，並傳回最小的可為 Null 之 Double 值。
+Min<TSource>(IEnumerable<TSource>, Func&lt;TSource,Nullable<Int32>&gt;)
+在序列的每個項目上叫用轉換函式，並傳回最小的可為 Null 之 Int32 值。
+Min<TSource>(IEnumerable<TSource>, Func&lt;TSource,Nullable<Int64>&gt;)
+在序列的每個項目上叫用轉換函式，並傳回最小的可為 Null 之 Int64 值。
+Min<TSource>(IEnumerable<TSource>, Func&lt;TSource,Nullable<Single>&gt;)
+在序列的每個項目上叫用轉換函式，並傳回最小的可為 Null 之 Single 值。
+Min<TSource>(IEnumerable<TSource>, Func&lt;TSource,Single&gt;)
+在序列的每個項目上叫用轉換函式，並傳回最小的 Single 值。
+Min&lt;TSource,TResult&gt;(IEnumerable<TSource>, Func&lt;TSource,TResult&gt;)
+在泛型序列的每個項目上叫用轉換函式，並傳回最小的結果值。</p>
+<p>OfType<TResult>(IEnumerable)
+根據指定的型別來篩選 IEnumerable 的項目。</p>
+<p>OrderBy&lt;TSource,TKey&gt;(IEnumerable<TSource>, Func&lt;TSource,TKey&gt;)
+依據索引鍵，按遞增順序排序序列中的項目。
+OrderBy&lt;TSource,TKey&gt;(IEnumerable<TSource>, Func&lt;TSource,TKey&gt;, IComparer<TKey>)
+使用指定的比較子，依遞增順序排序序列中的項目。</p>
+<p>OrderByDescending&lt;TSource,TKey&gt;(IEnumerable<TSource>, Func&lt;TSource,TKey&gt;)
+依據索引鍵，按遞減順序排序序列中的項目。
+OrderByDescending&lt;TSource,TKey&gt;(IEnumerable<TSource>, Func&lt;TSource,TKey&gt;, IComparer<TKey>)
+使用指定的比較子，依遞減順序排序序列中的項目。</p>
+<p>Prepend<TSource>(IEnumerable<TSource>, TSource)
+將值新增至序列的開頭。</p>
+<p>Reverse<TSource>(IEnumerable<TSource>)
+反轉序列中項目的排序方向。</p>
+<p>Select&lt;TSource,TResult&gt;(IEnumerable<TSource>, Func&lt;TSource,TResult&gt;)
+將序列的每個元素規劃成一個新的表單。
+Select&lt;TSource,TResult&gt;(IEnumerable<TSource>, Func&lt;TSource,Int32,TResult&gt;)
+透過加入項目的索引，將序列的每個項目投影成新的表單。</p>
+<p>SelectMany&lt;TSource,TResult&gt;(IEnumerable<TSource>, Func&lt;TSource,IEnumerable<TResult>&gt;)
+將序列的每個項目都投影成 IEnumerable<T>，並將產生的序列簡化成單一序列。
+SelectMany&lt;TSource,TResult&gt;(IEnumerable<TSource>, Func&lt;TSource,Int32,IEnumerable<TResult>&gt;)
+將序列的每個項目都投影成 IEnumerable<T>，並將產生的序列簡化成單一序列。 各來源項目的索引是在該項目的投影表單中使用。
+SelectMany&lt;TSource,TCollection,TResult&gt;(IEnumerable<TSource>, Func&lt;TSource,IEnumerable<TCollection>&gt;, Func&lt;TSource,TCollection,TResult&gt;)
+將序列的每個項目投影為 IEnumerable<T>、將產生的序列簡化成單一序列，並對其中的每個項目叫用結果選取器函式。
+SelectMany&lt;TSource,TCollection,TResult&gt;(IEnumerable<TSource>, Func&lt;TSource,Int32,IEnumerable<TCollection>&gt;, Func&lt;TSource,TCollection,TResult&gt;)
+將序列的每個項目投影為 IEnumerable<T>、將產生的序列簡化成單一序列，並對其中的每個項目叫用結果選取器函式。 各來源項目的索引是在該項目的中繼投影表單中使用。</p>
+<p>SequenceEqual<TSource>(IEnumerable<TSource>, IEnumerable<TSource>)
+使用項目之型別的預設相等比較子來比較項目，以判斷兩個序列是否相等。
+SequenceEqual<TSource>(IEnumerable<TSource>, IEnumerable<TSource>, IEqualityComparer<TSource>)
+使用指定的 IEqualityComparer<T> 來比較項目，以判斷兩個序列是否相等。</p>
+<p>Single<TSource>(IEnumerable<TSource>)
+傳回序列的唯一一個元素，如果序列中不是正好一個元素，則擲回例外狀況。
+Single<TSource>(IEnumerable<TSource>, Func&lt;TSource,Boolean&gt;)
+傳回序列中符合指定之條件的唯一一個元素，如果有一個以上這類元素，則擲回例外狀況。</p>
+<p>SingleOrDefault<TSource>(IEnumerable<TSource>)
+傳回序列的唯一一個項目，如果序列是空白，則為預設值，如果序列中有一個以上的項目，這個方法就會擲回例外狀況。
+SingleOrDefault<TSource>(IEnumerable<TSource>, Func&lt;TSource,Boolean&gt;)
+傳回序列中符合指定之條件的唯一一個元素，如果沒有這類元素，則為預設值，如果有一個以上的元素符合條件，這個方法就會擲回例外狀況。</p>
+<p>Skip<TSource>(IEnumerable<TSource>, Int32)
+略過序列中指定的項目數目，然後傳回其餘項目。</p>
+<p>SkipLast<TSource>(IEnumerable<TSource>, Int32)
+傳回新的可列舉集合，其包含已省略來源集合最後 count 元素的所有 source 元素。</p>
+<p>SkipWhile<TSource>(IEnumerable<TSource>, Func&lt;TSource,Boolean&gt;)
+只要指定的條件為 true，便略過序列中的項目，然後傳回其餘項目。
+SkipWhile<TSource>(IEnumerable<TSource>, Func&lt;TSource,Int32,Boolean&gt;)
+只要指定的條件為 true，便略過序列中的項目，然後傳回其餘項目。 項目的索引是用於述詞功能的邏輯中。</p>
+<p>Sum<TSource>(IEnumerable<TSource>, Func&lt;TSource,Decimal&gt;)
+計算在輸入序列中各項目上叫用轉換函式後所取得之 Decimal 值序列的總和。
+Sum<TSource>(IEnumerable<TSource>, Func&lt;TSource,Double&gt;)
+計算在輸入序列中各項目上叫用轉換函式後所取得之 Double 值序列的總和。
+Sum<TSource>(IEnumerable<TSource>, Func&lt;TSource,Int32&gt;)
+計算在輸入序列中各項目上叫用轉換函式後所取得之 Int32 值序列的總和。
+Sum<TSource>(IEnumerable<TSource>, Func&lt;TSource,Int64&gt;)
+計算在輸入序列中各項目上叫用轉換函式後所取得之 Int64 值序列的總和。
+Sum<TSource>(IEnumerable<TSource>, Func&lt;TSource,Nullable<Decimal>&gt;)
+計算在輸入序列中各項目上叫用轉換函式後所取得可為 Null 之 Decimal 值的總和。
+Sum<TSource>(IEnumerable<TSource>, Func&lt;TSource,Nullable<Double>&gt;)
+計算在輸入序列中各項目上叫用轉換函式後所取得可為 Null 之 Double 值的總和。
+Sum<TSource>(IEnumerable<TSource>, Func&lt;TSource,Nullable<Int32>&gt;)
+計算在輸入序列中各項目上叫用轉換函式後所取得可為 Null 之 Int32 值的總和。
+Sum<TSource>(IEnumerable<TSource>, Func&lt;TSource,Nullable<Int64>&gt;)
+計算在輸入序列中各項目上叫用轉換函式後所取得可為 Null 之 Int64 值的總和。
+Sum<TSource>(IEnumerable<TSource>, Func&lt;TSource,Nullable<Single>&gt;)
+計算在輸入序列中各項目上叫用轉換函式後所取得可為 Null 之 Single 值的總和。
+Sum<TSource>(IEnumerable<TSource>, Func&lt;TSource,Single&gt;)
+計算在輸入序列中各項目上叫用轉換函式後所取得之 Single 值序列的總和。</p>
+<p>Take<TSource>(IEnumerable<TSource>, Int32)
+從序列開頭傳回指定的連續項目數目。</p>
+<p>TakeLast<TSource>(IEnumerable<TSource>, Int32)
+傳回新的可列舉集合，其包含 source 的最後 count 元素。</p>
+<p>TakeWhile<TSource>(IEnumerable<TSource>, Func&lt;TSource,Boolean&gt;)
+只要指定的條件為 true，就會傳回序列中的項目。
+TakeWhile<TSource>(IEnumerable<TSource>, Func&lt;TSource,Int32,Boolean&gt;)
+只要指定的條件為 true，就會傳回序列中的項目。 項目的索引是用於述詞功能的邏輯中。</p>
+<p>ToArray<TSource>(IEnumerable<TSource>)
+從 IEnumerable<T> 建立陣列。</p>
+<p>ToDictionary&lt;TSource,TKey&gt;(IEnumerable<TSource>, Func&lt;TSource,TKey&gt;)
+根據指定的索引鍵選擇器函式，從 Dictionary&lt;TKey,TValue&gt; 建立 IEnumerable<T>。
+ToDictionary&lt;TSource,TKey&gt;(IEnumerable<TSource>, Func&lt;TSource,TKey&gt;, IEqualityComparer<TKey>)
+根據指定的索引鍵選取器函式和索引鍵比較子，從 Dictionary&lt;TKey,TValue&gt; 建立 IEnumerable<T>。
+ToDictionary&lt;TSource,TKey,TElement&gt;(IEnumerable<TSource>, Func&lt;TSource,TKey&gt;, Func&lt;TSource,TElement&gt;)
+根據指定的索引鍵選取器和項目選取器函式，從 Dictionary&lt;TKey,TValue&gt; 建立 IEnumerable<T>。
+ToDictionary&lt;TSource,TKey,TElement&gt;(IEnumerable<TSource>, Func&lt;TSource,TKey&gt;, Func&lt;TSource,TElement&gt;, IEqualityComparer<TKey>)
+根據指定的索引鍵選取器函式、比較子和項目選取器函式，從 Dictionary&lt;TKey,TValue&gt; 建立 IEnumerable<T>。</p>
+<p>ToHashSet<TSource>(IEnumerable<TSource>)
+從 IEnumerable<T> 建立 HashSet<T>。
+ToHashSet<TSource>(IEnumerable<TSource>, IEqualityComparer<TSource>)
+使用比較金鑰的 comparer 從 IEnumerable<T> 建立 HashSet<T>。</p>
+<p>ToList<TSource>(IEnumerable<TSource>)
+從 IEnumerable<T> 建立 List<T>。</p>
+<p>ToLookup&lt;TSource,TKey&gt;(IEnumerable<TSource>, Func&lt;TSource,TKey&gt;)
+根據指定的索引鍵選擇器函式，從 Lookup&lt;TKey,TElement&gt; 建立 IEnumerable<T>。
+ToLookup&lt;TSource,TKey&gt;(IEnumerable<TSource>, Func&lt;TSource,TKey&gt;, IEqualityComparer<TKey>)
+根據指定的索引鍵選取器函式和索引鍵比較子，從 Lookup&lt;TKey,TElement&gt; 建立 IEnumerable<T>。
+ToLookup&lt;TSource,TKey,TElement&gt;(IEnumerable<TSource>, Func&lt;TSource,TKey&gt;, Func&lt;TSource,TElement&gt;)
+根據指定的索引鍵選取器和項目選取器函式，從 Lookup&lt;TKey,TElement&gt; 建立 IEnumerable<T>。
+ToLookup&lt;TSource,TKey,TElement&gt;(IEnumerable<TSource>, Func&lt;TSource,TKey&gt;, Func&lt;TSource,TElement&gt;, IEqualityComparer<TKey>)
+根據指定的索引鍵選取器函式、比較子和項目選取器函式，從 Lookup&lt;TKey,TElement&gt; 建立 IEnumerable<T>。</p>
+<p>Union<TSource>(IEnumerable<TSource>, IEnumerable<TSource>)
+使用預設相等比較值來比較值，以便產生兩個序列的集合等位。
+Union<TSource>(IEnumerable<TSource>, IEnumerable<TSource>, IEqualityComparer<TSource>)
+使用指定的 IEqualityComparer<T> 產生兩個序列的集合等位。</p>
+<p>Where<TSource>(IEnumerable<TSource>, Func&lt;TSource,Boolean&gt;)
+根據述詞來篩選值序列。
+Where<TSource>(IEnumerable<TSource>, Func&lt;TSource,Int32,Boolean&gt;)
+根據述詞來篩選值序列。 述詞函式的邏輯中使用各項目的索引。</p>
+<p>Zip&lt;TFirst,TSecond&gt;(IEnumerable<TFirst>, IEnumerable<TSecond>)
+從兩個指定序列中的元素產生一系列元組。
+Zip&lt;TFirst,TSecond,TResult&gt;(IEnumerable<TFirst>, IEnumerable<TSecond>, Func&lt;TFirst,TSecond,TResult&gt;)
+將指定的函式套用至兩個序列的對應項目，產生結果的序列。</p>
+<p>AsParallel(IEnumerable)
+啟用查詢的平行化作業。
+AsParallel<TSource>(IEnumerable<TSource>)
+啟用查詢的平行化作業。</p>
+<p>AsQueryable(IEnumerable)
+將 IEnumerable 轉換成 IQueryable。
+AsQueryable<TElement>(IEnumerable<TElement>)
+將泛型 IEnumerable<T> 轉換成泛型 IQueryable<T>。</p>
+<p>Ancestors<T>(IEnumerable<T>)
+傳回包含來源集合中每個節點祖系的項目集合。
+Ancestors<T>(IEnumerable<T>, XName)
+傳回包含來源集合中每個節點祖系的已篩選項目集合。 集合中只會包含具有相符之 XName 的項目。</p>
+<p>DescendantNodes<T>(IEnumerable<T>)
+傳回來源集合中每個文件和項目之子代節點的集合。</p>
+<p>Descendants<T>(IEnumerable<T>)
+傳回包含來源集合中每個項目和文件之子代項目的項目集合。
+Descendants<T>(IEnumerable<T>, XName)
+傳回已篩選的項目集合，其中包含來源集合中每個項目和文件的子代項目。 集合中只會包含具有相符之 XName 的項目。</p>
+<p>Elements<T>(IEnumerable<T>)
+傳回來源集合中每個項目和文件的子項目集合。
+Elements<T>(IEnumerable<T>, XName)
+傳回來源集合中每個項目和文件的已篩選子項目集合。 集合中只會包含具有相符之 XName 的項目。</p>
+<p>InDocumentOrder<T>(IEnumerable<T>)
+傳回包含來源集合中所有節點的節點集合，依據文件順序來排序。</p>
+<p>Nodes<T>(IEnumerable<T>)
+傳回來源集合中每個文件和項目的子節點集合。</p>
+<p>Remove<T>(IEnumerable<T>)
+在來源集合中，從每一個節點的父節點移除這些節點。</p>
+<ul>
+<li><a href="https://docs.microsoft.com/zh-tw/dotnet/api/system.collections.generic.ienumerable-1?view=netcore-3.1">MS DOC - IEnumerable</a></li>
+</ul>
+<div class="edit-meta">
+Last updated on 2020-04-08
+
+
+<br>
+Published on 2020-04-08
+<br><a href="https://github.com/thingsym/hugo-theme-techdoc/edit/master/content/NetCore%5cCSharp%5cLINQ%5cEnumerable.md" class="edit-page"><i class="fas fa-pen-square"></i> Edit on GitHub</a></div><nav class="pagination"><a class="nav nav-prev" href="https://yehyoung.github.io/netcore/csharp/linq/linq/" title="LINQ"><i class="fas fa-arrow-left" aria-hidden="true"></i> Prev - LINQ</a>
+<a class="nav nav-next" href="https://yehyoung.github.io/netcore/csharp/linq/lambda/" title="Lambda 運算式">Next - Lambda 運算式 <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main><div class="sidebar">
+
+<nav class="slide-menu">
+<ul>
+<li class=""><a href="https://yehyoung.github.io">Home</a></li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/hugo/">Hugo<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/hugo/01_hugoinstall/">Hugo 安裝</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/02_themesetup/">Hugo 佈景安裝及設定</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/04_newpost/">Hugo 新增一篇文章</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/03_structure/">Hugo 資料夾與檔案結構</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/05_runserver/">Hugo 本機啓動一個伺服器</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/06_pushtogit/">將網站上傳到Github</a></li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/hugo/theme/">Theme<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/hugo/theme/menu/">Menu</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/theme/functions/">Functions</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/theme/sectionpagevariableandmethods/">Section 的變數及方法</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/theme/templating/">Templating</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/theme/sass/">Sass</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/theme/themeintro/">Hugo 佈景概念</a></li>
+</ul>
+  
+</li>
+<li class=""><a href="https://yehyoung.github.io/hugo/highlight/">程式碼高亮 Highlight</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/sass/">在 Hugo 裡使用 SASS</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/otherfunction/">OtherFunction</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/frontmatter/">Hugo FrontMatter</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/reference/">參考網站</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/hugoreference/">HugoReference</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/07_hugocommand/">HugoCommand</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/css/">CSS<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/css/codesnippet/">CodeSnippet</a></li>
+<li class=""><a href="https://yehyoung.github.io/css/float/">Float</a></li>
+<li class=""><a href="https://yehyoung.github.io/css/reset/">Reset</a></li>
+<li class=""><a href="https://yehyoung.github.io/css/transform/">Transform</a></li>
+<li class=""><a href="https://yehyoung.github.io/css/boxshadow/">BoxShadow</a></li>
+<li class=""><a href="https://yehyoung.github.io/css/position/">Position</a></li>
+<li class=""><a href="https://yehyoung.github.io/css/sass/">Sass</a></li>
+<li class=""><a href="https://yehyoung.github.io/css/display/">CSS - Display &amp; flex</a></li>
+</ul>
+  
+</li>
+
+<li class=""><a href="https://yehyoung.github.io/ai/">人工智慧</a>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/linebot/">LINE Bot<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/linebot/linebotintro/">LINEBot 概念</a></li>
+<li class=""><a href="https://yehyoung.github.io/linebot/django/djintro/">Django 介紹及安裝</a></li>
+<li class=""><a href="https://yehyoung.github.io/linebot/reference/">參考網站</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/python/">Python<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/python/sqlite/sql/">SQLite - SQL Sample</a></li>
+<li class=""><a href="https://yehyoung.github.io/python/sqlite/intro/">SQLite 簡介</a></li>
+<li class=""><a href="https://yehyoung.github.io/python/basic/csv/">Python - CSV</a></li>
+<li class=""><a href="https://yehyoung.github.io/python/stock/stock/">Stock</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/html/">HTMLs<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/html/emmet/">Emmet</a></li>
+<li class=""><a href="https://yehyoung.github.io/html/pug/">Pug</a></li>
+</ul>
+  
+</li>
+
+<li class="parent has-sub-menu"><a href="https://yehyoung.github.io/netcore/">NetCores<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+
+<li class=""><a href="https://yehyoung.github.io/netcore/entityframework/">Entity Framework</a>
+  
+</li>
+
+<li class=""><a href="https://yehyoung.github.io/netcore/linq/">LINQ</a>
+  
+</li>
+
+<li class="parent has-sub-menu"><a href="https://yehyoung.github.io/netcore/csharp/">C#<span class="mark opened">-</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/netcore/csharp/linq/linq/">LINQ</a></li>
+<li class="active"><a href="https://yehyoung.github.io/netcore/csharp/linq/enumerable/">Enumerable</a></li>
+<li class=""><a href="https://yehyoung.github.io/netcore/csharp/linq/lambda/">Lambda 運算式</a></li>
+</ul>
+  
+</li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/oracle/">Oracles<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/oracle/count/">Count</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/gulp/">Gulps<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/gulp/gulpv4sample2/">GulpV4Sample2</a></li>
+<li class=""><a href="https://yehyoung.github.io/gulp/gulpv4sample1/">GulpV4Sample1</a></li>
+<li class=""><a href="https://yehyoung.github.io/gulp/gulptask/">GulpTask</a></li>
+<li class=""><a href="https://yehyoung.github.io/gulp/gulpplugin/">GulpPlugin</a></li>
+<li class=""><a href="https://yehyoung.github.io/gulp/glob/">Glob</a></li>
+<li class=""><a href="https://yehyoung.github.io/gulp/gulpintro/">Gulp 4 介紹及安裝</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/webpack/">Webpacks<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/webpack/reference/">Reference</a></li>
+</ul>
+  
+</li>
+
+<li class=" has-sub-menu"><a href="https://yehyoung.github.io/markdown/">Markdowns<span class="mark closed">+</span></a>
+  
+<ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/markdown/markdownrule/">MarkdownRule</a></li>
+<li class=""><a href="https://yehyoung.github.io/markdown/markdown/">Markdown </a></li>
+</ul>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>

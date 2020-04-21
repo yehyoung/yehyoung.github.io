@@ -33,7 +33,7 @@
 <meta itemprop="description" content="Hugo 專案目錄結構 . ├── archetypes ├── config.toml ├── content ├── data ├── layouts ├── static └── themes archetypes Archetypes 是建立新文章時所使用的樣版檔案 在用hugo new建立一個新文章檔">
 <meta itemprop="datePublished" content="2020-03-22T11:13:49&#43;08:00" />
 <meta itemprop="dateModified" content="2020-03-22T11:13:49&#43;08:00" />
-<meta itemprop="wordCount" content="1237">
+<meta itemprop="wordCount" content="1302">
 <meta itemprop="image" content="https://yehyoung.github.io/images/Test.jpg"/>
 
 
@@ -67,7 +67,8 @@
 ├── static
 └── themes
 </code></pre><ul>
-<li>archetypes
+<li>
+<p>archetypes</p>
 <ul>
 <li>Archetypes 是建立新文章時所使用的樣版檔案</li>
 <li>在用<code>hugo new</code>建立一個新文章檔案時，會依序找這幾個樣版檔，並以第1個找到的當作樣版
@@ -80,7 +81,8 @@
 </li>
 </ul>
 </li>
-<li>assets
+<li>
+<p>assets</p>
 <ul>
 <li>存放需要用<code>Hugo pipes</code>處理的資源(asset)
 <ul>
@@ -95,14 +97,16 @@
 </li>
 </ul>
 </li>
-<li>config
+<li>
+<p>config</p>
 <ul>
 <li>一般設定根目錄的config.toml即可</li>
 <li>Hugo有大量的Config指令，如果網站需要額外的config設定也可以建立config資料夾做進階設定</li>
 <li><a href="https://gohugo.io/getting-started/configuration/#all-variables-yaml">Configure Hugo</a></li>
 </ul>
 </li>
-<li>content
+<li>
+<p>content</p>
 <ul>
 <li>網站的全部文章都在這個目錄</li>
 <li>content裡的第一層資料夾會被Hugo視為Section
@@ -118,7 +122,8 @@
 </li>
 </ul>
 </li>
-<li>data
+<li>
+<p>data</p>
 <ul>
 <li>存放其它Hugo編譯網站時會用到的資料
 <ul>
@@ -129,7 +134,8 @@
 <li>可以搭配layout將其顯示在頁面中</li>
 </ul>
 </li>
-<li>layouts
+<li>
+<p>layouts</p>
 <ul>
 <li>存放內容(content)如何轉換成靜態網站的.html模板</li>
 <li>ShortCodes也是放在layouts裡</li>
@@ -145,7 +151,8 @@
 </li>
 </ul>
 </li>
-<li>static
+<li>
+<p>static</p>
 <ul>
 <li>存放所有靜態的內容:
 <ul>
@@ -161,11 +168,18 @@
 </li>
 </ul>
 </li>
-<li>resources
+<li>
+<p>resources</p>
 <ul>
 <li>快取一些可以用來加速編譯網站的檔案</li>
 <li>樣板的作者可以放編譯過的SASS檔，這樣就可以不必安裝預處理器</li>
 </ul>
+</li>
+<li>
+<p>assets放的是要(管線)處理的檔案，如SASS, 需要壓縮的圖片</p>
+</li>
+<li>
+<p>static放的是不需要處理的檔案，如CSS, javascript, 不需要壓縮的圖片</p>
 </li>
 </ul>
 <pre><code>tree /f 目錄名稱 &gt; dirs.txt
@@ -249,6 +263,11 @@ Published on 2020-03-22
 <li class=" has-sub-menu"><a href="https://yehyoung.github.io/hugo/theme/">Theme<span class="mark closed">+</span></a>
   
 <ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/hugo/theme/menu/">Menu</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/theme/functions/">Functions</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/theme/sectionpagevariableandmethods/">Section 的變數及方法</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/theme/templating/">Templating</a></li>
+<li class=""><a href="https://yehyoung.github.io/hugo/theme/sass/">Sass</a></li>
 <li class=""><a href="https://yehyoung.github.io/hugo/theme/themeintro/">Hugo 佈景概念</a></li>
 </ul>
   
@@ -267,6 +286,7 @@ Published on 2020-03-22
 <li class=" has-sub-menu"><a href="https://yehyoung.github.io/css/">CSS<span class="mark closed">+</span></a>
   
 <ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/css/codesnippet/">CodeSnippet</a></li>
 <li class=""><a href="https://yehyoung.github.io/css/float/">Float</a></li>
 <li class=""><a href="https://yehyoung.github.io/css/reset/">Reset</a></li>
 <li class=""><a href="https://yehyoung.github.io/css/transform/">Transform</a></li>
@@ -295,6 +315,7 @@ Published on 2020-03-22
 <li class=" has-sub-menu"><a href="https://yehyoung.github.io/python/">Python<span class="mark closed">+</span></a>
   
 <ul class="sub-menu">
+<li class=""><a href="https://yehyoung.github.io/python/sqlite/sql/">SQLite - SQL Sample</a></li>
 <li class=""><a href="https://yehyoung.github.io/python/sqlite/intro/">SQLite 簡介</a></li>
 <li class=""><a href="https://yehyoung.github.io/python/basic/csv/">Python - CSV</a></li>
 <li class=""><a href="https://yehyoung.github.io/python/stock/stock/">Stock</a></li>
